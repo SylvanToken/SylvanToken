@@ -1,13 +1,13 @@
 # 📘 Sylvan Token - API Reference
 
-**Versiyon:** 1.0  
+**Version:** 1.0  
 **Contract:** SylvanToken  
 **Solidity:** 0.8.24  
 **Standard:** BEP-20 (ERC-20 Compatible)
 
 ---
 
-## 📋 İçindekiler
+## 📋 Table of Contents
 
 1. [Contract Overview](#contract-overview)
 2. [ERC20 Functions](#erc20-functions)
@@ -56,18 +56,18 @@ function transfer(address to, uint256 amount)
     returns (bool)
 ```
 
-**Açıklama:** Token transfer işlemi (fee ve vesting lock kontrolü ile)
+**Description:** Token transfer operation (with fee and vesting lock check)
 
-**Parametreler:**
-- `to`: Alıcı adresi
-- `amount`: Transfer miktarı (wei)
+**Parameters:**
+- `to`: Recipient address
+- `amount`: Transfer amount (wei)
 
-**Returns:** `bool` - Başarı durumu
+**Returns:** `bool` - Success status
 
 **Revert Conditions:**
 - `ZeroAddress()` - to == address(0)
 - `InvalidAmount()` - amount == 0
-- `InsufficientUnlockedBalance()` - Kilitli token transfer denemesi
+- `InsufficientUnlockedBalance()` - Attempting to transfer locked tokens
 
 **Events:** `Transfer`, `UniversalFeeApplied`, `FeeDistributed`
 
@@ -88,18 +88,18 @@ function transferFrom(
 ) public override returns (bool)
 ```
 
-**Açıklama:** Onaylı token transfer (allowance kullanarak)
+**Description:** Approved token transfer (using allowance)
 
-**Parametreler:**
-- `from`: Gönderici adresi
-- `to`: Alıcı adresi
-- `amount`: Transfer miktarı
+**Parameters:**
+- `from`: Sender address
+- `to`: Recipient address
+- `amount`: Transfer amount
 
-**Returns:** `bool` - Başarı durumu
+**Returns:** `bool` - Success status
 
 **Revert Conditions:**
-- Tüm `transfer` koşulları
-- `ERC20InsufficientAllowance` - Yetersiz allowance
+- All `transfer` conditions
+- `ERC20InsufficientAllowance` - Insufficient allowance
 
 **Example:**
 ```javascript
@@ -118,13 +118,13 @@ function approve(address spender, uint256 amount)
     returns (bool)
 ```
 
-**Açıklama:** Spender'a harcama yetkisi ver
+**Description:** Grant spending authority to spender
 
-**Parametreler:**
-- `spender`: Yetkilendirilecek adres
-- `amount`: Yetki miktarı
+**Parameters:**
+- `spender`: Address to be authorized
+- `amount`: Authorization amount
 
-**Returns:** `bool` - Başarı durumu
+**Returns:** `bool` - Success status
 
 **Events:** `Approval`
 
@@ -140,12 +140,12 @@ function balanceOf(address account)
     returns (uint256)
 ```
 
-**Açıklama:** Hesap bakiyesini sorgula
+**Description:** Query account balance
 
-**Parametreler:**
-- `account`: Sorgulanacak adres
+**Parameters:**
+- `account`: Address to query
 
-**Returns:** `uint256` - Bakiye (wei)
+**Returns:** `uint256` - Balance (wei)
 
 ---
 
@@ -165,29 +165,29 @@ function createVestingSchedule(
 ) external onlyOwner
 ```
 
-**Açıklama:** Yeni vesting schedule oluştur
+**Description:** Create new vesting schedule
 
-**Parametreler:**
-- `beneficiary`: Token alacak adres
-- `amount`: Kilitlenecek miktar
-- `cliffDays`: Başlangıç bekleme süresi (gün)
-- `vestingMonths`: Toplam vesting süresi (ay)
-- `releasePercentage`: Aylık release yüzdesi (basis points)
-- `burnPercentage`: Burn yüzdesi (basis points)
-- `isAdmin`: Admin wallet mı?
+**Parameters:**
+- `beneficiary`: Address to receive tokens
+- `amount`: Amount to be locked
+- `cliffDays`: Initial waiting period (days)
+- `vestingMonths`: Total vesting duration (months)
+- `releasePercentage`: Monthly release percentage (basis points)
+- `burnPercentage`: Burn percentage (basis points)
+- `isAdmin`: Is admin wallet?
 
 **Access:** Owner only
 
 **Revert Conditions:**
 - `ZeroAddress()` - beneficiary == address(0)
 - `InvalidAmount()` - amount == 0
-- `VestingAlreadyExists()` - Schedule zaten var
+- `VestingAlreadyExists()` - Schedule already exists
 
 **Events:** `VestingScheduleCreated`
 
 **Example:**
 ```javascript
-// 10M token, 30 gün cliff, 16 ay, %5 aylık, burn yok, admin
+// 10M tokens, 30 days cliff, 16 months, 5% monthly, no burn, admin
 await token.createVestingSchedule(
     beneficiary,
     ethers.utils.parseEther("10000000"),
@@ -208,18 +208,18 @@ function releaseVestedTokens(address beneficiary)
     external
 ```
 
-**Açıklama:** Vested tokenları release et
+**Description:** Release vested tokens
 
-**Parametreler:**
-- `beneficiary`: Release yapılacak adres
+**Parameters:**
+- `beneficiary`: Address to release for
 
-**Access:** Anyone (beneficiary için)
+**Access:** Anyone (for beneficiary)
 
 **Revert Conditions:**
-- `NoVestingSchedule()` - Schedule yok
-- `VestingNotStarted()` - Henüz başlamamış
-- `CliffPeriodActive()` - Cliff period devam ediyor
-- `NoTokensToRelease()` - Release edilecek token yok
+- `NoVestingSchedule()` - No schedule exists
+- `VestingNotStarted()` - Not started yet
+- `CliffPeriodActive()` - Cliff period ongoing
+- `NoTokensToRelease()` - No tokens to release
 
 **Events:** `TokensReleased`, `ProportionalBurn`
 
@@ -239,10 +239,10 @@ function getVestingInfo(address beneficiary)
     returns (VestingSchedule memory)
 ```
 
-**Açıklama:** Vesting bilgilerini sorgula
+**Description:** Query vesting information
 
-**Parametreler:**
-- `beneficiary`: Sorgulanacak adres
+**Parameters:**
+- `beneficiary`: Address to query
 
 **Returns:** `VestingSchedule` struct
 ```solidity
@@ -280,12 +280,12 @@ function isExempt(address wallet)
     returns (bool)
 ```
 
-**Açıklama:** Fee exemption durumunu kontrol et
+**Description:** Check fee exemption status
 
-**Parametreler:**
-- `wallet`: Kontrol edilecek adres
+**Parameters:**
+- `wallet`: Address to check
 
-**Returns:** `bool` - Exempt mi?
+**Returns:** `bool` - Is exempt?
 
 ---
 
@@ -297,16 +297,16 @@ function addExemptWallet(address wallet)
     onlyOwner
 ```
 
-**Açıklama:** Fee exemption listesine ekle
+**Description:** Add to fee exemption list
 
-**Parametreler:**
-- `wallet`: Eklenecek adres
+**Parameters:**
+- `wallet`: Address to add
 
 **Access:** Owner only
 
 **Revert Conditions:**
 - `ZeroAddress()` - wallet == address(0)
-- `WalletAlreadyExempt()` - Zaten exempt
+- `WalletAlreadyExempt()` - Already exempt
 
 **Events:** `FeeExemptionChanged`
 
@@ -320,15 +320,15 @@ function removeExemptWallet(address wallet)
     onlyOwner
 ```
 
-**Açıklama:** Fee exemption listesinden çıkar
+**Description:** Remove from fee exemption list
 
-**Parametreler:**
-- `wallet`: Çıkarılacak adres
+**Parameters:**
+- `wallet`: Address to remove
 
 **Access:** Owner only
 
 **Revert Conditions:**
-- `WalletNotExempt()` - Zaten exempt değil
+- `WalletNotExempt()` - Not exempt already
 
 **Events:** `FeeExemptionChanged`
 
@@ -343,9 +343,9 @@ function getExemptWallets()
     returns (address[] memory)
 ```
 
-**Açıklama:** Tüm exempt wallet'ları listele
+**Description:** List all exempt wallets
 
-**Returns:** `address[]` - Exempt adresler
+**Returns:** `address[]` - Exempt addresses
 
 ---
 
@@ -362,13 +362,13 @@ function configureAdminWallet(
 ) external onlyOwner
 ```
 
-**Açıklama:** Admin wallet konfigürasyonu
+**Description:** Admin wallet configuration
 
-**Parametreler:**
-- `admin`: Admin adresi
-- `totalAllocation`: Toplam allocation
-- `immediateRelease`: İlk release
-- `lockedAmount`: Kilitli miktar
+**Parameters:**
+- `admin`: Admin address
+- `totalAllocation`: Total allocation
+- `immediateRelease`: Initial release
+- `lockedAmount`: Locked amount
 
 **Access:** Owner only
 
@@ -382,10 +382,10 @@ function processInitialRelease(address admin)
     onlyOwner
 ```
 
-**Açıklama:** Admin için ilk release'i işle
+**Description:** Process initial release for admin
 
-**Parametreler:**
-- `admin`: Admin adresi
+**Parameters:**
+- `admin`: Admin address
 
 **Access:** Owner only
 
@@ -406,12 +406,12 @@ function getFeeStats()
     )
 ```
 
-**Açıklama:** Fee istatistiklerini getir
+**Description:** Get fee statistics
 
 **Returns:**
-- `_totalFeesCollected`: Toplanan fee
-- `_totalTokensBurned`: Yakılan token
-- `_totalDonations`: Bağış miktarı
+- `_totalFeesCollected`: Total fees collected
+- `_totalTokensBurned`: Total tokens burned
+- `_totalDonations`: Total donations
 
 ---
 
@@ -429,13 +429,13 @@ function getVestingStats()
     )
 ```
 
-**Açıklama:** Vesting istatistiklerini getir
+**Description:** Get vesting statistics
 
 **Returns:**
-- `_totalVested`: Toplam vested
-- `_totalReleased`: Toplam released
-- `_totalBurned`: Toplam burned
-- `_activeSchedules`: Aktif schedule sayısı
+- `_totalVested`: Total vested
+- `_totalReleased`: Total released
+- `_totalBurned`: Total burned
+- `_activeSchedules`: Number of active schedules
 
 ---
 
@@ -451,7 +451,7 @@ event Transfer(
 )
 ```
 
-**Açıklama:** Token transfer olayı (ERC20 standard)
+**Description:** Token transfer event (ERC20 standard)
 
 ---
 
@@ -466,7 +466,7 @@ event UniversalFeeApplied(
 )
 ```
 
-**Açıklama:** Fee uygulandığında emit edilir
+**Description:** Emitted when fee is applied
 
 ---
 
@@ -480,7 +480,7 @@ event FeeDistributed(
 )
 ```
 
-**Açıklama:** Fee dağıtıldığında emit edilir
+**Description:** Emitted when fee is distributed
 
 ---
 
@@ -495,7 +495,7 @@ event VestingScheduleCreated(
 )
 ```
 
-**Açıklama:** Yeni vesting schedule oluşturulduğunda
+**Description:** Emitted when new vesting schedule is created
 
 ---
 
@@ -509,7 +509,7 @@ event TokensReleased(
 )
 ```
 
-**Açıklama:** Token release edildiğinde
+**Description:** Emitted when tokens are released
 
 ---
 
@@ -522,7 +522,7 @@ event FeeExemptionChanged(
 )
 ```
 
-**Açıklama:** Fee exemption değiştiğinde
+**Description:** Emitted when fee exemption changes
 
 ---
 
@@ -534,7 +534,7 @@ event FeeExemptionChanged(
 error ZeroAddress()
 ```
 
-**Açıklama:** Sıfır adres kullanıldığında
+**Description:** When zero address is used
 
 ---
 
@@ -544,7 +544,7 @@ error ZeroAddress()
 error InvalidAmount()
 ```
 
-**Açıklama:** Geçersiz miktar (0 veya negatif)
+**Description:** Invalid amount (0 or negative)
 
 ---
 
@@ -558,12 +558,12 @@ error InsufficientUnlockedBalance(
 )
 ```
 
-**Açıklama:** Kilitli token transfer denemesi
+**Description:** Attempting to transfer locked tokens
 
-**Parametreler:**
-- `account`: Hesap adresi
-- `requested`: İstenen miktar
-- `available`: Mevcut miktar
+**Parameters:**
+- `account`: Account address
+- `requested`: Requested amount
+- `available`: Available amount
 
 ---
 
@@ -573,7 +573,7 @@ error InsufficientUnlockedBalance(
 error VestingAlreadyExists(address beneficiary)
 ```
 
-**Açıklama:** Vesting schedule zaten var
+**Description:** Vesting schedule already exists
 
 ---
 
@@ -583,7 +583,7 @@ error VestingAlreadyExists(address beneficiary)
 error NoVestingSchedule(address beneficiary)
 ```
 
-**Açıklama:** Vesting schedule bulunamadı
+**Description:** Vesting schedule not found
 
 ---
 
@@ -593,13 +593,13 @@ error NoVestingSchedule(address beneficiary)
 error NoTokensToRelease(address beneficiary)
 ```
 
-**Açıklama:** Release edilecek token yok
+**Description:** No tokens to release
 
 ---
 
-## 📞 Destek
+## 📞 Support
 
-**Teknik Sorular:**
+**Technical Questions:**
 - Email: dev@sylvantoken.org
 - Telegram: t.me/sylvantoken
 
@@ -608,6 +608,6 @@ error NoTokensToRelease(address beneficiary)
 
 ---
 
-**Hazırlayan:** Kiro AI Assistant  
-**Tarih:** 8 Kasım 2025  
-**Versiyon:** 1.0
+**Prepared by:** Kiro AI Assistant  
+**Date:** November 8, 2025  
+**Version:** 1.0
