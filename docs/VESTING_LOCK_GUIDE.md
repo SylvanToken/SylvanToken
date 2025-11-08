@@ -1,68 +1,68 @@
-# 🔒 Vesting Lock Mekanizması - Kullanım Kılavuzu
+# 🔒 Vesting Lock Mechanism - Usage Guide
 
-**Versiyon:** 1.0  
-**Tarih:** 8 Kasım 2025  
+**Version:** 1.0  
+**Date:** November 8, 2025  
 **Contract:** SylvanToken
 
 ---
 
-## 📋 İçindekiler
+## 📋 Table of Contents
 
-1. [Genel Bakış](#genel-bakış)
-2. [Nasıl Çalışır](#nasıl-çalışır)
-3. [Kullanım Örnekleri](#kullanım-örnekleri)
-4. [Güvenlik](#güvenlik)
-5. [Sık Sorulan Sorular](#sık-sorulan-sorular)
+1. [Overview](#overview)
+2. [How It Works](#how-it-works)
+3. [Usage Examples](#usage-examples)
+4. [Security](#security)
+5. [Frequently Asked Questions](#frequently-asked-questions)
 6. [Troubleshooting](#troubleshooting)
 
 ---
 
-## Genel Bakış
+## Overview
 
-### Vesting Lock Nedir?
+### What is Vesting Lock?
 
-Vesting lock, token sahiplerinin belirli bir miktarda tokenlarını belirli bir süre boyunca kilitlemesini sağlayan bir mekanizmadır. Bu, token dağıtımını kontrol altında tutmak ve ani satışları önlemek için kullanılır.
+Vesting lock is a mechanism that allows token holders to lock a certain amount of their tokens for a specific period. This is used to control token distribution and prevent sudden sell-offs.
 
-### Temel Özellikler
+### Key Features
 
-- ✅ **Otomatik Koruma:** Kilitli tokenlar otomatik olarak transfer edilemez
-- ✅ **Kademeli Release:** Tokenlar belirli periyotlarda serbest bırakılır
-- ✅ **Şeffaf:** Tüm vesting bilgileri blockchain'de görülebilir
-- ✅ **Güvenli:** Attack vector'lere karşı korumalı
+- ✅ **Automatic Protection:** Locked tokens cannot be transferred automatically
+- ✅ **Gradual Release:** Tokens are released in specific periods
+- ✅ **Transparent:** All vesting information is visible on the blockchain
+- ✅ **Secure:** Protected against attack vectors
 
 ---
 
-## Nasıl Çalışır
+## How It Works
 
-### 1. Vesting Schedule Oluşturma
+### 1. Creating Vesting Schedule
 
 ```solidity
 function createVestingSchedule(
-    address beneficiary,      // Token alacak kişi
-    uint256 amount,          // Kilitlenecek miktar
-    uint256 cliffDays,       // Başlangıç bekleme süresi (gün)
-    uint256 vestingMonths,   // Toplam vesting süresi (ay)
-    uint256 releasePercentage, // Aylık release yüzdesi (basis points)
-    uint256 burnPercentage,  // Burn yüzdesi (basis points)
-    bool isAdmin             // Admin wallet mı?
+    address beneficiary,      // Token recipient
+    uint256 amount,          // Amount to be locked
+    uint256 cliffDays,       // Initial waiting period (days)
+    uint256 vestingMonths,   // Total vesting duration (months)
+    uint256 releasePercentage, // Monthly release percentage (basis points)
+    uint256 burnPercentage,  // Burn percentage (basis points)
+    bool isAdmin             // Is admin wallet?
 ) external onlyOwner
 ```
 
-**Örnek:**
+**Example:**
 ```javascript
-// 10M token, 30 gün cliff, 16 ay vesting, aylık %5 release
+// 10M tokens, 30 days cliff, 16 months vesting, 5% monthly release
 await token.createVestingSchedule(
     "0xUserAddress",
     ethers.utils.parseEther("10000000"),
-    30,    // 30 gün cliff
-    16,    // 16 ay
-    500,   // %5 (500 basis points)
-    0,     // Burn yok
+    30,    // 30 days cliff
+    16,    // 16 months
+    500,   // 5% (500 basis points)
+    0,     // No burn
     true   // Admin wallet
 );
 ```
 
-### 2. Available Balance Hesaplama
+### 2. Available Balance Calculation
 
 ```
 Available Balance = Total Balance - Locked Amount
@@ -70,30 +70,30 @@ Available Balance = Total Balance - Locked Amount
 Locked Amount = Total Vested - Released Amount
 ```
 
-**Örnek:**
+**Example:**
 ```
 Total Balance:     10,000,000 SYL
 Vested Amount:      8,000,000 SYL
 Released Amount:            0 SYL
 ─────────────────────────────────
 Locked Amount:      8,000,000 SYL
-Available Balance:  2,000,000 SYL ✅ Transfer edilebilir
+Available Balance:  2,000,000 SYL ✅ Transferable
 ```
 
-### 3. Transfer Kontrolü
+### 3. Transfer Control
 
-Her transfer işleminde:
+On each transfer:
 
-1. **Vesting schedule var mı?** → Kontrol et
-2. **Varsa:**
-   - Current balance al
-   - Locked amount hesapla
-   - Available balance hesapla
-   - Transfer amount > available? → **HATA**
-3. **Yoksa:** → Normal transfer
+1. **Does vesting schedule exist?** → Check
+2. **If yes:**
+   - Get current balance
+   - Calculate locked amount
+   - Calculate available balance
+   - Transfer amount > available? → **ERROR**
+3. **If no:** → Normal transfer
 
 ```solidity
-// _transfer fonksiyonunda
+// In _transfer function
 if (vestingSchedules[from].isActive) {
     uint256 currentBalance = balanceOf(from);
     uint256 lockedAmount = vestingSchedules[from].totalAmount 
@@ -111,11 +111,11 @@ if (vestingSchedules[from].isActive) {
 ### 4. Vesting Release
 
 ```javascript
-// Cliff period geçtikten sonra
+// After cliff period passes
 await token.releaseVestedTokens("0xBeneficiaryAddress");
 ```
 
-**Release Hesaplama:**
+**Release Calculation:**
 ```
 Monthly Release = Total Vested × Release Percentage
 Burn Amount = Monthly Release × Burn Percentage
@@ -124,9 +124,9 @@ Net Release = Monthly Release - Burn Amount
 
 ---
 
-## Kullanım Örnekleri
+## Usage Examples
 
-### Örnek 1: Admin Wallet (80% Kilitli)
+### Example 1: Admin Wallet (80% Locked)
 
 ```javascript
 // Setup
@@ -140,23 +140,23 @@ await token.transfer(adminAddress, totalAmount);
 await token.createVestingSchedule(
     adminAddress,
     lockedAmount,
-    30,   // 30 gün cliff
-    16,   // 16 ay
-    500,  // %5 aylık
-    0,    // Burn yok
+    30,   // 30 days cliff
+    16,   // 16 months
+    500,  // 5% monthly
+    0,    // No burn
     true  // Admin
 );
 
-// İlk durum
+// Initial state
 // Available: 2M SYL ✅
 // Locked: 8M SYL ❌
 
-// Transfer denemeleri
-await token.connect(admin).transfer(user, ethers.utils.parseEther("2000000")); // ✅ Başarılı
-await token.connect(admin).transfer(user, ethers.utils.parseEther("3000000")); // ❌ Hata!
+// Transfer attempts
+await token.connect(admin).transfer(user, ethers.utils.parseEther("2000000")); // ✅ Success
+await token.connect(admin).transfer(user, ethers.utils.parseEther("3000000")); // ❌ Error!
 ```
 
-### Örnek 2: Locked Reserve (100% Kilitli, %10 Burn)
+### Example 2: Locked Reserve (100% Locked, 10% Burn)
 
 ```javascript
 // Setup
@@ -169,99 +169,99 @@ await token.transfer(lockedAddress, totalAmount);
 await token.createVestingSchedule(
     lockedAddress,
     totalAmount,
-    30,    // 30 gün cliff
-    34,    // 34 ay
-    300,   // %3 aylık
-    1000,  // %10 burn
+    30,    // 30 days cliff
+    34,    // 34 months
+    300,   // 3% monthly
+    1000,  // 10% burn
     false  // Not admin
 );
 
-// İlk durum
+// Initial state
 // Available: 0 SYL
 // Locked: 300M SYL ❌
 
-// Transfer denemesi
-await token.connect(locked).transfer(user, 1); // ❌ Hata!
+// Transfer attempt
+await token.connect(locked).transfer(user, 1); // ❌ Error!
 
-// 1 ay sonra release
+// Release after 1 month
 await time.increase(32 * 24 * 60 * 60);
 await token.releaseVestedTokens(lockedAddress);
 
-// Release sonrası
+// After release
 // Monthly Release: 9M SYL (300M × 3%)
 // Burn: 900K SYL (9M × 10%)
 // Net Release: 8.1M SYL
 // Available: 8.1M SYL ✅
 ```
 
-### Örnek 3: Token Alma ile Available Artışı
+### Example 3: Available Increase with Token Receipt
 
 ```javascript
-// Başlangıç
+// Initial
 // Balance: 10M SYL
 // Locked: 8M SYL
 // Available: 2M SYL
 
-// Yeni token geldi
+// New tokens received
 await token.transfer(userAddress, ethers.utils.parseEther("5000000"));
 
-// Yeni durum
+// New state
 // Balance: 15M SYL
-// Locked: 8M SYL (değişmedi)
-// Available: 7M SYL ✅ (arttı!)
+// Locked: 8M SYL (unchanged)
+// Available: 7M SYL ✅ (increased!)
 
-// Şimdi 7M transfer edilebilir
+// Now 7M can be transferred
 await token.connect(user).transfer(recipient, ethers.utils.parseEther("7000000")); // ✅
 ```
 
 ---
 
-## Güvenlik
+## Security
 
-### Korunan Attack Vector'ler
+### Protected Attack Vectors
 
 #### 1. ✅ Direct Transfer Bypass
 ```javascript
-// ❌ Çalışmaz
+// ❌ Won't work
 await token.connect(user).transfer(recipient, lockedAmount);
-// Hata: InsufficientUnlockedBalance
+// Error: InsufficientUnlockedBalance
 ```
 
 #### 2. ✅ Approve/TransferFrom Bypass
 ```javascript
-// ❌ Çalışmaz
+// ❌ Won't work
 await token.connect(user).approve(attacker, lockedAmount);
 await token.connect(attacker).transferFrom(user, attacker, lockedAmount);
-// Hata: InsufficientUnlockedBalance
+// Error: InsufficientUnlockedBalance
 ```
 
 #### 3. ✅ Self-Transfer Bypass
 ```javascript
-// ❌ Çalışmaz
+// ❌ Won't work
 await token.connect(user).transfer(user, lockedAmount);
-// Hata: InsufficientUnlockedBalance
+// Error: InsufficientUnlockedBalance
 ```
 
 #### 4. ✅ Multiple Small Transfer Bypass
 ```javascript
-// ❌ Çalışmaz
+// ❌ Won't work
 await token.connect(user).transfer(recipient, availableAmount / 2); // ✅
 await token.connect(user).transfer(recipient, availableAmount / 2); // ✅
-await token.connect(user).transfer(recipient, 1); // ❌ Hata!
+await token.connect(user).transfer(recipient, 1); // ❌ Error!
 ```
 
-### Güvenlik Özellikleri
+### Security Features
 
-- **Otomatik Kontrol:** Her transfer'de otomatik lock kontrolü
-- **Bypass Koruması:** Tüm transfer yöntemleri korumalı
-- **Şeffaflık:** Tüm vesting bilgileri görülebilir
-- **Immutable Lock:** Kilitli tokenlar değiştirilemez
+- **Automatic Check:** Automatic lock check on every transfer
+- **Bypass Protection:** All transfer methods are protected
+- **Transparency:** All vesting information is visible
+- **Immutable Lock:** Locked tokens cannot be changed
 
 ---
 
-## Sık Sorulan Sorular
+## Frequently Asked Questions
 
-### Q: Kilitli tokenlarımı nasıl görebilirim?
+### Q: How can I see my locked tokens?
 
 ```javascript
 const vestingInfo = await token.getVestingInfo(myAddress);
@@ -272,7 +272,7 @@ const locked = vestingInfo.totalAmount.sub(vestingInfo.releasedAmount);
 console.log("Locked:", ethers.utils.formatEther(locked));
 ```
 
-### Q: Available balance'ımı nasıl hesaplarım?
+### Q: How do I calculate my available balance?
 
 ```javascript
 const balance = await token.balanceOf(myAddress);
@@ -283,7 +283,7 @@ const available = balance.sub(locked);
 console.log("Available:", ethers.utils.formatEther(available));
 ```
 
-### Q: Ne zaman token release edebilirim?
+### Q: When can I release tokens?
 
 ```javascript
 const vestingInfo = await token.getVestingInfo(myAddress);
@@ -299,19 +299,19 @@ if (now < cliffEnd) {
 }
 ```
 
-### Q: Vesting schedule'ımı iptal edebilir miyim?
+### Q: Can I cancel my vesting schedule?
 
-Hayır. Vesting schedule oluşturulduktan sonra iptal edilemez. Bu, güvenlik ve şeffaflık için tasarlanmıştır.
+No. Once a vesting schedule is created, it cannot be cancelled. This is designed for security and transparency.
 
-### Q: Yeni token aldığımda available balance artar mı?
+### Q: Does my available balance increase when I receive new tokens?
 
-Evet! Yeni gelen tokenlar kilitli değildir, sadece vesting schedule'daki tokenlar kilitlidir.
+Yes! New incoming tokens are not locked, only tokens in the vesting schedule are locked.
 
 ```
-Örnek:
+Example:
 - Locked: 8M SYL
 - Balance: 10M SYL → Available: 2M SYL
-- +5M yeni token geldi
+- +5M new tokens received
 - Balance: 15M SYL → Available: 7M SYL ✅
 ```
 
@@ -319,13 +319,13 @@ Evet! Yeni gelen tokenlar kilitli değildir, sadece vesting schedule'daki tokenl
 
 ## Troubleshooting
 
-### Hata: InsufficientUnlockedBalance
+### Error: InsufficientUnlockedBalance
 
-**Neden:** Transfer miktarı available balance'dan fazla.
+**Reason:** Transfer amount exceeds available balance.
 
-**Çözüm:**
+**Solution:**
 ```javascript
-// Available balance'ı kontrol et
+// Check available balance
 const balance = await token.balanceOf(myAddress);
 const vestingInfo = await token.getVestingInfo(myAddress);
 const locked = vestingInfo.totalAmount.sub(vestingInfo.releasedAmount);
@@ -333,15 +333,15 @@ const available = balance.sub(locked);
 
 console.log("You can transfer:", ethers.utils.formatEther(available));
 
-// Sadece available miktarı transfer et
+// Transfer only available amount
 await token.transfer(recipient, available);
 ```
 
-### Hata: NoTokensToRelease
+### Error: NoTokensToRelease
 
-**Neden:** Cliff period henüz geçmedi veya release edilecek token yok.
+**Reason:** Cliff period hasn't passed yet or no tokens to release.
 
-**Çözüm:**
+**Solution:**
 ```javascript
 const vestingInfo = await token.getVestingInfo(myAddress);
 const now = Math.floor(Date.now() / 1000);
@@ -355,13 +355,13 @@ if (now < cliffEnd) {
 }
 ```
 
-### Wei Seviyesi Hassasiyet
+### Wei Level Precision
 
-**Sorun:** Çok küçük miktarlarda 1 wei fark olabiliyor.
+**Issue:** Very small amounts may have 1 wei difference.
 
-**Çözüm:**
+**Solution:**
 ```javascript
-// Tam available yerine biraz daha az transfer et
+// Transfer slightly less than full available
 const available = balance.sub(locked);
 const safeAmount = available.sub(ethers.utils.parseEther("0.000000000000000001"));
 await token.transfer(recipient, safeAmount);
@@ -369,9 +369,9 @@ await token.transfer(recipient, safeAmount);
 
 ---
 
-## API Referansı
+## API Reference
 
-### Vesting Schedule Oluşturma
+### Creating Vesting Schedule
 
 ```solidity
 function createVestingSchedule(
@@ -385,7 +385,7 @@ function createVestingSchedule(
 ) external onlyOwner
 ```
 
-### Vesting Bilgisi Alma
+### Getting Vesting Information
 
 ```solidity
 function getVestingInfo(address beneficiary) 
@@ -400,7 +400,7 @@ function getVestingInfo(address beneficiary)
 function releaseVestedTokens(address beneficiary) external
 ```
 
-### Vesting İstatistikleri
+### Vesting Statistics
 
 ```solidity
 function getVestingStats() 
@@ -416,7 +416,7 @@ function getVestingStats()
 
 ---
 
-## Örnekler
+## Examples
 
 ### Hardhat Console
 
@@ -460,9 +460,9 @@ await token.methods.transfer(recipient, amount).send({ from: myAddress });
 
 ---
 
-## Destek
+## Support
 
-**Teknik Sorular:**
+**Technical Questions:**
 - Email: dev@sylvantoken.org
 - Telegram: t.me/sylvantoken
 - GitHub: github.com/sylvantoken
@@ -473,6 +473,6 @@ await token.methods.transfer(recipient, amount).send({ from: myAddress });
 
 ---
 
-**Doküman Versiyonu:** 1.0  
-**Son Güncelleme:** 8 Kasım 2025  
-**Hazırlayan:** Kiro AI Assistant
+**Document Version:** 1.0  
+**Last Updated:** November 8, 2025  
+**Prepared by:** Kiro AI Assistant
