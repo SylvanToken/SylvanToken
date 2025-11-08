@@ -1,69 +1,69 @@
-# 🔐 Ücretsiz Smart Contract Audit Araçları Rehberi
+# 🔐 Free Smart Contract Audit Tools Guide
 
-**Tarih:** 8 Kasım 2025  
-**Proje:** Sylvan Token  
-**Amaç:** Professional audit öncesi ücretsiz güvenlik analizi
-
----
-
-## 📋 İçindekiler
-
-1. [Otomatik Analiz Araçları](#otomatik-analiz-araçları)
-2. [Manuel Analiz Araçları](#manuel-analiz-araçları)
-3. [Online Platformlar](#online-platformlar)
-4. [Kullanım Kılavuzu](#kullanım-kılavuzu)
-5. [Sonuçların Değerlendirilmesi](#sonuçların-değerlendirilmesi)
+**Date:** November 8, 2025  
+**Project:** Sylvan Token  
+**Purpose:** Free security analysis before professional audit
 
 ---
 
-## Otomatik Analiz Araçları
+## 📋 Table of Contents
 
-### 1. 🐍 Slither (En Popüler - ÜCRETSİZ)
+1. [Automated Analysis Tools](#automated-analysis-tools)
+2. [Manual Analysis Tools](#manual-analysis-tools)
+3. [Online Platforms](#online-platforms)
+4. [Usage Guide](#usage-guide)
+5. [Evaluating Results](#evaluating-results)
 
-**Nedir:** Trail of Bits tarafından geliştirilen statik analiz aracı
+---
 
-**Özellikler:**
-- ✅ 90+ güvenlik kontrolü
-- ✅ Hızlı analiz (saniyeler)
-- ✅ Detaylı raporlama
-- ✅ False positive oranı düşük
-- ✅ Sürekli güncelleniyor
+## Automated Analysis Tools
 
-**Kurulum:**
+### 1. 🐍 Slither (Most Popular - FREE)
+
+**What is it:** Static analysis tool developed by Trail of Bits
+
+**Features:**
+- ✅ 90+ security checks
+- ✅ Fast analysis (seconds)
+- ✅ Detailed reporting
+- ✅ Low false positive rate
+- ✅ Continuously updated
+
+**Installation:**
 
 ```bash
-# Python ve pip gerekli
+# Python and pip required
 pip3 install slither-analyzer
 
-# Solc versiyonunu kontrol et
+# Check solc version
 solc --version
 
-# Gerekirse solc kur
+# Install solc if needed
 pip3 install solc-select
 solc-select install 0.8.24
 solc-select use 0.8.24
 ```
 
-**Kullanım:**
+**Usage:**
 
 ```bash
-# Temel analiz
+# Basic analysis
 slither .
 
-# Detaylı rapor
+# Detailed report
 slither . --print human-summary
 
-# JSON çıktı
+# JSON output
 slither . --json slither-report.json
 
-# Sadece yüksek ve orta seviye sorunlar
+# Only high and medium severity issues
 slither . --exclude-low --exclude-informational
 
-# Belirli bir contract
+# Specific contract
 slither contracts/SylvanToken.sol
 ```
 
-**Önerilen Komut:**
+**Recommended Command:**
 
 ```bash
 slither . \
@@ -73,95 +73,95 @@ slither . \
   --json slither-report.json
 ```
 
-**Avantajlar:**
-- ⚡ Çok hızlı
-- 🎯 Yüksek doğruluk
-- 📊 Detaylı raporlar
-- 🔄 CI/CD entegrasyonu kolay
+**Advantages:**
+- ⚡ Very fast
+- 🎯 High accuracy
+- 📊 Detailed reports
+- 🔄 Easy CI/CD integration
 
-**Dezavantajlar:**
-- ⚠️ Python bağımlılığı
-- ⚠️ Bazı false positive'ler
+**Disadvantages:**
+- ⚠️ Python dependency
+- ⚠️ Some false positives
 
 ---
 
-### 2. 🦅 Mythril (Sembolik Analiz - ÜCRETSİZ)
+### 2. 🦅 Mythril (Symbolic Analysis - FREE)
 
-**Nedir:** ConsenSys tarafından geliştirilen sembolik execution aracı
+**What is it:** Symbolic execution tool developed by ConsenSys
 
-**Özellikler:**
-- ✅ Derin analiz
-- ✅ Reentrancy tespiti
+**Features:**
+- ✅ Deep analysis
+- ✅ Reentrancy detection
 - ✅ Integer overflow/underflow
-- ✅ Access control sorunları
+- ✅ Access control issues
 
-**Kurulum:**
+**Installation:**
 
 ```bash
-# Docker ile (önerilen)
+# With Docker (recommended)
 docker pull mythril/myth
 
-# veya pip ile
+# or with pip
 pip3 install mythril
 ```
 
-**Kullanım:**
+**Usage:**
 
 ```bash
-# Docker ile
+# With Docker
 docker run -v $(pwd):/tmp mythril/myth analyze /tmp/contracts/SylvanToken.sol
 
-# Direkt
+# Direct
 myth analyze contracts/SylvanToken.sol
 
-# Detaylı analiz (daha uzun sürer)
+# Detailed analysis (takes longer)
 myth analyze contracts/SylvanToken.sol --execution-timeout 300
 ```
 
-**Avantajlar:**
-- 🔍 Derin analiz
-- 🎯 Kritik bug'ları bulur
-- 📈 Sembolik execution
+**Advantages:**
+- 🔍 Deep analysis
+- 🎯 Finds critical bugs
+- 📈 Symbolic execution
 
-**Dezavantajlar:**
-- 🐌 Yavaş (dakikalar)
-- 💻 Yüksek CPU kullanımı
-- ⚠️ Kompleks contract'larda timeout
+**Disadvantages:**
+- 🐌 Slow (minutes)
+- 💻 High CPU usage
+- ⚠️ Timeout on complex contracts
 
 ---
 
-### 3. 🔍 Solhint (Linting - ÜCRETSİZ)
+### 3. 🔍 Solhint (Linting - FREE)
 
-**Nedir:** Solidity için linting aracı
+**What is it:** Linting tool for Solidity
 
-**Özellikler:**
-- ✅ Code style kontrolü
-- ✅ Best practice'ler
-- ✅ Güvenlik pattern'leri
-- ✅ Gas optimization önerileri
+**Features:**
+- ✅ Code style checks
+- ✅ Best practices
+- ✅ Security patterns
+- ✅ Gas optimization suggestions
 
-**Kurulum:**
+**Installation:**
 
 ```bash
 npm install -g solhint
 
-# Proje için
+# For project
 npm install --save-dev solhint
 ```
 
-**Kullanım:**
+**Usage:**
 
 ```bash
-# Init (ilk kez)
+# Init (first time)
 solhint --init
 
-# Analiz
+# Analysis
 solhint 'contracts/**/*.sol'
 
-# Detaylı rapor
+# Detailed report
 solhint 'contracts/**/*.sol' --max-warnings 0
 
-# Fix (otomatik düzeltme)
+# Fix (automatic correction)
 solhint 'contracts/**/*.sol' --fix
 ```
 
@@ -183,72 +183,72 @@ solhint 'contracts/**/*.sol' --fix
 
 ---
 
-### 4. 🛡️ MythX (Hybrid - SINIRLI ÜCRETSİZ)
+### 4. 🛡️ MythX (Hybrid - LIMITED FREE)
 
-**Nedir:** ConsenSys'in cloud-based güvenlik platformu
+**What is it:** ConsenSys cloud-based security platform
 
-**Özellikler:**
-- ✅ Slither + Mythril + Maru kombinasyonu
+**Features:**
+- ✅ Slither + Mythril + Maru combination
 - ✅ Cloud-based
-- ✅ Detaylı raporlar
-- ⚠️ Ücretsiz plan sınırlı (ayda 10 scan)
+- ✅ Detailed reports
+- ⚠️ Free plan limited (10 scans/month)
 
-**Kurulum:**
+**Installation:**
 
 ```bash
 npm install -g truffle-security
 
-# veya Hardhat plugin
+# or Hardhat plugin
 npm install --save-dev hardhat-mythx
 ```
 
-**Kullanım:**
+**Usage:**
 
 ```bash
-# Truffle ile
+# With Truffle
 truffle run verify
 
-# Hardhat ile
+# With Hardhat
 npx hardhat mythx
 ```
 
-**Ücretsiz Plan:**
-- 10 scan/ay
-- Temel raporlar
+**Free Plan:**
+- 10 scans/month
+- Basic reports
 - Community support
 
 ---
 
-### 5. 🔬 Echidna (Fuzzing - ÜCRETSİZ)
+### 5. 🔬 Echidna (Fuzzing - FREE)
 
-**Nedir:** Property-based fuzzing aracı
+**What is it:** Property-based fuzzing tool
 
-**Özellikler:**
-- ✅ Otomatik test generation
-- ✅ Edge case bulma
+**Features:**
+- ✅ Automatic test generation
+- ✅ Edge case finding
 - ✅ Property testing
-- ✅ Invariant kontrolü
+- ✅ Invariant checking
 
-**Kurulum:**
+**Installation:**
 
 ```bash
-# Docker ile (önerilen)
+# With Docker (recommended)
 docker pull trailofbits/echidna
 
 # Binary download
 # https://github.com/crytic/echidna/releases
 ```
 
-**Kullanım:**
+**Usage:**
 
 ```bash
-# Docker ile
+# With Docker
 docker run -v $(pwd):/src trailofbits/echidna \
   echidna-test /src/contracts/SylvanToken.sol \
   --contract SylvanToken
 ```
 
-**Test Yazma:**
+**Writing Tests:**
 
 ```solidity
 // contracts/EchidnaTest.sol
@@ -269,19 +269,19 @@ contract EchidnaTest is SylvanToken {
 
 ---
 
-## Manuel Analiz Araçları
+## Manual Analysis Tools
 
-### 6. 📊 Surya (Görselleştirme - ÜCRETSİZ)
+### 6. 📊 Surya (Visualization - FREE)
 
-**Nedir:** Contract görselleştirme ve analiz aracı
+**What is it:** Contract visualization and analysis tool
 
-**Kurulum:**
+**Installation:**
 
 ```bash
 npm install -g surya
 ```
 
-**Kullanım:**
+**Usage:**
 
 ```bash
 # Call graph
@@ -299,130 +299,130 @@ surya dependencies contracts/SylvanToken.sol
 
 ---
 
-### 7. 📈 Solidity Metrics (Analiz - ÜCRETSİZ)
+### 7. 📈 Solidity Metrics (Analysis - FREE)
 
-**Nedir:** Code metrics ve complexity analizi
+**What is it:** Code metrics and complexity analysis
 
-**Kurulum:**
+**Installation:**
 
 ```bash
 npm install -g solidity-code-metrics
 ```
 
-**Kullanım:**
+**Usage:**
 
 ```bash
-# Metrics raporu
+# Metrics report
 solidity-code-metrics contracts/
 
-# HTML rapor
+# HTML report
 solidity-code-metrics contracts/ --html > metrics.html
 ```
 
 ---
 
-## Online Platformlar
+## Online Platforms
 
-### 8. 🌐 Remix IDE Analyzer (ÜCRETSİZ)
+### 8. 🌐 Remix IDE Analyzer (FREE)
 
-**Nedir:** Remix IDE'nin built-in analiz aracı
+**What is it:** Remix IDE's built-in analysis tool
 
-**Kullanım:**
-1. https://remix.ethereum.org adresine git
-2. Contract'ı yükle
-3. "Solidity Static Analysis" plugin'ini aktifleştir
-4. "Analyze" butonuna tıkla
+**Usage:**
+1. Go to https://remix.ethereum.org
+2. Upload contract
+3. Activate "Solidity Static Analysis" plugin
+4. Click "Analyze" button
 
-**Özellikler:**
-- ✅ Hızlı analiz
+**Features:**
+- ✅ Fast analysis
 - ✅ Browser-based
-- ✅ Kurulum gerektirmez
+- ✅ No installation required
 
 ---
 
-### 9. 🔐 SmartCheck (Online - ÜCRETSİZ)
+### 9. 🔐 SmartCheck (Online - FREE)
 
-**Nedir:** SmartDec'in online analiz aracı
+**What is it:** SmartDec's online analysis tool
 
 **URL:** https://tool.smartdec.net/
 
-**Kullanım:**
-1. Contract kodunu yapıştır
-2. "Check" butonuna tıkla
-3. Raporu incele
+**Usage:**
+1. Paste contract code
+2. Click "Check" button
+3. Review report
 
 ---
 
-### 10. 🛡️ Securify (Online - ÜCRETSİZ)
+### 10. 🛡️ Securify (Online - FREE)
 
-**Nedir:** ChainSecurity'nin online aracı
+**What is it:** ChainSecurity's online tool
 
 **URL:** https://securify.chainsecurity.com/
 
-**Kullanım:**
-1. Contract'ı yükle
-2. Analiz başlat
-3. Detaylı rapor al
+**Usage:**
+1. Upload contract
+2. Start analysis
+3. Get detailed report
 
 ---
 
-## Kullanım Kılavuzu
+## Usage Guide
 
-### Adım 1: Hazırlık
+### Step 1: Preparation
 
 ```bash
-# Projeyi temizle
+# Clean project
 npx hardhat clean
 
-# Compile et
+# Compile
 npx hardhat compile
 
-# Test et
+# Test
 npx hardhat test
 ```
 
-### Adım 2: Slither Analizi
+### Step 2: Slither Analysis
 
 ```bash
-# Slither kur
+# Install Slither
 pip3 install slither-analyzer
 
-# Analiz yap
+# Run analysis
 slither . --exclude-low --exclude-informational > slither-report.txt
 
-# JSON rapor
+# JSON report
 slither . --json slither-report.json
 ```
 
-### Adım 3: Solhint Analizi
+### Step 3: Solhint Analysis
 
 ```bash
-# Solhint kur
+# Install Solhint
 npm install -g solhint
 
 # Init
 solhint --init
 
-# Analiz
+# Analysis
 solhint 'contracts/**/*.sol' > solhint-report.txt
 ```
 
-### Adım 4: Mythril Analizi (Opsiyonel)
+### Step 4: Mythril Analysis (Optional)
 
 ```bash
-# Docker ile
+# With Docker
 docker pull mythril/myth
 
-# Analiz (uzun sürebilir)
+# Analysis (may take time)
 docker run -v $(pwd):/tmp mythril/myth analyze \
   /tmp/contracts/SylvanToken.sol \
   --execution-timeout 300 > mythril-report.txt
 ```
 
-### Adım 5: Manuel İnceleme
+### Step 5: Manual Review
 
 ```bash
-# Surya ile görselleştirme
+# Visualization with Surya
 surya graph contracts/SylvanToken.sol | dot -Tpng > call-graph.png
 
 # Metrics
@@ -431,39 +431,39 @@ solidity-code-metrics contracts/ --html > metrics.html
 
 ---
 
-## Sonuçların Değerlendirilmesi
+## Evaluating Results
 
-### Öncelik Sıralaması
+### Priority Ranking
 
-**🔴 Kritik (Hemen Düzelt)**
+**🔴 Critical (Fix Immediately)**
 - Reentrancy
 - Integer overflow/underflow
 - Access control bypass
-- Fund loss riski
+- Fund loss risk
 
-**🟡 Yüksek (Yakında Düzelt)**
+**🟡 High (Fix Soon)**
 - DoS vulnerabilities
 - Gas optimization issues
 - Logic errors
 - Timestamp dependence
 
-**🟢 Orta (İyileştirme)**
+**🟢 Medium (Improvement)**
 - Code quality
 - Best practices
 - Documentation
 - Gas optimization
 
-**⚪ Düşük (Opsiyonel)**
+**⚪ Low (Optional)**
 - Style issues
 - Naming conventions
 - Comment quality
 
-### False Positive Kontrolü
+### False Positive Check
 
 ```solidity
-// Slither false positive örneği
+// Slither false positive example
 // Slither: "Reentrancy in transfer"
-// Gerçek: nonReentrant modifier var, güvenli
+// Reality: nonReentrant modifier present, safe
 
 function _transfer(...) internal override nonReentrant {
     // Safe from reentrancy
@@ -472,9 +472,9 @@ function _transfer(...) internal override nonReentrant {
 
 ---
 
-## Sylvan Token İçin Önerilen Workflow
+## Recommended Workflow for Sylvan Token
 
-### 1. Hızlı Kontrol (5 dakika)
+### 1. Quick Check (5 minutes)
 
 ```bash
 # Slither
@@ -484,39 +484,39 @@ slither . --exclude-low --exclude-informational
 solhint 'contracts/**/*.sol'
 ```
 
-### 2. Detaylı Analiz (30 dakika)
+### 2. Detailed Analysis (30 minutes)
 
 ```bash
-# Slither detaylı
+# Detailed Slither
 slither . --print human-summary --json slither-report.json
 
-# Mythril (kritik contract'lar için)
+# Mythril (for critical contracts)
 docker run -v $(pwd):/tmp mythril/myth analyze \
   /tmp/contracts/SylvanToken.sol
 
-# Surya görselleştirme
+# Surya visualization
 surya graph contracts/SylvanToken.sol | dot -Tpng > call-graph.png
 ```
 
-### 3. Online Kontrol (15 dakika)
+### 3. Online Check (15 minutes)
 
 - Remix Analyzer
 - SmartCheck
 - Securify
 
-### 4. Rapor Oluşturma
+### 4. Report Generation
 
 ```bash
-# Tüm raporları birleştir
+# Combine all reports
 cat slither-report.txt solhint-report.txt mythril-report.txt > full-audit-report.txt
 ```
 
 ---
 
-## Örnek Slither Komutu (Sylvan Token)
+## Example Slither Command (Sylvan Token)
 
 ```bash
-# Önerilen komut
+# Recommended command
 slither . \
   --exclude-low \
   --exclude-informational \
@@ -525,22 +525,22 @@ slither . \
   --json slither-report.json \
   > slither-output.txt 2>&1
 
-# Sonuçları görüntüle
+# View results
 cat slither-output.txt
 ```
 
 ---
 
-## Beklenen Sonuçlar
+## Expected Results
 
 ### Slither (Sylvan Token)
 
-**Beklenen Uyarılar:**
-- ⚠️ Timestamp dependence (vesting için normal)
-- ⚠️ Assembly usage (library'lerde normal)
+**Expected Warnings:**
+- ⚠️ Timestamp dependence (normal for vesting)
+- ⚠️ Assembly usage (normal in libraries)
 - ℹ️ Naming convention (style issue)
 
-**Olmaması Gerekenler:**
+**Should Not Have:**
 - ❌ Reentrancy
 - ❌ Integer overflow
 - ❌ Access control issues
@@ -548,16 +548,16 @@ cat slither-output.txt
 
 ### Solhint (Sylvan Token)
 
-**Beklenen Uyarılar:**
+**Expected Warnings:**
 - ⚠️ Function order
 - ⚠️ Naming conventions
 - ℹ️ Comment style
 
 ---
 
-## Ek Kaynaklar
+## Additional Resources
 
-### Öğrenme Materyalleri
+### Learning Materials
 
 1. **Ethereum Smart Contract Best Practices**
    - https://consensys.github.io/smart-contract-best-practices/
@@ -570,92 +570,92 @@ cat slither-output.txt
 
 ### Community Audit
 
-1. **Code4rena** (Yarışmalı audit)
+1. **Code4rena** (Competitive audit)
    - https://code4rena.com/
 
 2. **Immunefi** (Bug bounty)
    - https://immunefi.com/
 
 3. **Reddit r/ethdev**
-   - Community review isteyebilirsiniz
+   - You can request community review
 
 ---
 
-## Maliyet Karşılaştırması
+## Cost Comparison
 
-| Araç | Maliyet | Süre | Detay Seviyesi |
-|------|---------|------|----------------|
-| **Slither** | ÜCRETSİZ | 1-5 dk | Yüksek |
-| **Mythril** | ÜCRETSİZ | 5-30 dk | Çok Yüksek |
-| **Solhint** | ÜCRETSİZ | 1 dk | Orta |
-| **MythX Free** | ÜCRETSİZ (10/ay) | 5-10 dk | Yüksek |
-| **Echidna** | ÜCRETSİZ | 10-60 dk | Yüksek |
-| **Online Tools** | ÜCRETSİZ | 2-5 dk | Orta |
-| **Professional Audit** | $5K-50K | 1-4 hafta | Çok Yüksek |
+| Tool | Cost | Time | Detail Level |
+|------|------|------|--------------|
+| **Slither** | FREE | 1-5 min | High |
+| **Mythril** | FREE | 5-30 min | Very High |
+| **Solhint** | FREE | 1 min | Medium |
+| **MythX Free** | FREE (10/month) | 5-10 min | High |
+| **Echidna** | FREE | 10-60 min | High |
+| **Online Tools** | FREE | 2-5 min | Medium |
+| **Professional Audit** | $5K-50K | 1-4 weeks | Very High |
 
 ---
 
-## Sonuç
+## Conclusion
 
-### Önerilen Strateji
+### Recommended Strategy
 
-**Aşama 1: Otomatik Araçlar (ÜCRETSİZ)**
-1. Slither analizi
-2. Solhint kontrolü
-3. Online tool'lar
+**Phase 1: Automated Tools (FREE)**
+1. Slither analysis
+2. Solhint check
+3. Online tools
 
-**Aşama 2: Manuel İnceleme (ÜCRETSİZ)**
+**Phase 2: Manual Review (FREE)**
 1. Code review
 2. Test coverage
 3. Documentation review
 
-**Aşama 3: Community Review (ÜCRETSİZ/DÜŞÜK MALİYET)**
-1. GitHub'da public yap
-2. Reddit/Forum'larda paylaş
-3. Bug bounty programı başlat
+**Phase 3: Community Review (FREE/LOW COST)**
+1. Make public on GitHub
+2. Share on Reddit/Forums
+3. Start bug bounty program
 
-**Aşama 4: Professional Audit (ÜCRETLI)**
-1. Reputable firma seç
-2. Detaylı audit
-3. Bulguları düzelt
+**Phase 4: Professional Audit (PAID)**
+1. Choose reputable firm
+2. Detailed audit
+3. Fix findings
 4. Re-audit
 
-### Sylvan Token İçin Öneri
+### Recommendation for Sylvan Token
 
 ```bash
-# 1. Slither (5 dakika)
+# 1. Slither (5 minutes)
 slither . --exclude-low --exclude-informational
 
-# 2. Solhint (1 dakika)
+# 2. Solhint (1 minute)
 solhint 'contracts/**/*.sol'
 
-# 3. Test coverage (zaten var)
+# 3. Test coverage (already available)
 npx hardhat coverage
 
-# 4. Manuel review (1 saat)
+# 4. Manual review (1 hour)
 # - Code review
 # - Logic verification
-# - Edge case kontrolü
+# - Edge case check
 
-# 5. Community review (1 hafta)
+# 5. Community review (1 week)
 # - GitHub public
 # - Reddit post
 # - Telegram announcement
 
-# 6. Professional audit (opsiyonel, mainnet öncesi)
-# - CertiK, OpenZeppelin, Trail of Bits vb.
+# 6. Professional audit (optional, before mainnet)
+# - CertiK, OpenZeppelin, Trail of Bits etc.
 ```
 
 ---
 
-## 📞 Destek
+## 📞 Support
 
-**Sorular için:**
+**For questions:**
 - Email: dev@sylvantoken.org
 - Telegram: t.me/sylvantoken
 
 ---
 
-**Hazırlayan:** Kiro AI Assistant  
-**Tarih:** 8 Kasım 2025  
-**Versiyon:** 1.0
+**Prepared by:** Kiro AI Assistant  
+**Date:** November 8, 2025  
+**Version:** 1.0
