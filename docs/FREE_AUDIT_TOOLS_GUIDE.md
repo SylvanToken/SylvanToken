@@ -656,6 +656,6 @@ npx hardhat coverage
 
 ---
 
-**Prepared by:** Kiro AI Assistant  
-**Date:** November 8, 2025  
-**Version:** 1.0
+**Prepared by:** Sylvan Token Development Team  
+**Date:** November 8, 2025-  
+**Version:** 1.0.0

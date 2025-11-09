@@ -473,6 +473,6 @@ await token.methods.transfer(recipient, amount).send({ from: myAddress });
 
 ---
 
-**Document Version:** 1.0  
-**Last Updated:** November 8, 2025  
-**Prepared by:** Kiro AI Assistant
+**Document Version:** 1.0.0  
+**Last Updated:** November 8, 2025-  
+**Prepared by:** Sylvan Token Development Team
