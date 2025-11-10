@@ -47,7 +47,21 @@ To create a sustainable financial ecosystem that directly funds environmental pr
 | **Network** | Binance Smart Chain (BEP-20) |
 | **Total Supply** | 1,000,000,000 SYL |
 | **Decimals** | 18 |
-| **Contract** | [View on BSCScan](https://bscscan.com/) |
+| **Contract Address** | `0x50FfD5b14a1b4CDb2EA29fC61bdf5EB698f72e85` |
+| **BSCScan** | [View Contract](https://bscscan.com/address/0x50FfD5b14a1b4CDb2EA29fC61bdf5EB698f72e85) |
+| **Token Tracker** | [View Token](https://bscscan.com/token/0x50FfD5b14a1b4CDb2EA29fC61bdf5EB698f72e85) |
+
+### 🚀 Mainnet Deployment
+
+**Status:** ✅ Live on BSC Mainnet  
+**Deployed:** November 10, 2025-  
+**Chain ID:** 56
+
+**Quick Links:**
+- 📝 [Contract on BSCScan](https://bscscan.com/address/0x50FfD5b14a1b4CDb2EA29fC61bdf5EB698f72e85)
+- 👥 [Holder List](https://bscscan.com/token/0x50FfD5b14a1b4CDb2EA29fC61bdf5EB698f72e85#balances)
+- 🔄 [Buy on PancakeSwap](https://pancakeswap.finance/swap?outputCurrency=0x50FfD5b14a1b4CDb2EA29fC61bdf5EB698f72e85)
+- 📊 [Deployment Report](./MAINNET_DEPLOYMENT_SUCCESS.md)
 | **Testnet Contract** | [0xc4dBA24a5D8F9f23cd989E5af5231952fD64CE70](https://testnet.bscscan.com/address/0xc4dBA24a5D8F9f23cd989E5af5231952fD64CE70) |
 
 ### Distribution
