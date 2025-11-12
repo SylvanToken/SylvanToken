@@ -105,9 +105,6 @@ Week 4: Trading Launch
 **Partnerships:**
 - [ ] 4 NGO partnerships confirmed
 - [ ] NGO wallet addresses published
-- [ ] Legal compliance completed
-- [ ] Advisory board formed
-- [ ] PinkSale partnership
 
 **Transparency Milestones:**
 - [ ] Donation wallet address published
@@ -551,3 +548,4 @@ Week 4: Trading Launch
 Last Updated: September 2025 | Version 1.0
 
 </div>
+
