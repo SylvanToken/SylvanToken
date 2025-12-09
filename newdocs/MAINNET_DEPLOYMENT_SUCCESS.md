@@ -50,24 +50,24 @@
 
 | Wallet | Address | Share |
 |--------|---------|-------|
-| Fee Wallet | `[FEE_WALLET]` | 50% |
-| Donation Wallet | `[DONATION_WALLET]` | 25% |
-| Burn Address | `0x000...dEaD` | 25% |
+| Fee Wallet | `0x46a4AF3bdAD67d3855Af42Ba0BBe9248b54F7915` | 50% |
+| Donation Wallet | `0xa697645Fdfa5d9399eD18A6575256F81343D4e17` | 25% |
+| Burn Address | `0x000000000000000000000000000000000000dEaD` | 25% |
 
 ### Admin Wallets
 
 | Name | Address | Allocation |
 |------|---------|------------|
-| BRK | `[ADMIN_BRK]` | 10,000,000 SYL |
-| ERH | `[ADMIN_ERH]` | 10,000,000 SYL |
-| GRK | `[ADMIN_GRK]` | 10,000,000 SYL |
-| CNK | `[ADMIN_CNK]` | 10,000,000 SYL |
+| BRK | `0x1109B6aDB60dB170139f00bA2490fCA0F8BE7A8C` | 10,000,000 SYL |
+| ERH | `0xe64660026a1aaDaea2ac6032b6B59f8714a08E34` | 10,000,000 SYL |
+| GRK | `0xd1cc4222b7b62fb623884371337ae04cf44b93a7` | 10,000,000 SYL |
+| CNK | `0x106A637D825e562168678b7fd0f75cFf2cF2845B` | 10,000,000 SYL |
 
 ### Locked Reserve
 
 | Parameter | Value |
 |-----------|-------|
-| Address | `[LOCKED_RESERVE]` |
+| Address | `0x687A2c7E494c3818c20AD2856d453514970d6aac` |
 | Amount | 300,000,000 SYL |
 | Duration | 34 months |
 
