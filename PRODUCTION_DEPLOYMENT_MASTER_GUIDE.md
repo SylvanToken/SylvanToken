@@ -236,7 +236,7 @@ Current Owner: 0xYourSecureOwnerAddress
 
 **Step 4: Verify Contracts on BSCScan**
 ```bash
-npx hardhat verify --network bscMainnet [CONTRACT_ADDRESS]
+npx hardhat verify --network bscMainnet 0xc66404C3fa3E01378027b4A4411812D3a8D458F5
 ```
 
 #### 2.4 Post-Deployment Verification

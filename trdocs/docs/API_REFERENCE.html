@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📖 Sylvan Token API Referansı</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        .container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2e7d32; text-align: center; }
+        h2 { color: #388e3c; border-bottom: 2px solid #4caf50; padding-bottom: 10px; }
+        h3 { color: #43a047; }
+        h4 { color: #66bb6a; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #4caf50; color: white; }
+        code { background: #e8f5e9; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        pre { background: #263238; color: #aed581; padding: 20px; border-radius: 8px; overflow-x: auto; }
+        .footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📖 Sylvan Token API Referansı</h1>
+        <p style="text-align: center;"><strong>Versiyon 2.0 | Aralık 2025</strong></p>
+
+        <hr>
+
+        <h2>📋 Genel Bakış</h2>
+        <p>Bu belge SylvanToken akıllı kontratı için tam API referansını sağlar.</p>
+
+        <hr>
+
+        <h2>🔧 Kontrat Bilgileri</h2>
+        <table>
+            <tr><th>Parametre</th><th>Değer</th></tr>
+            <tr><td>Kontrat</td><td>SylvanToken</td></tr>
+            <tr><td>Standart</td><td>BEP-20 (ERC-20 Uyumlu)</td></tr>
+            <tr><td>Solidity</td><td>0.8.24</td></tr>
+            <tr><td>Ağ</td><td>BSC Mainnet</td></tr>
+        </table>
+
+        <hr>
+
+        <h2>📝 Okuma Fonksiyonları</h2>
+
+        <h3>Token Bilgileri</h3>
+
+        <h4><code>name()</code></h4>
+        <p>Token adını döndürür.</p>
+        <pre>function name() external view returns (string memory)
+// Döndürür: "Sylvan Token"</pre>
+
+        <h4><code>symbol()</code></h4>
+        <p>Token sembolünü döndürür.</p>
+        <pre>function symbol() external view returns (string memory)
+// Döndürür: "SYL"</pre>
+
+        <h4><code>decimals()</code></h4>
+        <p>Ondalık sayısını döndürür.</p>
+        <pre>function decimals() external view returns (uint8)
+// Döndürür: 18</pre>
+
+        <h4><code>totalSupply()</code></h4>
+        <p>Toplam token arzını döndürür.</p>
+        <pre>function totalSupply() external view returns (uint256)
+// Döndürür: 1000000000000000000000000000 (18 ondalıklı 1B)</pre>
+
+        <h3>Bakiye & İzin</h3>
+
+        <h4><code>balanceOf(address)</code></h4>
+        <p>Bir hesabın token bakiyesini döndürür.</p>
+        <pre>function balanceOf(address account) external view returns (uint256)</pre>
+
+        <h4><code>allowance(address, address)</code></h4>
+        <p>Kalan izni döndürür.</p>
+        <pre>function allowance(address owner, address spender) external view returns (uint256)</pre>
+
+        <h3>Sahiplik</h3>
+
+        <h4><code>owner()</code></h4>
+        <p>Kontrat sahibi adresini döndürür.</p>
+        <pre>function owner() external view returns (address)</pre>
+
+        <h3>Ücret Sistemi</h3>
+
+        <h4><code>isExemptFromFee(address)</code></h4>
+        <p>Bir adresin ücretten muaf olup olmadığını kontrol eder.</p>
+        <pre>function isExemptFromFee(address account) external view returns (bool)</pre>
+
+        <h4><code>feeWallet()</code></h4>
+        <p>Ücret cüzdanı adresini döndürür.</p>
+        <pre>function feeWallet() external view returns (address)</pre>
+
+        <h4><code>donationWallet()</code></h4>
+        <p>Bağış cüzdanı adresini döndürür.</p>
+        <pre>function donationWallet() external view returns (address)</pre>
+
+        <h3>Hakediş Bilgileri</h3>
+
+        <h4><code>getVestingInfo(address)</code></h4>
+        <p>Bir faydalanıcı için hakediş programı bilgilerini döndürür.</p>
+        <pre>function getVestingInfo(address beneficiary) external view returns (
+    uint256 totalAmount,      // Toplam miktar
+    uint256 releasedAmount,   // Serbest bırakılan miktar
+    uint256 burnedAmount,     // Yakılan miktar
+    uint256 startTime,        // Başlangıç zamanı
+    uint256 cliffDuration,    // Uçurum süresi
+    uint256 vestingDuration,  // Hakediş süresi
+    uint256 releasePercentage,// Serbest bırakma yüzdesi
+    uint256 burnPercentage,   // Yakma yüzdesi
+    bool isActive,            // Aktif mi
+    bool isAdmin              // Yönetici mi
+)</pre>
+
+        <h4><code>getLockedWalletInfo(address)</code></h4>
+        <p>Kilitli cüzdan hakediş bilgilerini döndürür.</p>
+        <pre>function getLockedWalletInfo(address lockedWallet) external view returns (
+    uint256 totalAmount,      // Toplam kilitli
+    uint256 releasedAmount,   // Zaten serbest bırakılan
+    uint256 burnedAmount,     // Zaten yakılan
+    uint256 remainingAmount,  // Hala kilitli
+    uint256 nextReleaseTime,  // Unix zaman damgası
+    uint256 monthsElapsed,    // Başlangıçtan bu yana aylar
+    uint256 monthsRemaining,  // Kalan aylar
+    bool canRelease           // Serbest bırakılabilir mi
+)</pre>
+
+        <h4><code>getAdminWalletInfo(address)</code></h4>
+        <p>Yönetici cüzdan yapılandırmasını döndürür.</p>
+        <pre>function getAdminWalletInfo(address admin) external view returns (
+    uint256 allocation,              // Toplam tahsis
+    uint256 releasedAmount,          // Zaten serbest bırakılan
+    uint256 burnedAmount,            // Zaten yakılan
+    uint256 remainingAmount,         // Hala kilitli
+    bool initialReleaseProcessed,    // İlk serbest bırakma işlendi mi
+    bool isConfigured                // Yapılandırıldı mı
+)</pre>
+
+        <h4><code>calculateAvailableRelease(address)</code></h4>
+        <p>Yönetici cüzdanı için mevcut serbest bırakma miktarını hesaplar.</p>
+        <pre>function calculateAvailableRelease(address admin) external view returns (
+    uint256 availableAmount,  // Mevcut miktar
+    uint256 burnAmount        // Yakılacak miktar
+)</pre>
+
+        <h4><code>calculateReleasableAmount(address)</code></h4>
+        <p>Kilitli cüzdan için serbest bırakılabilir miktarı hesaplar.</p>
+        <pre>function calculateReleasableAmount(address lockedWallet) external view returns (
+    uint256 releasableAmount, // Serbest bırakılabilir miktar
+    uint256 burnAmount        // Yakılacak miktar
+)</pre>
+
+        <hr>
+
+        <h2>✍️ Yazma Fonksiyonları</h2>
+
+        <h3>Standart ERC-20</h3>
+
+        <h4><code>transfer(address, uint256)</code></h4>
+        <p>Token'ları bir alıcıya transfer eder.</p>
+        <pre>function transfer(address to, uint256 amount) external returns (bool)</pre>
+        <p><strong>Not</strong>: Gönderen veya alıcı muaf değilse %1 ücret uygulanır.</p>
+
+        <h4><code>approve(address, uint256)</code></h4>
+        <p>Harcayıcıyı token transfer etmek için onaylar.</p>
+        <pre>function approve(address spender, uint256 amount) external returns (bool)</pre>
+
+        <h4><code>transferFrom(address, address, uint256)</code></h4>
+        <p>Token'ları bir adresten diğerine transfer eder.</p>
+        <pre>function transferFrom(address from, address to, uint256 amount) external returns (bool)</pre>
+        <p><strong>Not</strong>: Gönderen veya alıcı muaf değilse %1 ücret uygulanır.</p>
+
+        <h3>Sahip Fonksiyonları</h3>
+
+        <h4><code>addExemptWallet(address)</code></h4>
+        <p>Bir adresi ücret muafiyet listesine ekler.</p>
+        <pre>function addExemptWallet(address wallet) external onlyOwner</pre>
+
+        <h4><code>removeExemptWallet(address)</code></h4>
+        <p>Bir adresi ücret muafiyet listesinden kaldırır.</p>
+        <pre>function removeExemptWallet(address wallet) external onlyOwner</pre>
+
+        <h4><code>addExemptWalletsBatch(address[])</code></h4>
+        <p>Adresleri toplu olarak ücret muafiyet listesine ekler.</p>
+        <pre>function addExemptWalletsBatch(address[] calldata wallets) external onlyOwner</pre>
+
+        <h4><code>configureAdminWallet(address, uint256)</code></h4>
+        <p>Bir yönetici cüzdanını hakediş ile yapılandırır.</p>
+        <pre>function configureAdminWallet(address admin, uint256 allocation) external onlyOwner</pre>
+        <p><strong>Parametreler:</strong></p>
+        <ul>
+            <li><code>admin</code>: Yönetici cüzdan adresi</li>
+            <li><code>allocation</code>: Toplam tahsis (örn. 10M token)</li>
+        </ul>
+
+        <h4><code>processInitialRelease(address)</code></h4>
+        <p>Yönetici cüzdanı için ilk %10 serbest bırakmayı işler.</p>
+        <pre>function processInitialRelease(address admin) external onlyOwner returns (uint256 releasedAmount)</pre>
+
+        <h4><code>processMonthlyRelease(address)</code></h4>
+        <p>Yönetici cüzdanı için aylık hakediş serbest bırakmasını işler.</p>
+        <pre>function processMonthlyRelease(address admin) external onlyOwner returns (
+    uint256 releasedAmount,  // Serbest bırakılan miktar
+    uint256 burnedAmount     // Yakılan miktar
+)</pre>
+
+        <h4><code>createLockedWalletVesting(address, uint256, uint256)</code></h4>
+        <p>Kilitli cüzdan için hakediş programı oluşturur.</p>
+        <pre>function createLockedWalletVesting(
+    address lockedWallet,
+    uint256 amount,
+    uint256 cliffDays
+) external onlyOwner</pre>
+
+        <h4><code>processLockedWalletRelease(address)</code></h4>
+        <p>Kilitli cüzdan için aylık serbest bırakmayı işler.</p>
+        <pre>function processLockedWalletRelease(address lockedWallet) external onlyOwner returns (
+    uint256 releasedAmount,  // Serbest bırakılan miktar
+    uint256 burnedAmount     // Yakılan miktar
+)</pre>
+
+        <h4><code>releaseVestedTokens(address)</code></h4>
+        <p>Herhangi bir faydalanıcı için hakediş token'larını serbest bırakır.</p>
+        <pre>function releaseVestedTokens(address beneficiary) external returns (
+    uint256 releasedAmount,
+    uint256 burnedAmount
+)</pre>
+
+        <h4><code>setAMMPair(address, bool)</code></h4>
+        <p>Bir adresi AMM çifti olarak ayarlar veya kaldırır.</p>
+        <pre>function setAMMPair(address pair, bool status) external onlyOwner</pre>
+
+        <h4><code>transferOwnership(address)</code></h4>
+        <p>Kontrat sahipliğini transfer eder.</p>
+        <pre>function transferOwnership(address newOwner) external onlyOwner</pre>
+
+        <hr>
+
+        <h2>📡 Olaylar</h2>
+
+        <h3>ERC-20 Olayları</h3>
+        <pre>event Transfer(address indexed from, address indexed to, uint256 value);
+event Approval(address indexed owner, address indexed spender, uint256 value);</pre>
+
+        <h3>Ücret Olayları</h3>
+        <pre>event FeeCollected(address indexed from, uint256 feeAmount, uint256 toFeeWallet, uint256 toDonation, uint256 burned);
+event WalletExempted(address indexed wallet, bool status);</pre>
+
+        <h3>Hakediş Olayları</h3>
+        <pre>event AdminWalletConfigured(address indexed admin, uint256 allocation);
+event InitialReleaseProcessed(address indexed admin, uint256 amount);
+event TokensReleased(address indexed beneficiary, uint256 releasedAmount, uint256 burnedAmount);
+event LockedWalletVestingCreated(address indexed wallet, uint256 amount, uint256 cliffDays);</pre>
+
+        <h3>Sahiplik Olayları</h3>
+        <pre>event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);</pre>
+
+        <hr>
+
+        <h2>❌ Hatalar</h2>
+        <pre>error ZeroAddress();           // Sıfır adres
+error InvalidAmount();         // Geçersiz miktar
+error InsufficientBalance();   // Yetersiz bakiye
+error NotConfigured();         // Yapılandırılmamış
+error AlreadyConfigured();     // Zaten yapılandırılmış
+error CliffNotReached();       // Uçurum ulaşılmadı
+error NoTokensToRelease();     // Serbest bırakılacak token yok
+error TransferFailed();        // Transfer başarısız</pre>
+
+        <hr>
+
+        <h2>📊 Sabitler</h2>
+        <table>
+            <tr><th>Sabit</th><th>Değer</th><th>Açıklama</th></tr>
+            <tr><td><code>TAX_RATE</code></td><td>100</td><td>%1 (baz puan)</td></tr>
+            <tr><td><code>FEE_WALLET_SHARE</code></td><td>5000</td><td>%50 (baz puan)</td></tr>
+            <tr><td><code>DONATION_SHARE</code></td><td>2500</td><td>%25 (baz puan)</td></tr>
+            <tr><td><code>BURN_SHARE</code></td><td>2500</td><td>%25 (baz puan)</td></tr>
+            <tr><td><code>ADMIN_IMMEDIATE_RELEASE</code></td><td>1000</td><td>%10 (baz puan)</td></tr>
+            <tr><td><code>ADMIN_MONTHLY_RELEASE</code></td><td>450</td><td>%4.5 (baz puan)</td></tr>
+            <tr><td><code>LOCKED_MONTHLY_RELEASE</code></td><td>300</td><td>%3 (baz puan)</td></tr>
+            <tr><td><code>VESTING_BURN_RATE</code></td><td>1000</td><td>%10 (baz puan)</td></tr>
+            <tr><td><code>SECONDS_PER_MONTH</code></td><td>2629746</td><td>~30.44 gün</td></tr>
+        </table>
+
+        <hr>
+
+        <h2>🔗 İlgili Dokümantasyon</h2>
+        <ul>
+            <li><a href="VESTING_LOCK_GUIDE.html">Hakediş Kılavuzu</a></li>
+            <li><a href="../SECURITY.html">Güvenlik Kılavuzu</a></li>
+            <li><a href="MULTISIG_WALLET_SETUP_GUIDE.html">Safe Wallet Kılavuzu</a></li>
+        </ul>
+
+        <div class="footer">
+            <p><strong>Sylvan Token API Referansı</strong></p>
+            <p>Son Güncelleme: Aralık 2025</p>
+        </div>
+    </div>
+</body>
+</html>

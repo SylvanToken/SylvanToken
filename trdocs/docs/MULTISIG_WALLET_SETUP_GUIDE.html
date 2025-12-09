@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔐 Çoklu İmza Cüzdan Kurulum Kılavuzu</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        .container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2e7d32; text-align: center; }
+        h2 { color: #388e3c; border-bottom: 2px solid #4caf50; padding-bottom: 10px; }
+        h3 { color: #43a047; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #4caf50; color: white; }
+        code { background: #e8f5e9; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        pre { background: #263238; color: #aed581; padding: 20px; border-radius: 8px; overflow-x: auto; }
+        .alert { background: #ffebee; border-left: 4px solid #f44336; padding: 15px; margin: 20px 0; }
+        .footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Çoklu İmza Cüzdan Kurulum Kılavuzu</h1>
+        <p style="text-align: center;"><strong>Versiyon 2.0 | Aralık 2025</strong></p>
+
+        <hr>
+
+        <h2>📋 Genel Bakış</h2>
+        <p>Sylvan Token, çoklu imza yönetişimi için Gnosis Safe kullanır. Bu kılavuz kurulum ve operasyonları kapsar.</p>
+
+        <hr>
+
+        <h2>🏦 Safe Wallet Yapılandırması</h2>
+
+        <h3>Mevcut Kurulum</h3>
+        <table>
+            <tr><th>Parametre</th><th>Değer</th></tr>
+            <tr><td>Platform</td><td>Gnosis Safe</td></tr>
+            <tr><td>Ağ</td><td>BSC Mainnet (Chain ID: 56)</td></tr>
+            <tr><td>Safe Adresi</td><td><code>[SAFE_ADDRESS]</code></td></tr>
+            <tr><td>Eşik</td><td>3'te 2 (%67)</td></tr>
+        </table>
+
+        <h3>İmzacılar</h3>
+        <table>
+            <tr><th>#</th><th>Rol</th><th>Adres</th></tr>
+            <tr><td>1</td><td>Dağıtıcı</td><td><code>[DEPLOYER_ADDRESS]</code></td></tr>
+            <tr><td>2</td><td>Sahip</td><td><code>[OWNER_ADDRESS]</code></td></tr>
+            <tr><td>3</td><td>Yönetici BRK</td><td><code>[ADMIN_BRK_ADDRESS]</code></td></tr>
+        </table>
+        <p><strong>Not</strong>: Safe Wallet adresi çoklu imzanın kendisidir, bir imzacı DEĞİLDİR.</p>
+
+        <hr>
+
+        <h2>🚀 Safe Wallet Oluşturma</h2>
+
+        <h3>Adım 1: Safe App'e Erişim</h3>
+        <ol>
+            <li>https://app.safe.global adresine gidin</li>
+            <li>"Yeni Safe Oluştur" tıklayın</li>
+            <li>"Binance Smart Chain" seçin</li>
+        </ol>
+
+        <h3>Adım 2: Sahipleri Yapılandırın</h3>
+        <ol>
+            <li>İmzacı adreslerini ekleyin:
+                <ul>
+                    <li>Dağıtıcı Cüzdanı</li>
+                    <li>Sahip Cüzdanı</li>
+                    <li>Yönetici BRK Cüzdanı</li>
+                </ul>
+            </li>
+            <li>Her imzacı için isim belirleyin</li>
+        </ol>
+
+        <h3>Adım 3: Eşiği Ayarlayın</h3>
+        <ol>
+            <li>"3 sahipten 2'si" seçin</li>
+            <li>Bu, herhangi 2 imzacının işlemleri onaylayabileceği anlamına gelir</li>
+        </ol>
+
+        <h3>Adım 4: İnceleyin & Dağıtın</h3>
+        <ol>
+            <li>Yapılandırmayı inceleyin</li>
+            <li>Dağıtım gas ücretini ödeyin</li>
+            <li>Onay için bekleyin</li>
+        </ol>
+
+        <hr>
+
+        <h2>🔄 Sahiplik Transferi</h2>
+
+        <h3>BSCScan Üzerinden</h3>
+        <ol>
+            <li>Kontrat Write fonksiyonlarına gidin</li>
+            <li>Mevcut Sahip cüzdanı ile bağlanın</li>
+            <li><code>transferOwnership</code> fonksiyonunu bulun</li>
+            <li>Safe Wallet adresini girin</li>
+            <li>İşlemi yürütün</li>
+        </ol>
+
+        <h3>Script Üzerinden</h3>
+        <pre>npx hardhat run scripts/management/transfer-ownership-to-safe.js --network bscMainnet</pre>
+
+        <h3>Doğrulama</h3>
+        <p>Transfer sonrası doğrulayın:</p>
+        <ol>
+            <li>BSCScan'de <code>owner()</code> çağırın</li>
+            <li>Safe Wallet adresini döndürmeli</li>
+            <li>Safe'den bir test işlemi yapın</li>
+        </ol>
+
+        <hr>
+
+        <h2>📝 İşlem Oluşturma</h2>
+
+        <h3>Adım 1: Transaction Builder'a Erişim</h3>
+        <ol>
+            <li>Safe App'i açın</li>
+            <li>"Uygulamalar" → "Transaction Builder"a gidin</li>
+            <li>Veya "Yeni İşlem" → "Kontrat Etkileşimi" kullanın</li>
+        </ol>
+
+        <h3>Adım 2: Kontrat Detaylarını Girin</h3>
+        <pre>Kontrat Adresi: [CONTRACT_ADDRESS]
+ABI: [config/safe-wallet-abi.json'dan yapıştırın]</pre>
+
+        <h3>Adım 3: Fonksiyon Seçin</h3>
+        <p>Mevcut fonksiyonlardan seçin:</p>
+        <ul>
+            <li><code>processMonthlyRelease</code></li>
+            <li><code>processLockedWalletRelease</code></li>
+            <li><code>addExemptWallet</code></li>
+            <li>vb.</li>
+        </ul>
+
+        <h3>Adım 4: Parametreleri Girin</h3>
+        <p>Fonksiyon için gerekli parametreleri doldurun.</p>
+
+        <h3>Adım 5: İşlem Oluşturun</h3>
+        <ol>
+            <li>"İşlem ekle" tıklayın</li>
+            <li>Detayları inceleyin</li>
+            <li>"Toplu Oluştur" tıklayın</li>
+        </ol>
+
+        <hr>
+
+        <h2>✅ İşlemleri Onaylama</h2>
+
+        <h3>İmzacı Olarak</h3>
+        <ol>
+            <li>Safe App'i açın</li>
+            <li>"İşlemler" → "Kuyruk"a gidin</li>
+            <li>Bekleyen işlemi inceleyin</li>
+            <li>"Onayla" tıklayın</li>
+            <li>Cüzdanınızla imzalayın</li>
+        </ol>
+
+        <h3>Yürütme</h3>
+        <ul>
+            <li>İşlem eşik (2/3) ulaşıldığında yürütülür</li>
+            <li>Eşik karşılandıktan sonra herhangi bir imzacı yürütebilir</li>
+            <li>Gas yürütücü tarafından ödenir</li>
+        </ul>
+
+        <hr>
+
+        <h2>📊 Aylık Operasyonlar</h2>
+
+        <h3>Hakediş Serbest Bırakma Toplu İşlemi</h3>
+        <p>Aylık serbest bırakmalar için toplu işlem oluşturun:</p>
+
+        <p><strong>İşlem 1</strong>: BRK Serbest Bırak</p>
+        <pre>Fonksiyon: processMonthlyRelease
+Parametre: [ADMIN_BRK_ADDRESS]</pre>
+
+        <p><strong>İşlem 2</strong>: ERH Serbest Bırak</p>
+        <pre>Fonksiyon: processMonthlyRelease
+Parametre: [ADMIN_ERH_ADDRESS]</pre>
+
+        <p><strong>İşlem 3</strong>: GRK Serbest Bırak</p>
+        <pre>Fonksiyon: processMonthlyRelease
+Parametre: [ADMIN_GRK_ADDRESS]</pre>
+
+        <p><strong>İşlem 4</strong>: CNK Serbest Bırak</p>
+        <pre>Fonksiyon: processMonthlyRelease
+Parametre: [ADMIN_CNK_ADDRESS]</pre>
+
+        <p><strong>İşlem 5</strong>: Kilitli Rezerv Serbest Bırak</p>
+        <pre>Fonksiyon: processLockedWalletRelease
+Parametre: [LOCKED_RESERVE_ADDRESS]</pre>
+
+        <hr>
+
+        <h2>📱 Safe App (Özel)</h2>
+
+        <h3>Özellikler</h3>
+        <p>Özel Safe App'imiz şunları sağlar:</p>
+        <ul>
+            <li>Cüzdan bakiyeleri ile gösterge paneli</li>
+            <li>Tek tıkla hakediş serbest bırakmaları</li>
+            <li>Toplu airdrop işlevselliği</li>
+            <li>Program takibi</li>
+            <li>Ücret muafiyeti yönetimi</li>
+        </ul>
+
+        <h3>Erişim</h3>
+        <ol>
+            <li>Safe App'i açın</li>
+            <li>"Uygulamalar"a gidin</li>
+            <li>Özel uygulama URL'si ekleyin</li>
+            <li>Veya kullanın: [Safe App URL]</li>
+        </ol>
+
+        <h3>Depo</h3>
+        <p><a href="https://github.com/SylvanToken/SafeWallet">https://github.com/SylvanToken/SafeWallet</a></p>
+
+        <hr>
+
+        <h2>🔒 Güvenlik En İyi Uygulamaları</h2>
+
+        <h3>İmzacı Güvenliği</h3>
+        <ol>
+            <li><strong>Donanım Cüzdanları</strong>: İmzacılar için Ledger/Trezor kullanın</li>
+            <li><strong>Yedekleme</strong>: Kurtarma ifadelerini güvende tutun</li>
+            <li><strong>Dağılım</strong>: İmzacılar farklı konumlarda</li>
+            <li><strong>Doğrulama</strong>: Her zaman işlem detaylarını doğrulayın</li>
+        </ol>
+
+        <h3>İşlem Güvenliği</h3>
+        <ol>
+            <li><strong>İnceleme</strong>: Tüm parametreleri dikkatle inceleyin</li>
+            <li><strong>Simülasyon</strong>: İşlem simülasyonu kullanın</li>
+            <li><strong>İletişim</strong>: Diğer imzacılarla koordine olun</li>
+            <li><strong>Zamanlama</strong>: Onayları aceleye getirmeyin</li>
+        </ol>
+
+        <h3>Erişim Kontrolü</h3>
+        <ol>
+            <li><strong>Düzenli Denetimler</strong>: İmzacı erişimini inceleyin</li>
+            <li><strong>Rotasyon</strong>: Periyodik imzacı rotasyonu düşünün</li>
+            <li><strong>İzleme</strong>: Şüpheli aktiviteyi izleyin</li>
+        </ol>
+
+        <hr>
+
+        <h2 class="alert">⚠️ Önemli Uyarılar</h2>
+        <ol>
+            <li><strong>Sahiplik Transferi GERİ ALINAMAZ</strong></li>
+            <li><strong>Transfer sonrası sadece Safe kontratı yönetebilir</strong></li>
+            <li><strong>Tüm işlemler için 3 imzacıdan 2'si onaylamalı</strong></li>
+            <li><strong>Tüm imzacı cüzdanlarını güvende tutun</strong></li>
+            <li><strong>Asla özel anahtarları paylaşmayın</strong></li>
+        </ol>
+
+        <hr>
+
+        <h2>🆘 Sorun Giderme</h2>
+
+        <h3>İşlem Takıldı</h3>
+        <ol>
+            <li>Gas fiyatını kontrol edin</li>
+            <li>Tüm parametreleri doğrulayın</li>
+            <li>İmzacıların gas için BNB'si olduğundan emin olun</li>
+            <li>İptal edip yeniden oluşturmayı deneyin</li>
+        </ol>
+
+        <h3>İmzacı Sorunları</h3>
+        <ol>
+            <li>İmzacı adresinin doğru olduğunu doğrulayın</li>
+            <li>Cüzdan bağlantısını kontrol edin</li>
+            <li>Farklı tarayıcı/cüzdan deneyin</li>
+        </ol>
+
+        <h3>Eşik Karşılanmadı</h3>
+        <ol>
+            <li>Diğer imzacılarla iletişime geçin</li>
+            <li>Onayları bekleyin</li>
+            <li>İşlem kuyruğunu kontrol edin</li>
+        </ol>
+
+        <hr>
+
+        <h2>📞 Hızlı Referans</h2>
+        <table>
+            <tr><th>Öğe</th><th>Değer</th></tr>
+            <tr><td>Safe App</td><td>https://app.safe.global</td></tr>
+            <tr><td>Kontrat</td><td><code>[CONTRACT_ADDRESS]</code></td></tr>
+            <tr><td>Safe Wallet</td><td><code>[SAFE_ADDRESS]</code></td></tr>
+            <tr><td>Eşik</td><td>3'te 2</td></tr>
+            <tr><td>BSCScan</td><td>https://bscscan.com</td></tr>
+        </table>
+
+        <hr>
+
+        <h2>🔗 İlgili Dokümantasyon</h2>
+        <ul>
+            <li><a href="API_REFERENCE.html">API Referansı</a></li>
+            <li><a href="VESTING_LOCK_GUIDE.html">Hakediş Kılavuzu</a></li>
+            <li><a href="EMERGENCY_PROCEDURES_GUIDE.html">Acil Durum Prosedürleri</a></li>
+        </ul>
+
+        <div class="footer">
+            <p><strong>Sylvan Token Çoklu İmza Kılavuzu</strong></p>
+            <p>Son Güncelleme: Aralık 2025</p>
+        </div>
+    </div>
+</body>
+</html>

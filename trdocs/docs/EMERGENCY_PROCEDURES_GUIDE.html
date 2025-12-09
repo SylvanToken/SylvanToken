@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚨 Acil Durum Prosedürleri Kılavuzu</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        .container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2e7d32; text-align: center; }
+        h2 { color: #388e3c; border-bottom: 2px solid #4caf50; padding-bottom: 10px; }
+        h3 { color: #43a047; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #4caf50; color: white; }
+        code { background: #e8f5e9; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        pre { background: #263238; color: #aed581; padding: 20px; border-radius: 8px; overflow-x: auto; }
+        .alert { background: #ffebee; border-left: 4px solid #f44336; padding: 15px; margin: 20px 0; }
+        .warning { background: #fff3e0; border-left: 4px solid #ff9800; padding: 15px; margin: 20px 0; }
+        .footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚨 Acil Durum Prosedürleri Kılavuzu</h1>
+        <p style="text-align: center;"><strong>Versiyon 2.0 | Aralık 2025</strong></p>
+
+        <hr>
+
+        <h2>📋 Genel Bakış</h2>
+        <p>Bu kılavuz Sylvan Token operasyonları için acil durum prosedürlerini özetler. Kontratın tam merkeziyetsizlik için tasarım gereği DURDURMA MEKANİZMASI OLMADIĞINI unutmayın.</p>
+
+        <div class="alert">
+            <h3>⚠️ Önemli: Durdurma Mekanizması Yok</h3>
+            <p><strong>Kontrat DURDURULAMAZ.</strong></p>
+            <p>Bu şu anlama gelir:</p>
+            <ul>
+                <li>❌ Token transferleri durdurulamaz</li>
+                <li>❌ Acil durdurma fonksiyonu mevcut değil</li>
+                <li>✅ Tam merkeziyetsizlik sağlandı</li>
+                <li>✅ Tek hata noktası yok</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>🚨 Acil Durum Senaryoları</h2>
+
+        <h3>Senaryo 1: Ele Geçirilmiş İmzacı Cüzdanı</h3>
+        <p><strong>Belirtiler:</strong></p>
+        <ul>
+            <li>Yetkisiz işlem önerileri</li>
+            <li>İmzacı adresinden şüpheli aktivite</li>
+            <li>İmzacı cüzdan ele geçirilmesini bildiriyor</li>
+        </ul>
+
+        <p><strong>Müdahale:</strong></p>
+        <h4>1. Acil Eylemler</h4>
+        <ul>
+            <li>Diğer imzacıları hemen uyarın</li>
+            <li>Bekleyen işlemleri ONAYLAMAYIN</li>
+            <li>Olayı belgeleyin</li>
+        </ul>
+
+        <h4>2. Safe Wallet Eylemleri</h4>
+        <ul>
+            <li>Ele geçirilmiş imzacıyı kaldırmak için öneri oluşturun</li>
+            <li>Yeni yedek imzacı ekleyin</li>
+            <li>2/3 onay gerektirir</li>
+        </ul>
+
+        <h4>3. Olay Sonrası</h4>
+        <ul>
+            <li>Tüm son işlemleri inceleyin</li>
+            <li>Güvenlik prosedürlerini güncelleyin</li>
+            <li>Öğrenilen dersleri belgeleyin</li>
+        </ul>
+
+        <h3>Senaryo 2: Kayıp İmzacı Erişimi</h3>
+        <p><strong>Belirtiler:</strong></p>
+        <ul>
+            <li>İmzacı cüzdana erişemiyor</li>
+            <li>Kayıp özel anahtar veya donanım cüzdanı</li>
+            <li>Onaylar için eşiğe ulaşılamıyor</li>
+        </ul>
+
+        <p><strong>Müdahale:</strong></p>
+        <h4>2 İmzacı Mevcutsa</h4>
+        <ul>
+            <li>Normal şekilde çalışmaya devam edilebilir (2/3 eşik)</li>
+            <li>Yedek imzacı eklemek için öneri oluşturun</li>
+            <li>Erişilemeyen imzacıyı kaldırın</li>
+        </ul>
+
+        <h4>Sadece 1 İmzacı Mevcutsa</h4>
+        <ul>
+            <li>KRİTİK: İşlemler yürütülemez</li>
+            <li>Kalan imzacılarla acil iletişime geçin</li>
+            <li>Yeni Safe dağıtmak gerekebilir</li>
+        </ul>
+
+        <h4>Önleme</h4>
+        <ul>
+            <li>İmzacıların güvenli yedekleri olduğundan emin olun</li>
+            <li>Düzenli imzacı erişilebilirlik kontrolleri</li>
+            <li>Kurtarma prosedürlerini belgeleyin</li>
+        </ul>
+
+        <h3>Senaryo 3: Yanlış İşlem Yürütüldü</h3>
+        <p><strong>Belirtiler:</strong></p>
+        <ul>
+            <li>Yürütülen işlemde yanlış parametreler</li>
+            <li>İstenmeyen ücret muafiyeti eklendi/kaldırıldı</li>
+            <li>Yanlış hakediş serbest bırakması</li>
+        </ul>
+
+        <p><strong>Müdahale:</strong></p>
+        <h4>1. Değerlendirme</h4>
+        <ul>
+            <li>Neyin değiştiğini belirleyin</li>
+            <li>Etkiyi belirleyin</li>
+            <li>Hatayı belgeleyin</li>
+        </ul>
+
+        <h4>2. Düzeltme</h4>
+        <ul>
+            <li>Düzeltici işlem oluşturun</li>
+            <li>Örnek: Yanlış muafiyet eklendiyse, kaldırın</li>
+            <li>2/3 onay gerektirir</li>
+        </ul>
+
+        <h4>3. Önleme</h4>
+        <ul>
+            <li>Her zaman parametreleri iki kez kontrol edin</li>
+            <li>İşlem simülasyonu kullanın</li>
+            <li>Onaydan önce ikinci imzacının doğrulamasını sağlayın</li>
+        </ul>
+
+        <h3>Senaryo 4: Akıllı Kontrat Hatası Keşfedildi</h3>
+        <p><strong>Belirtiler:</strong></p>
+        <ul>
+            <li>Beklenmeyen davranış gözlemlendi</li>
+            <li>Güvenlik açığı bildirildi</li>
+            <li>Denetim bulgusu</li>
+        </ul>
+
+        <p><strong>Müdahale:</strong></p>
+        <h4>1. Değerlendirme</h4>
+        <ul>
+            <li>Hatanın var olduğunu doğrulayın</li>
+            <li>Ciddiyeti belirleyin</li>
+            <li>Potansiyel etkiyi değerlendirin</li>
+        </ul>
+
+        <h4>2. İletişim</h4>
+        <ul>
+            <li>Ekibi hemen uyarın</li>
+            <li>Değerlendirilene kadar kamuya AÇIKLAMAYIN</li>
+            <li>security@sylvantoken.org ile iletişime geçin</li>
+        </ul>
+
+        <h4>3. Azaltma</h4>
+        <ul>
+            <li>Durdurma olmadığından: transferler durdurulamaz</li>
+            <li>Yeni kontrat dağıtmak gerekebilir</li>
+            <li>Gerekirse göç planlayın</li>
+        </ul>
+
+        <div class="warning">
+            <p><strong>Not</strong>: Kontrat değiştirilemez - hatalar yerinde düzeltilemez.</p>
+        </div>
+
+        <h3>Senaryo 5: Oltalama/Sosyal Mühendislik Saldırısı</h3>
+        <p><strong>Belirtiler:</strong></p>
+        <ul>
+            <li>İmza isteyen şüpheli mesajlar</li>
+            <li>Sahte Safe App veya web sitesi</li>
+            <li>Özel anahtar talepleri</li>
+        </ul>
+
+        <p><strong>Müdahale:</strong></p>
+        <h4>1. Acil</h4>
+        <ul>
+            <li>Hiçbir şey İMZALAMAYIN</li>
+            <li>Özel anahtarları PAYLAŞMAYIN</li>
+            <li>Diğer imzacıları uyarın</li>
+        </ul>
+
+        <h4>2. Doğrulama</h4>
+        <ul>
+            <li>Her zaman resmi Safe App URL'sini kullanın</li>
+            <li>İşlem detaylarını cihazda doğrulayın</li>
+            <li>Güvenli kanal üzerinden diğer imzacılarla onaylayın</li>
+        </ul>
+
+        <h4>3. Önleme</h4>
+        <ul>
+            <li>Resmi URL'leri yer imlerine ekleyin</li>
+            <li>Donanım cüzdanları kullanın</li>
+            <li>Kurtarma ifadelerini asla paylaşmayın</li>
+        </ul>
+
+        <hr>
+
+        <h2>📞 Acil Durum İletişimleri</h2>
+        <table>
+            <tr><th>Rol</th><th>İletişim</th></tr>
+            <tr><td>Teknik Lider</td><td>dev@sylvantoken.org</td></tr>
+            <tr><td>Güvenlik Ekibi</td><td>security@sylvantoken.org</td></tr>
+            <tr><td>Acil Durum Hattı</td><td>emergency@sylvantoken.org</td></tr>
+        </table>
+
+        <h3>İmzacı İletişimi</h3>
+        <ul>
+            <li>Birincil: Telegram grubu (şifreli)</li>
+            <li>Yedek: Signal grubu</li>
+            <li>Acil: Telefon aramaları</li>
+        </ul>
+
+        <hr>
+
+        <h2>✅ Acil Durum Kontrol Listesi</h2>
+
+        <h3>Acil Müdahale</h3>
+        <ul>
+            <li>☐ Sorunu belirleyin</li>
+            <li>☐ Tüm imzacıları uyarın</li>
+            <li>☐ İşlemleri onaylamayı durdurun</li>
+            <li>☐ Her şeyi belgeleyin</li>
+        </ul>
+
+        <h3>Değerlendirme</h3>
+        <ul>
+            <li>☐ Ciddiyeti belirleyin</li>
+            <li>☐ Etkilenen tarafları belirleyin</li>
+            <li>☐ Finansal etkiyi değerlendirin</li>
+            <li>☐ Müdahale planlayın</li>
+        </ul>
+
+        <h3>Çözüm</h3>
+        <ul>
+            <li>☐ Düzeltici eylemleri yürütün</li>
+            <li>☐ Çözümü doğrulayın</li>
+            <li>☐ Paydaşlara bildirin</li>
+            <li>☐ Öğrenilen dersleri belgeleyin</li>
+        </ul>
+
+        <hr>
+
+        <h2>🔒 Güvenlik Hatırlatmaları</h2>
+
+        <h3>İmzacılar İçin</h3>
+        <ol>
+            <li><strong>Asla özel anahtarları paylaşmayın</strong></li>
+            <li><strong>Her zaman işlem detaylarını doğrulayın</strong></li>
+            <li><strong>Donanım cüzdanları kullanın</strong></li>
+            <li><strong>Kurtarma ifadelerini güvende tutun</strong></li>
+            <li><strong>Acil taleplere şüpheyle yaklaşın</strong></li>
+        </ol>
+
+        <h3>Operasyonlar İçin</h3>
+        <ol>
+            <li><strong>Tüm parametreleri iki kez kontrol edin</strong></li>
+            <li><strong>İşlem simülasyonu kullanın</strong></li>
+            <li><strong>Diğer imzacılarla koordine olun</strong></li>
+            <li><strong>Tüm eylemleri belgeleyin</strong></li>
+            <li><strong>Düzenli güvenlik incelemeleri</strong></li>
+        </ol>
+
+        <hr>
+
+        <h2>📊 Olay Raporu Şablonu</h2>
+        <pre>
+OLAY RAPORU
+
+Tarih/Saat: 
+Bildiren:
+Ciddiyet: [Kritik/Yüksek/Orta/Düşük]
+
+AÇIKLAMA:
+[Ne oldu]
+
+ETKİ:
+[Ne etkilendi]
+
+MÜDAHALE:
+[Alınan eylemler]
+
+ÇÖZÜM:
+[Nasıl çözüldü]
+
+ÖĞRENİLEN DERSLER:
+[Neleri iyileştirmeli]
+
+TAKİP EYLEMLERİ:
+[Önleyici tedbirler]
+        </pre>
+
+        <hr>
+
+        <h2>🔗 İlgili Dokümantasyon</h2>
+        <ul>
+            <li><a href="../SECURITY.html">Güvenlik Kılavuzu</a></li>
+            <li><a href="MULTISIG_WALLET_SETUP_GUIDE.html">Çoklu İmza Kılavuzu</a></li>
+            <li><a href="API_REFERENCE.html">API Referansı</a></li>
+        </ul>
+
+        <div class="footer">
+            <p><strong>Sylvan Token Acil Durum Prosedürleri</strong></p>
+            <p><em>Hazırlıklı Olun, Güvende Kalın</em></p>
+            <p>Son Güncelleme: Aralık 2025</p>
+        </div>
+    </div>
+</body>
+</html>

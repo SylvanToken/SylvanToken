@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Sylvan Token Lansman Planı</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        .container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2e7d32; text-align: center; }
+        h2 { color: #388e3c; border-bottom: 2px solid #4caf50; padding-bottom: 10px; }
+        h3 { color: #43a047; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #4caf50; color: white; }
+        code { background: #e8f5e9; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        pre { background: #263238; color: #aed581; padding: 20px; border-radius: 8px; overflow-x: auto; }
+        .alert { background: #fff3e0; border-left: 4px solid #ff9800; padding: 15px; margin: 20px 0; }
+        .footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Sylvan Token Lansman Planı</h1>
+        <p style="text-align: center;"><strong>Versiyon 2.0 | Aralık 2025</strong></p>
+
+        <hr>
+
+        <h2>📋 Yönetici Özeti</h2>
+        <p>Bu belge, dağıtım prosedürleri, likidite kurulumu ve lansman sonrası operasyonlar dahil olmak üzere Sylvan Token (SYL) için BSC Mainnet'te tam lansman stratejisini özetlemektedir.</p>
+
+        <hr>
+
+        <h2>🎯 Lansman Hedefleri</h2>
+        <ol>
+            <li><strong>Güvenli Dağıtım</strong>: Doğrulanmış, denetlenmiş kontrat dağıtımı</li>
+            <li><strong>Likidite</strong>: İlk işlem likiditesi oluşturma</li>
+            <li><strong>Yönetişim</strong>: Sahipliği Safe Wallet'a transfer etme</li>
+            <li><strong>Topluluk</strong>: Aktif topluluk oluşturma</li>
+            <li><strong>Şeffaflık</strong>: Tam zincir üstü doğrulama</li>
+        </ol>
+
+        <hr>
+
+        <h2>📅 Lansman Zaman Çizelgesi</h2>
+
+        <h3>Lansman Öncesi (T-7 gün)</h3>
+        <table>
+            <tr><th>Gün</th><th>Görev</th><th>Durum</th></tr>
+            <tr><td>T-7</td><td>Son kod incelemesi</td><td>⬜</td></tr>
+            <tr><td>T-6</td><td>Testnet'te test dağıtımı</td><td>⬜</td></tr>
+            <tr><td>T-5</td><td>Safe Wallet yapılandırması</td><td>⬜</td></tr>
+            <tr><td>T-4</td><td>Dokümantasyon sonlandırma</td><td>⬜</td></tr>
+            <tr><td>T-3</td><td>Topluluk duyurusu</td><td>⬜</td></tr>
+            <tr><td>T-2</td><td>Son güvenlik kontrolü</td><td>⬜</td></tr>
+            <tr><td>T-1</td><td>Dağıtım hazırlığı</td><td>⬜</td></tr>
+        </table>
+
+        <h3>Lansman Günü (T-0)</h3>
+        <table>
+            <tr><th>Saat</th><th>Görev</th><th>Durum</th></tr>
+            <tr><td>00:00</td><td>Kontrat dağıtımı</td><td>⬜</td></tr>
+            <tr><td>00:30</td><td>BSCScan doğrulaması</td><td>⬜</td></tr>
+            <tr><td>01:00</td><td>İlk yapılandırma</td><td>⬜</td></tr>
+            <tr><td>02:00</td><td>Sahipliği Safe'e transfer</td><td>⬜</td></tr>
+            <tr><td>03:00</td><td>Likidite ekleme</td><td>⬜</td></tr>
+            <tr><td>04:00</td><td>İşlem etkinleştirildi</td><td>⬜</td></tr>
+            <tr><td>05:00</td><td>Topluluk duyurusu</td><td>⬜</td></tr>
+        </table>
+
+        <h3>Lansman Sonrası (T+1 - T+7)</h3>
+        <table>
+            <tr><th>Gün</th><th>Görev</th><th>Durum</th></tr>
+            <tr><td>T+1</td><td>İşlem izleme</td><td>⬜</td></tr>
+            <tr><td>T+2</td><td>Topluluk desteği</td><td>⬜</td></tr>
+            <tr><td>T+3</td><td>İlk hakediş kurulumu</td><td>⬜</td></tr>
+            <tr><td>T+7</td><td>Hafta 1 raporu</td><td>⬜</td></tr>
+        </table>
+
+        <hr>
+
+        <h2>🔧 Dağıtım Prosedürü</h2>
+
+        <h3>Adım 1: Kontrat Dağıtımı</h3>
+        <pre>
+# BSC Mainnet'e dağıt
+npx hardhat run scripts/deployment/deploy-enhanced-complete.js --network bscMainnet
+        </pre>
+        <p><strong>Parametreler:</strong></p>
+        <ul>
+            <li>Ücret Cüzdanı: <code>[FEE_WALLET_ADDRESS]</code></li>
+            <li>Bağış Cüzdanı: <code>[DONATION_WALLET_ADDRESS]</code></li>
+            <li>İlk Muaf: Sahip, Ücret, Bağış cüzdanları</li>
+        </ul>
+
+        <h3>Adım 2: BSCScan Doğrulaması</h3>
+        <pre>
+# Kontratı doğrula
+npx hardhat verify --network bscMainnet [CONTRACT_ADDRESS] \
+  "[FEE_WALLET]" "[DONATION_WALLET]" "[EXEMPT_ARRAY]"
+        </pre>
+
+        <h3>Adım 3: İlk Yapılandırma</h3>
+        <p><strong>1. Yönetici Cüzdanlarını Yapılandır</strong></p>
+        <pre>
+configureAdminWallet(BRK_ADDRESS, 10000000 * 10^18)
+configureAdminWallet(ERH_ADDRESS, 10000000 * 10^18)
+configureAdminWallet(GRK_ADDRESS, 10000000 * 10^18)
+configureAdminWallet(CNK_ADDRESS, 10000000 * 10^18)
+        </pre>
+
+        <p><strong>2. Kilitli Cüzdan Hakediş Oluştur</strong></p>
+        <pre>
+createLockedWalletVesting(LOCKED_ADDRESS, 300000000 * 10^18, 30)
+        </pre>
+
+        <p><strong>3. Ücret Muafiyetleri Ekle</strong></p>
+        <pre>
+addExemptWallet(FEE_WALLET)
+addExemptWallet(DONATION_WALLET)
+        </pre>
+
+        <h3>Adım 4: Sahiplik Transferi</h3>
+        <pre>
+# Safe Wallet'a transfer et
+npx hardhat run scripts/management/transfer-ownership-to-safe.js --network bscMainnet
+        </pre>
+        <p><strong>Safe Wallet Yapılandırması:</strong></p>
+        <ul>
+            <li>Adres: <code>[SAFE_ADDRESS]</code></li>
+            <li>Eşik: 3'te 2</li>
+            <li>İmzacılar: Dağıtıcı, Sahip, Yönetici BRK</li>
+        </ul>
+
+        <hr>
+
+        <h2>💧 Likidite Kurulumu</h2>
+
+        <h3>PancakeSwap Listesi</h3>
+        <table>
+            <tr><th>Parametre</th><th>Değer</th></tr>
+            <tr><td>DEX</td><td>PancakeSwap V2</td></tr>
+            <tr><td>Çift</td><td>SYL/BNB</td></tr>
+            <tr><td>İlk Likidite</td><td>Belirlenecek</td></tr>
+            <tr><td>Kilit Süresi</td><td>2 yıl</td></tr>
+        </table>
+
+        <h3>Likidite Ekleme</h3>
+        <ol>
+            <li>PancakeSwap Router'ı onayla</li>
+            <li>Likidite ekle (SYL + BNB)</li>
+            <li>LP token'larını kilitle</li>
+            <li>Kilit kanıtını yayınla</li>
+        </ol>
+
+        <hr>
+
+        <h2>🔐 Güvenlik Kontrol Listesi</h2>
+
+        <h3>Dağıtım Öncesi</h3>
+        <ul>
+            <li>☐ Tüm testler geçiyor (275+)</li>
+            <li>☐ Güvenlik denetimi tamamlandı</li>
+            <li>☐ Durdurma mekanizması yok (doğrulandı)</li>
+            <li>☐ Yeniden giriş koruması aktif</li>
+            <li>☐ Girdi doğrulama çalışıyor</li>
+        </ul>
+
+        <h3>Dağıtım</h3>
+        <ul>
+            <li>☐ Doğru constructor parametreleri</li>
+            <li>☐ Kontrat BSCScan'de doğrulandı</li>
+            <li>☐ Sahip adresi doğru</li>
+            <li>☐ Ücret cüzdanları yapılandırıldı</li>
+        </ul>
+
+        <h3>Dağıtım Sonrası</h3>
+        <ul>
+            <li>☐ Sahiplik Safe'e transfer edildi</li>
+            <li>☐ Safe eşiği doğrulandı (2/3)</li>
+            <li>☐ Tüm imzacılar onaylandı</li>
+            <li>☐ Test işlemi başarılı</li>
+        </ul>
+
+        <hr>
+
+        <h2>📊 Token Dağılımı</h2>
+
+        <h3>İlk Tahsis</h3>
+        <table>
+            <tr><th>Cüzdan</th><th>Miktar</th><th>Yüzde</th></tr>
+            <tr><td>Sylvan Token</td><td>500M</td><td>%50</td></tr>
+            <tr><td>Kilitli Rezerv</td><td>300M</td><td>%30</td></tr>
+            <tr><td>Kurucu</td><td>160M</td><td>%16</td></tr>
+            <tr><td>Yönetici BRK</td><td>10M</td><td>%1</td></tr>
+            <tr><td>Yönetici ERH</td><td>10M</td><td>%1</td></tr>
+            <tr><td>Yönetici GRK</td><td>10M</td><td>%1</td></tr>
+            <tr><td>Yönetici CNK</td><td>10M</td><td>%1</td></tr>
+            <tr><td><strong>Toplam</strong></td><td><strong>1B</strong></td><td><strong>%100</strong></td></tr>
+        </table>
+
+        <h3>Hakediş Programı</h3>
+        <table>
+            <tr><th>Cüzdan</th><th>Anında</th><th>Hakediş</th><th>Süre</th></tr>
+            <tr><td>Kilitli Rezerv</td><td>%0</td><td>%100</td><td>34 ay</td></tr>
+            <tr><td>Kurucu</td><td>%20</td><td>%80</td><td>16 ay</td></tr>
+            <tr><td>Yönetici Cüzdanları</td><td>%10</td><td>%90</td><td>20 ay</td></tr>
+        </table>
+
+        <hr>
+
+        <h2>📢 İletişim Planı</h2>
+
+        <h3>Duyuru Kanalları</h3>
+        <table>
+            <tr><th>Kanal</th><th>Eylem</th><th>Zamanlama</th></tr>
+            <tr><td>Twitter</td><td>Lansman duyurusu</td><td>T-0</td></tr>
+            <tr><td>Telegram</td><td>Topluluk güncellemesi</td><td>T-0</td></tr>
+            <tr><td>Web Sitesi</td><td>Kontrat detayları</td><td>T-0</td></tr>
+            <tr><td>Medium</td><td>Lansman makalesi</td><td>T+1</td></tr>
+        </table>
+
+        <h3>Temel Mesajlar</h3>
+        <ol>
+            <li><strong>Kontrat Adresi</strong>: Hemen yayınlandı</li>
+            <li><strong>BSCScan Bağlantısı</strong>: Doğrulama kanıtı</li>
+            <li><strong>Safe Wallet</strong>: Yönetişim detayları</li>
+            <li><strong>İşlem</strong>: PancakeSwap bağlantısı</li>
+        </ol>
+
+        <hr>
+
+        <h2>🚨 Acil Durum Prosedürleri</h2>
+
+        <h3>Sorun: Dağıtım Hatası</h3>
+        <ol>
+            <li>Dağıtım sürecini durdur</li>
+            <li>Hata günlüklerini analiz et</li>
+            <li>Sorunları düzelt</li>
+            <li>Yeniden dağıt</li>
+        </ol>
+
+        <h3>Sorun: Doğrulama Hatası</h3>
+        <ol>
+            <li>Constructor argümanlarını kontrol et</li>
+            <li>Derleyici ayarlarını doğrula</li>
+            <li>Doğrulamayı yeniden dene</li>
+            <li>Gerekirse manuel doğrulama</li>
+        </ol>
+
+        <h3>Sorun: Likidite Sorunları</h3>
+        <ol>
+            <li>Token onaylarını kontrol et</li>
+            <li>Router adresini doğrula</li>
+            <li>Slippage'ı ayarla</li>
+            <li>Destek ile iletişime geç</li>
+        </ol>
+
+        <hr>
+
+        <h2>✅ Lansman Kontrol Listesi</h2>
+
+        <h3>Teknik</h3>
+        <ul>
+            <li>☐ Kontrat dağıtıldı</li>
+            <li>☐ BSCScan doğrulandı</li>
+            <li>☐ Yönetici cüzdanları yapılandırıldı</li>
+            <li>☐ Kilitli cüzdan hakediş oluşturuldu</li>
+            <li>☐ Ücret muafiyetleri ayarlandı</li>
+            <li>☐ Sahiplik transfer edildi</li>
+        </ul>
+
+        <h3>Yönetişim</h3>
+        <ul>
+            <li>☐ Safe Wallet aktif</li>
+            <li>☐ Tüm imzacılar onaylandı</li>
+            <li>☐ Test işlemi tamamlandı</li>
+            <li>☐ Eşik doğrulandı</li>
+        </ul>
+
+        <h3>İşlem</h3>
+        <ul>
+            <li>☐ Likidite eklendi</li>
+            <li>☐ LP token'ları kilitlendi</li>
+            <li>☐ İşlem etkinleştirildi</li>
+            <li>☐ Fiyat stabil</li>
+        </ul>
+
+        <h3>Topluluk</h3>
+        <ul>
+            <li>☐ Duyuru yayınlandı</li>
+            <li>☐ Kontrat adresi paylaşıldı</li>
+            <li>☐ Dokümantasyon canlı</li>
+            <li>☐ Destek aktif</li>
+        </ul>
+
+        <hr>
+
+        <h2>📞 Destek İletişimleri</h2>
+        <table>
+            <tr><th>Rol</th><th>İletişim</th></tr>
+            <tr><td>Teknik Lider</td><td>dev@sylvantoken.org</td></tr>
+            <tr><td>Topluluk Yöneticisi</td><td>community@sylvantoken.org</td></tr>
+            <tr><td>Acil Durum</td><td>emergency@sylvantoken.org</td></tr>
+        </table>
+
+        <div class="footer">
+            <p><strong>Sylvan Token Lansman Planı</strong></p>
+            <p><em>Daha Yeşil Bir Gelecek Başlatıyoruz</em></p>
+            <p>Son Güncelleme: Aralık 2025</p>
+        </div>
+    </div>
+</body>
+</html>

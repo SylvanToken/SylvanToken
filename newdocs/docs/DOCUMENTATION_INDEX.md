@@ -50,7 +50,7 @@ Welcome to the Sylvan Token documentation. This index provides quick access to a
 
 | Parameter | Value |
 |-----------|-------|
-| Contract Address | `[CONTRACT_ADDRESS]` |
+| Contract Address | `0xc66404C3fa3E01378027b4A4411812D3a8D458F5` |
 | Network | BSC Mainnet (Chain ID: 56) |
 | Token Symbol | SYL |
 | Decimals | 18 |
@@ -60,9 +60,9 @@ Welcome to the Sylvan Token documentation. This index provides quick access to a
 
 | Wallet | Address |
 |--------|---------|
-| Contract | `[CONTRACT_ADDRESS]` |
-| Safe Wallet | `[SAFE_ADDRESS]` |
-| Fee Wallet | `[FEE_WALLET]` |
+| Contract | `0xc66404C3fa3E01378027b4A4411812D3a8D458F5` |
+| Safe Wallet | `0xC5CcDC8F01739CeD02B30b5aD10DD5Fb201436bB` |
+| Fee Wallet | `0x46a4AF3bdAD67d3855Af42Ba0BBe9248b54F7915` |
 | Donation Wallet | `[DONATION_WALLET]` |
 | Burn Address | `0x000000000000000000000000000000000000dEaD` |
 
@@ -84,7 +84,7 @@ Welcome to the Sylvan Token documentation. This index provides quick access to a
 | Twitter | https://x.com/SylvanToken |
 | Telegram | https://t.me/sylvantoken |
 | GitHub | https://github.com/SylvanToken |
-| BSCScan | https://bscscan.com/address/[CONTRACT_ADDRESS] |
+| BSCScan | https://bscscan.com/address/0xc66404C3fa3E01378027b4A4411812D3a8D458F5 |
 | Safe App | https://app.safe.global |
 
 ---

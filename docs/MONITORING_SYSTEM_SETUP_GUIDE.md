@@ -83,7 +83,7 @@ This guide covers monitoring setup for Sylvan Token operations, including on-cha
 const { ethers } = require("ethers");
 
 const provider = new ethers.providers.JsonRpcProvider("https://bsc-dataseed.binance.org");
-const contractAddress = "[CONTRACT_ADDRESS]";
+const contractAddress = "0xc66404C3fa3E01378027b4A4411812D3a8D458F5";
 const abi = ["function balanceOf(address) view returns (uint256)"];
 const contract = new ethers.Contract(contractAddress, abi, provider);
 
@@ -128,7 +128,7 @@ event OwnershipTransferred(address indexed previousOwner, address indexed newOwn
 const { ethers } = require("ethers");
 
 const provider = new ethers.providers.WebSocketProvider("wss://bsc-ws-node.nariox.org");
-const contractAddress = "[CONTRACT_ADDRESS]";
+const contractAddress = "0xc66404C3fa3E01378027b4A4411812D3a8D458F5";
 const abi = [
     "event Transfer(address indexed from, address indexed to, uint256 value)",
     "event TokensReleased(address indexed beneficiary, uint256 releasedAmount, uint256 burnedAmount)",

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌳 Sylvan Token Teknik Doküman</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        .container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header { text-align: center; margin-bottom: 30px; }
+        .header img { width: 180px; }
+        h1 { color: #2e7d32; }
+        h2 { color: #388e3c; border-bottom: 2px solid #4caf50; padding-bottom: 10px; }
+        h3 { color: #43a047; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #4caf50; color: white; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        code { background: #e8f5e9; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        pre { background: #263238; color: #aed581; padding: 20px; border-radius: 8px; overflow-x: auto; }
+        .toc { background: #e8f5e9; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .toc ul { list-style: none; padding-left: 20px; }
+        .toc a { color: #2e7d32; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="assets/images/sylvan-token-logo.png" alt="Sylvan Token Logo">
+            <h1>🌳 Sylvan Token Teknik Doküman</h1>
+            <p><strong>Versiyon 2.0 | Aralık 2025</strong></p>
+            <p><em>Blok Zinciri Teknolojisi ile Çevresel Değişimi Güçlendiriyoruz</em></p>
+            <p>
+                <a href="https://www.sylvantoken.org/">Web Sitesi</a> |
+                <a href="https://x.com/SylvanToken">Twitter</a> |
+                <a href="https://t.me/sylvantoken">Telegram</a>
+            </p>
+        </div>
+
+        <hr>
+
+        <div class="toc">
+            <h2>İçindekiler</h2>
+            <ul>
+                <li><a href="#ozet">1. Yönetici Özeti</a></li>
+                <li><a href="#giris">2. Giriş</a></li>
+                <li><a href="#sorun">3. Problem Tanımı</a></li>
+                <li><a href="#cozum">4. Çözüm</a></li>
+                <li><a href="#ekonomi">5. Token Ekonomisi</a></li>
+                <li><a href="#mimari">6. Teknik Mimari</a></li>
+                <li><a href="#hakedis">7. Hakediş & Kilit Mekanizmaları</a></li>
+                <li><a href="#yonetisim">8. Yönetişim</a></li>
+                <li><a href="#guvenlik">9. Güvenlik</a></li>
+                <li><a href="#cevre">10. Çevresel Etki</a></li>
+                <li><a href="#yolharitasi">11. Yol Haritası</a></li>
+                <li><a href="#sonuc">12. Sonuç</a></li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2 id="ozet">1. Yönetici Özeti</h2>
+        <p>Sylvan Token (SYL), çevresel finansmanı doğrudan işlem mekanizmasına entegre eden Binance Smart Chain üzerinde bir BEP-20 token'dır. Her transfer, otomatik ücret dağıtım sistemi aracılığıyla çevre korumaya katkıda bulunur.</p>
+
+        <h3>Temel Özellikler</h3>
+        <table>
+            <tr><th>Parametre</th><th>Değer</th></tr>
+            <tr><td>Toplam Arz</td><td>1.000.000.000 SYL (Sabit)</td></tr>
+            <tr><td>Ağ</td><td>Binance Smart Chain</td></tr>
+            <tr><td>İşlem Ücreti</td><td>%1 Evrensel</td></tr>
+            <tr><td>Çevresel Katkı</td><td>Ücretlerin %25'i</td></tr>
+            <tr><td>Deflasyonist</td><td>%25 ücret yakma + %10 hakediş yakma</td></tr>
+            <tr><td>Yönetişim</td><td>Çoklu İmza Safe Wallet (2/3)</td></tr>
+            <tr><td>Durdurma Mekanizması</td><td>❌ Kaldırıldı (Tamamen Merkeziyetsiz)</td></tr>
+        </table>
+
+        <hr>
+
+        <h2 id="giris">2. Giriş</h2>
+
+        <h3>Vizyon</h3>
+        <p>Her işlemin çevre korumaya katkıda bulunduğu kendi kendini sürdüren bir finansal ekosistem oluşturmak.</p>
+
+        <h3>Misyon</h3>
+        <p>Kripto para işlem ücretlerini doğrulanmış çevre koruma projelerine yönlendiren şeffaf, otomatik finansman mekanizmaları dağıtmak.</p>
+
+        <h3>Temel Değerler</h3>
+        <ul>
+            <li><strong>Şeffaflık</strong>: Tüm işlemler zincir üzerinde ve doğrulanabilir</li>
+            <li><strong>Sürdürülebilirlik</strong>: Uzun vadeli ekonomik model</li>
+            <li><strong>Güvenlik</strong>: Kurumsal düzeyde akıllı kontrat güvenliği</li>
+            <li><strong>Merkeziyetsizlik</strong>: Tek kontrol noktası yok</li>
+            <li><strong>Etki</strong>: Ölçülebilir çevresel sonuçlar</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="sorun">3. Problem Tanımı</h2>
+
+        <h3>Çevresel Finansman Zorlukları</h3>
+        <ol>
+            <li><strong>Finansman Açıkları</strong>: STK'lar kronik yetersiz finansmanla karşı karşıya</li>
+            <li><strong>Şeffaflık Sorunları</strong>: Bağışçılar fon kullanımına ilişkin görünürlükten yoksun</li>
+            <li><strong>Sürdürülebilirlik</strong>: Tek seferlik bağışlar istikrarlı finansman sağlamıyor</li>
+            <li><strong>Erişilebilirlik</strong>: Coğrafi ve teknik engeller</li>
+        </ol>
+
+        <h3>Çözümümüz</h3>
+        <p>Çevresel desteği doğrudan dijital işlemlere yerleştirerek sürekli, şeffaf finansman oluşturmak.</p>
+
+        <hr>
+
+        <h2 id="cozum">4. Çözüm</h2>
+
+        <h3>Otomatik Finansman Mekanizması</h3>
+        <p><strong>Evrensel %1 İşlem Ücreti</strong></p>
+        <pre>
+Her İşlem:
+├─ %50 → Operasyonlar (Geliştirme, Pazarlama)
+├─ %25 → Çevre STK'ları (Doğrudan Bağışlar)
+└─ %25 → Yakma Adresi (Deflasyonist)
+        </pre>
+
+        <h3>Deflasyonist Ekonomi</h3>
+        <p><strong>Çift Yakma Mekanizması:</strong></p>
+        <ol>
+            <li><strong>İşlem Yakmaları</strong>: İşlem başına %0.25</li>
+            <li><strong>Hakediş Yakmaları</strong>: Her hakediş serbest bırakmasının %10'u</li>
+        </ol>
+
+        <h3>Tam Merkeziyetsizlik</h3>
+        <ul>
+            <li>Durdurma mekanizması yok</li>
+            <li>Hiçbir kuruluş transferleri durduramaz</li>
+            <li>Yönetici fonksiyonları için çoklu imza yönetişimi</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="ekonomi">5. Token Ekonomisi</h2>
+
+        <h3>Token Özellikleri</h3>
+        <table>
+            <tr><th>Parametre</th><th>Değer</th></tr>
+            <tr><td>Ad</td><td>Sylvan Token</td></tr>
+            <tr><td>Sembol</td><td>SYL</td></tr>
+            <tr><td>Standart</td><td>BEP-20</td></tr>
+            <tr><td>Toplam Arz</td><td>1.000.000.000</td></tr>
+            <tr><td>Ondalık</td><td>18</td></tr>
+            <tr><td>Kontrat</td><td><code>[CONTRACT_ADDRESS]</code></td></tr>
+        </table>
+
+        <h3>Dağılım</h3>
+        <pre>
+Toplam Arz: 1.000.000.000 SYL
+
+├─ %50 (500M) - Sylvan Token Cüzdanı
+│  └─ Operasyonlar, Likidite, Pazarlama
+│
+├─ %30 (300M) - Kilitli Rezerv
+│  ├─ 34 aylık hakediş
+│  ├─ %3 aylık serbest bırakma
+│  └─ Serbest bırakma başına %10 yakma
+│
+├─ %16 (160M) - Kurucu Cüzdanı
+│  ├─ %20 anında
+│  ├─ %80 hakediş (16 ay)
+│  └─ %5 aylık serbest bırakma
+│
+└─ %4 (40M) - Yönetici Cüzdanları (4 × 10M)
+   ├─ %10 anında
+   ├─ %90 hakediş (20 ay)
+   └─ Serbest bırakma başına %10 yakma
+        </pre>
+
+        <h3>Ücret Yapısı</h3>
+        <table>
+            <tr><th>Hedef</th><th>Pay</th><th>Amaç</th></tr>
+            <tr><td>Ücret Cüzdanı</td><td>%50</td><td>Operasyonlar & Geliştirme</td></tr>
+            <tr><td>Bağış Cüzdanı</td><td>%25</td><td>Çevre STK'ları</td></tr>
+            <tr><td>Yakma Adresi</td><td>%25</td><td>Deflasyonist Mekanizma</td></tr>
+        </table>
+
+        <h3>Öngörülen Yakmalar</h3>
+        <table>
+            <tr><th>Kaynak</th><th>Miktar</th><th>Zaman Çizelgesi</th></tr>
+            <tr><td>Yönetici Hakediş</td><td>3.6M SYL</td><td>20 ay</td></tr>
+            <tr><td>Kilitli Rezerv</td><td>30M SYL</td><td>34 ay</td></tr>
+            <tr><td>İşlem Ücretleri</td><td>Değişken</td><td>Sürekli</td></tr>
+            <tr><td><strong>Toplam Minimum</strong></td><td><strong>33.6M SYL</strong></td><td>-</td></tr>
+        </table>
+
+        <hr>
+
+        <h2 id="mimari">6. Teknik Mimari</h2>
+
+        <h3>Akıllı Kontrat Tasarımı</h3>
+        <pre>
+SylvanToken.sol
+├─ ERC20 (OpenZeppelin)
+├─ Ownable (OpenZeppelin)
+├─ ReentrancyGuard (OpenZeppelin)
+└─ Özel Kütüphaneler
+   ├─ AccessControl.sol
+   ├─ InputValidator.sol
+   ├─ TaxManager.sol
+   ├─ WalletManager.sol
+   └─ EmergencyManager.sol
+        </pre>
+
+        <h3>Temel Fonksiyonlar</h3>
+        <table>
+            <tr><th>Fonksiyon</th><th>Erişim</th><th>Açıklama</th></tr>
+            <tr><td><code>transfer</code></td><td>Herkese Açık</td><td>Ücretli standart transfer</td></tr>
+            <tr><td><code>configureAdminWallet</code></td><td>Sahip</td><td>Yönetici hakediş kurulumu</td></tr>
+            <tr><td><code>processInitialRelease</code></td><td>Sahip</td><td>İlk %10 serbest bırakma</td></tr>
+            <tr><td><code>processMonthlyRelease</code></td><td>Sahip</td><td>Aylık hakediş serbest bırakma</td></tr>
+            <tr><td><code>processLockedWalletRelease</code></td><td>Sahip</td><td>Kilitli cüzdan serbest bırakma</td></tr>
+            <tr><td><code>addExemptWallet</code></td><td>Sahip</td><td>Ücret muafiyeti ekle</td></tr>
+        </table>
+
+        <h3>Gas Optimizasyonu</h3>
+        <ul>
+            <li>Optimizer ile Solidity 0.8.24 (200 çalıştırma)</li>
+            <li>Verimli depolama kalıpları</li>
+            <li>Toplu işlem desteği</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="hakedis">7. Hakediş & Kilit Mekanizmaları</h2>
+
+        <h3>Kilitli Rezerv Cüzdanı</h3>
+        <table>
+            <tr><th>Parametre</th><th>Değer</th></tr>
+            <tr><td>Adres</td><td><code>[LOCKED_RESERVE_ADDRESS]</code></td></tr>
+            <tr><td>Toplam</td><td>300.000.000 SYL</td></tr>
+            <tr><td>Kilit</td><td>%100</td></tr>
+            <tr><td>Uçurum</td><td>30 gün</td></tr>
+            <tr><td>Süre</td><td>34 ay</td></tr>
+            <tr><td>Aylık Serbest Bırakma</td><td>%3 (9M SYL)</td></tr>
+            <tr><td>Yakma Oranı</td><td>%10 (900K/ay)</td></tr>
+            <tr><td>Faydalanıcıya Net</td><td>%90 (8.1M/ay)</td></tr>
+        </table>
+
+        <h3>Yönetici Cüzdanları (×4)</h3>
+        <table>
+            <tr><th>Parametre</th><th>Değer</th></tr>
+            <tr><td>Her Biri Toplam</td><td>10.000.000 SYL</td></tr>
+            <tr><td>Anında</td><td>%10 (1M SYL)</td></tr>
+            <tr><td>Kilitli</td><td>%90 (9M SYL)</td></tr>
+            <tr><td>Uçurum</td><td>30 gün</td></tr>
+            <tr><td>Süre</td><td>20 ay</td></tr>
+            <tr><td>Aylık Serbest Bırakma</td><td>%4.5 (450K SYL)</td></tr>
+            <tr><td>Yakma Oranı</td><td>%10 (45K/ay)</td></tr>
+            <tr><td>Faydalanıcıya Net</td><td>%90 (405K/ay)</td></tr>
+        </table>
+
+        <h3>Kurucu Cüzdanı</h3>
+        <table>
+            <tr><th>Parametre</th><th>Değer</th></tr>
+            <tr><td>Toplam</td><td>160.000.000 SYL</td></tr>
+            <tr><td>Anında</td><td>%20 (32M SYL)</td></tr>
+            <tr><td>Kilitli</td><td>%80 (128M SYL)</td></tr>
+            <tr><td>Süre</td><td>16 ay</td></tr>
+            <tr><td>Aylık Serbest Bırakma</td><td>%5 (8M SYL)</td></tr>
+            <tr><td>Yakma Oranı</td><td>%0</td></tr>
+        </table>
+
+        <hr>
+
+        <h2 id="yonetisim">8. Yönetişim</h2>
+
+        <h3>Çoklu İmza Safe Wallet</h3>
+        <table>
+            <tr><th>Parametre</th><th>Değer</th></tr>
+            <tr><td>Platform</td><td>Gnosis Safe</td></tr>
+            <tr><td>Ağ</td><td>BSC Mainnet</td></tr>
+            <tr><td>Eşik</td><td>3'te 2 (%67)</td></tr>
+            <tr><td>Safe Adresi</td><td><code>[SAFE_ADDRESS]</code></td></tr>
+        </table>
+
+        <h3>İmzacılar</h3>
+        <table>
+            <tr><th>#</th><th>Rol</th><th>Adres</th></tr>
+            <tr><td>1</td><td>Dağıtıcı</td><td><code>[DEPLOYER_ADDRESS]</code></td></tr>
+            <tr><td>2</td><td>Sahip</td><td><code>[OWNER_ADDRESS]</code></td></tr>
+            <tr><td>3</td><td>Yönetici BRK</td><td><code>[ADMIN_BRK_ADDRESS]</code></td></tr>
+        </table>
+
+        <h3>Yönetişim Fonksiyonları</h3>
+        <ul>
+            <li>Hakediş serbest bırakma yönetimi</li>
+            <li>Ücret muafiyeti yönetimi</li>
+            <li>Airdrop/toplu transferler</li>
+            <li>Sahiplik transferi</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="guvenlik">9. Güvenlik</h2>
+
+        <h3>Güvenlik Özellikleri</h3>
+        <table>
+            <tr><th>Özellik</th><th>Durum</th></tr>
+            <tr><td>Durdurma Mekanizması</td><td>❌ KALDIRILDI</td></tr>
+            <tr><td>Yeniden Giriş Koruması</td><td>✅ Aktif</td></tr>
+            <tr><td>Girdi Doğrulama</td><td>✅ Aktif</td></tr>
+            <tr><td>Sadece Sahip Erişimi</td><td>✅ Aktif</td></tr>
+            <tr><td>Çoklu İmza Yönetişimi</td><td>✅ Aktif</td></tr>
+        </table>
+
+        <h3>Neden Durdurma Yok?</h3>
+        <ul>
+            <li><strong>Tam Merkeziyetsizlik</strong>: Hiçbir kuruluş transferleri durduramaz</li>
+            <li><strong>Merkezileşme Riskini Ortadan Kaldırır</strong>: Denetim endişelerini giderir</li>
+            <li><strong>Artan Güven</strong>: Token sahipleri garantili transfer haklarına sahip</li>
+            <li><strong>Tek Hata Noktası Yok</strong>: İstismar edilemez</li>
+        </ul>
+
+        <h3>Test Kapsamı</h3>
+        <ul>
+            <li>275+ test geçiyor</li>
+            <li>Üretim kodunda %95+ kapsam</li>
+            <li>Güvenliğe özel test paketleri</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="cevre">10. Çevresel Etki</h2>
+
+        <h3>Bağış Mekanizması</h3>
+        <p><strong>Dağıtım Programı:</strong></p>
+        <ul>
+            <li>Aylık veya eşik bazlı</li>
+            <li>48 saat önceden duyuru</li>
+            <li>24 saat içinde transfer sonrası doğrulama</li>
+        </ul>
+
+        <p><strong>Şeffaflık:</strong></p>
+        <ul>
+            <li>Tüm bağışlar zincir üzerinde</li>
+            <li>STK cüzdan adresleri herkese açık</li>
+            <li>Üç aylık etki raporları</li>
+        </ul>
+
+        <h3>Desteklenen Girişimler</h3>
+        <ul>
+            <li>🌳 Ağaçlandırma projeleri</li>
+            <li>🌊 Okyanus temizliği</li>
+            <li>🐾 Yaban hayatı koruma</li>
+            <li>🌍 İklim araştırması</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="yolharitasi">11. Yol Haritası</h2>
+
+        <h3>2025 Q4 - Lansman</h3>
+        <ul>
+            <li>✅ Akıllı kontrat geliştirme</li>
+            <li>✅ Güvenlik denetimi tamamlama</li>
+            <li>✅ Safe App geliştirme</li>
+            <li>📋 Mainnet dağıtımı</li>
+            <li>📋 PancakeSwap listesi</li>
+        </ul>
+
+        <h3>2026 Q1 - Büyüme</h3>
+        <ul>
+            <li>📋 CEX listeleri</li>
+            <li>📋 İlk çevresel bağışlar</li>
+            <li>📋 Mobil uygulama beta</li>
+            <li>📋 Ortaklık duyuruları</li>
+        </ul>
+
+        <h3>2026 Q2 - Genişleme</h3>
+        <ul>
+            <li>📋 Çapraz zincir köprüsü</li>
+            <li>📋 Staking mekanizması</li>
+            <li>📋 NFT pazaryeri</li>
+            <li>📋 DAO oluşumu</li>
+        </ul>
+
+        <h3>2026 Q3+ - Ekosistem</h3>
+        <ul>
+            <li>📋 Karbon kredisi pazaryeri</li>
+            <li>📋 Kurumsal ortaklıklar</li>
+            <li>📋 Küresel genişleme</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="sonuc">12. Sonuç</h2>
+        <p>Sylvan Token, blok zinciri destekli çevresel finansmanda yeni bir paradigmayı temsil eder. Çevresel desteği doğrudan tokenomiklerimize yerleştirerek, her işlemin daha sağlıklı bir gezegene katkıda bulunduğu kendi kendini sürdüren bir ekosistem oluşturuyoruz.</p>
+
+        <h3>Neden Sylvan Token?</h3>
+        <ol>
+            <li><strong>Gerçek Etki</strong>: Çevresel amaçlara doğrudan, şeffaf finansman</li>
+            <li><strong>Sürdürülebilir Ekonomi</strong>: Deflasyonist model sahipleri ödüllendirir</li>
+            <li><strong>Önce Güvenlik</strong>: Denetlenmiş, test edilmiş, merkeziyetsiz</li>
+            <li><strong>Topluluk Odaklı</strong>: Çoklu imza yönetişimi</li>
+            <li><strong>Kanıtlanmış Teknoloji</strong>: Sağlam BSC altyapısı üzerine inşa edilmiş</li>
+        </ol>
+
+        <hr>
+
+        <h2>İletişim</h2>
+        <ul>
+            <li><strong>Genel</strong>: contact@sylvantoken.org</li>
+            <li><strong>Ortaklıklar</strong>: partnerships@sylvantoken.org</li>
+            <li><strong>Teknik</strong>: dev@sylvantoken.org</li>
+        </ul>
+
+        <div class="footer">
+            <p><strong>Sylvan Token (SYL)</strong></p>
+            <p><em>Her İşlem Daha Yeşil Bir Gelecek İçin Bir Tohum Eker</em></p>
+            <p>© 2025- Sylvan Token. Tüm hakları saklıdır.</p>
+        </div>
+    </div>
+</body>
+</html>

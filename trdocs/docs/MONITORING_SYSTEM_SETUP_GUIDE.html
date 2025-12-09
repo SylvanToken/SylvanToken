@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 İzleme Sistemi Kurulum Kılavuzu</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        .container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2e7d32; text-align: center; }
+        h2 { color: #388e3c; border-bottom: 2px solid #4caf50; padding-bottom: 10px; }
+        h3 { color: #43a047; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #4caf50; color: white; }
+        code { background: #e8f5e9; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        pre { background: #263238; color: #aed581; padding: 20px; border-radius: 8px; overflow-x: auto; }
+        .footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 İzleme Sistemi Kurulum Kılavuzu</h1>
+        <p style="text-align: center;"><strong>Versiyon 2.0 | Aralık 2025</strong></p>
+
+        <hr>
+
+        <h2>📋 Genel Bakış</h2>
+        <p>Bu kılavuz, zincir üstü izleme, uyarılar ve analitik dahil olmak üzere Sylvan Token operasyonları için izleme kurulumunu kapsar.</p>
+
+        <hr>
+
+        <h2>🔍 Neyi İzlemeli</h2>
+
+        <h3>Kontrat Aktivitesi</h3>
+        <table>
+            <tr><th>Metrik</th><th>Açıklama</th><th>Öncelik</th></tr>
+            <tr><td>Transferler</td><td>Tüm token transferleri</td><td>Yüksek</td></tr>
+            <tr><td>Ücret Toplama</td><td>Ücret dağıtım olayları</td><td>Yüksek</td></tr>
+            <tr><td>Hakediş Serbest Bırakmaları</td><td>Hakediş'ten token serbest bırakmaları</td><td>Yüksek</td></tr>
+            <tr><td>Sahiplik Değişiklikleri</td><td>Sahip transfer olayları</td><td>Kritik</td></tr>
+            <tr><td>Muafiyet Değişiklikleri</td><td>Ücret muafiyeti güncellemeleri</td><td>Orta</td></tr>
+        </table>
+
+        <h3>Cüzdan Bakiyeleri</h3>
+        <table>
+            <tr><th>Cüzdan</th><th>Amaç</th><th>Uyarı Eşiği</th></tr>
+            <tr><td>Ücret Cüzdanı</td><td>Operasyon fonları</td><td>&lt; 100K SYL</td></tr>
+            <tr><td>Bağış Cüzdanı</td><td>STK bağışları</td><td>&gt; 1M SYL (bağış zamanı)</td></tr>
+            <tr><td>Yakma Adresi</td><td>Yakılan tokenlar</td><td>Toplamı takip et</td></tr>
+            <tr><td>Safe Wallet</td><td>Yönetişim</td><td>Herhangi bir değişiklik</td></tr>
+        </table>
+
+        <h3>Hakediş Durumu</h3>
+        <table>
+            <tr><th>Cüzdan</th><th>İzle</th></tr>
+            <tr><td>Kilitli Rezerv</td><td>Aylık serbest bırakma uygunluğu</td></tr>
+            <tr><td>Yönetici Cüzdanları</td><td>Aylık serbest bırakma uygunluğu</td></tr>
+            <tr><td>Kurucu Cüzdanı</td><td>Aylık serbest bırakma uygunluğu</td></tr>
+        </table>
+
+        <hr>
+
+        <h2>🛠️ İzleme Araçları</h2>
+
+        <h3>1. BSCScan</h3>
+        <p><strong>Ücretsiz Özellikler:</strong></p>
+        <ul>
+            <li>İşlem geçmişi</li>
+            <li>Token transferleri</li>
+            <li>Olay günlükleri</li>
+            <li>Kontrat doğrulama</li>
+        </ul>
+        <p><strong>Kurulum:</strong></p>
+        <ol>
+            <li>https://bscscan.com adresine gidin</li>
+            <li>Kontrat adresini arayın</li>
+            <li>Sayfayı yer imlerine ekleyin</li>
+            <li>"İzleme Listesi" özelliğini kullanın</li>
+        </ol>
+
+        <h3>2. BSCScan Uyarıları</h3>
+        <p><strong>E-posta Bildirimleri:</strong></p>
+        <ol>
+            <li>BSCScan hesabı oluşturun</li>
+            <li>"İzleme Listesi"ne gidin</li>
+            <li>Kontrat adresini ekleyin</li>
+            <li>Uyarı türlerini yapılandırın:
+                <ul>
+                    <li>Gelen işlemler</li>
+                    <li>Giden işlemler</li>
+                    <li>Token transferleri</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>3. Safe App Gösterge Paneli</h3>
+        <p><strong>Yerleşik İzleme:</strong></p>
+        <ul>
+            <li>Cüzdan bakiyeleri</li>
+            <li>Hakediş durumu</li>
+            <li>İşlem geçmişi</li>
+            <li>Bekleyen onaylar</li>
+        </ul>
+
+        <h3>4. Özel Scriptler</h3>
+        <p><strong>Bakiye İzleme Scripti:</strong></p>
+        <pre>
+const { ethers } = require("ethers");
+
+const provider = new ethers.providers.JsonRpcProvider("https://bsc-dataseed.binance.org");
+const contractAddress = "[CONTRACT_ADDRESS]";
+const abi = ["function balanceOf(address) view returns (uint256)"];
+const contract = new ethers.Contract(contractAddress, abi, provider);
+
+async function checkBalances() {
+    const wallets = {
+        "Ücret Cüzdanı": "[FEE_WALLET]",
+        "Bağış Cüzdanı": "[DONATION_WALLET]",
+        "Kilitli Rezerv": "[LOCKED_RESERVE]"
+    };
+    
+    for (const [name, address] of Object.entries(wallets)) {
+        const balance = await contract.balanceOf(address);
+        console.log(`${name}: ${ethers.utils.formatEther(balance)} SYL`);
+    }
+}
+
+checkBalances();
+        </pre>
+
+        <hr>
+
+        <h2>📡 Olay İzleme</h2>
+
+        <h3>Takip Edilecek Temel Olaylar</h3>
+        <pre>
+// Ücret Olayları
+event FeeCollected(address indexed from, uint256 feeAmount, uint256 toFeeWallet, uint256 toDonation, uint256 burned);
+
+// Hakediş Olayları
+event TokensReleased(address indexed beneficiary, uint256 releasedAmount, uint256 burnedAmount);
+event InitialReleaseProcessed(address indexed admin, uint256 amount);
+
+// Yönetici Olayları
+event WalletExempted(address indexed wallet, bool status);
+event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+        </pre>
+
+        <h3>Olay Dinleyici Scripti</h3>
+        <pre>
+const { ethers } = require("ethers");
+
+const provider = new ethers.providers.WebSocketProvider("wss://bsc-ws-node.nariox.org");
+const contractAddress = "[CONTRACT_ADDRESS]";
+const abi = [
+    "event Transfer(address indexed from, address indexed to, uint256 value)",
+    "event TokensReleased(address indexed beneficiary, uint256 releasedAmount, uint256 burnedAmount)",
+    "event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)"
+];
+
+const contract = new ethers.Contract(contractAddress, abi, provider);
+
+// Transferleri dinle
+contract.on("Transfer", (from, to, value) => {
+    console.log(`Transfer: ${from} -> ${to}: ${ethers.utils.formatEther(value)} SYL`);
+});
+
+// Hakediş serbest bırakmalarını dinle
+contract.on("TokensReleased", (beneficiary, released, burned) => {
+    console.log(`Hakediş Serbest Bırakma: ${beneficiary}`);
+    console.log(`  Serbest Bırakılan: ${ethers.utils.formatEther(released)} SYL`);
+    console.log(`  Yakılan: ${ethers.utils.formatEther(burned)} SYL`);
+});
+
+// Sahiplik değişikliklerini dinle
+contract.on("OwnershipTransferred", (prev, next) => {
+    console.log(`⚠️ SAHİPLİK DEĞİŞTİ: ${prev} -> ${next}`);
+});
+
+console.log("Olaylar dinleniyor...");
+        </pre>
+
+        <hr>
+
+        <h2>🔔 Uyarı Yapılandırması</h2>
+
+        <h3>Kritik Uyarılar (Acil)</h3>
+        <table>
+            <tr><th>Olay</th><th>Eylem</th></tr>
+            <tr><td>Sahiplik Transferi</td><td>SMS + E-posta + Telegram</td></tr>
+            <tr><td>Büyük Transfer (&gt;1M SYL)</td><td>E-posta + Telegram</td></tr>
+            <tr><td>Safe İşlemi Önerildi</td><td>Telegram</td></tr>
+        </table>
+
+        <h3>Yüksek Öncelikli Uyarılar (1 saat içinde)</h3>
+        <table>
+            <tr><th>Olay</th><th>Eylem</th></tr>
+            <tr><td>Hakediş Serbest Bırakma</td><td>E-posta</td></tr>
+            <tr><td>Ücret Muafiyeti Değişikliği</td><td>E-posta</td></tr>
+            <tr><td>Olağandışı Aktivite</td><td>E-posta</td></tr>
+        </table>
+
+        <h3>Düzenli İzleme (Günlük)</h3>
+        <table>
+            <tr><th>Metrik</th><th>Rapor</th></tr>
+            <tr><td>Günlük Hacim</td><td>Gösterge Paneli</td></tr>
+            <tr><td>Ücret Toplama</td><td>Gösterge Paneli</td></tr>
+            <tr><td>Sahip Sayısı</td><td>Gösterge Paneli</td></tr>
+        </table>
+
+        <hr>
+
+        <h2>📊 Analitik Gösterge Paneli</h2>
+
+        <h3>Önerilen Metrikler</h3>
+        <ol>
+            <li><strong>Token Metrikleri</strong>
+                <ul>
+                    <li>Toplam Arz</li>
+                    <li>Dolaşımdaki Arz</li>
+                    <li>Yakılan Miktar</li>
+                    <li>Sahip Sayısı</li>
+                </ul>
+            </li>
+            <li><strong>Ücret Metrikleri</strong>
+                <ul>
+                    <li>Toplanan Toplam Ücret</li>
+                    <li>Operasyonlara Ücretler</li>
+                    <li>Bağışlara Ücretler</li>
+                    <li>Yakılan Ücretler</li>
+                </ul>
+            </li>
+            <li><strong>Hakediş Metrikleri</strong>
+                <ul>
+                    <li>Toplam Serbest Bırakılan</li>
+                    <li>Toplam Yakılan (Hakediş)</li>
+                    <li>Sonraki Serbest Bırakma Tarihi</li>
+                    <li>Kalan Kilitli</li>
+                </ul>
+            </li>
+            <li><strong>İşlem Metrikleri</strong>
+                <ul>
+                    <li>Günlük Hacim</li>
+                    <li>Fiyat (listelenirse)</li>
+                    <li>Likidite</li>
+                </ul>
+            </li>
+        </ol>
+
+        <hr>
+
+        <h2>🔧 Kurulum Kontrol Listesi</h2>
+
+        <h3>Temel İzleme</h3>
+        <ul>
+            <li>☐ BSCScan yer imi</li>
+            <li>☐ BSCScan izleme listesi</li>
+            <li>☐ E-posta uyarıları yapılandırıldı</li>
+            <li>☐ Safe App erişimi</li>
+        </ul>
+
+        <h3>Gelişmiş İzleme</h3>
+        <ul>
+            <li>☐ Olay dinleyici scripti</li>
+            <li>☐ Bakiye izleme scripti</li>
+            <li>☐ Telegram bot uyarıları</li>
+            <li>☐ Özel gösterge paneli</li>
+        </ul>
+
+        <h3>Dokümantasyon</h3>
+        <ul>
+            <li>☐ Uyarı iletişimleri belgelendi</li>
+            <li>☐ Eskalasyon prosedürleri</li>
+            <li>☐ Müdahale kılavuzları</li>
+        </ul>
+
+        <hr>
+
+        <h2>📞 Uyarı İletişimleri</h2>
+        <table>
+            <tr><th>Öncelik</th><th>İletişim Yöntemi</th></tr>
+            <tr><td>Kritik</td><td>Telefon + SMS</td></tr>
+            <tr><td>Yüksek</td><td>Telegram + E-posta</td></tr>
+            <tr><td>Orta</td><td>E-posta</td></tr>
+            <tr><td>Düşük</td><td>Sadece Gösterge Paneli</td></tr>
+        </table>
+
+        <hr>
+
+        <h2>🔗 İlgili Dokümantasyon</h2>
+        <ul>
+            <li><a href="EMERGENCY_PROCEDURES_GUIDE.html">Acil Durum Prosedürleri</a></li>
+            <li><a href="MULTISIG_WALLET_SETUP_GUIDE.html">Çoklu İmza Kılavuzu</a></li>
+            <li><a href="API_REFERENCE.html">API Referansı</a></li>
+        </ul>
+
+        <div class="footer">
+            <p><strong>Sylvan Token İzleme Kılavuzu</strong></p>
+            <p>Son Güncelleme: Aralık 2025</p>
+        </div>
+    </div>
+</body>
+</html>

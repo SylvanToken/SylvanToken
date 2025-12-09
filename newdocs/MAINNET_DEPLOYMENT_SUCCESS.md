@@ -14,9 +14,9 @@
 | Symbol | SYL |
 | Total Supply | 1,000,000,000 |
 | Decimals | 18 |
-| Contract Address | `[CONTRACT_ADDRESS]` |
-| Deployer | `[DEPLOYER_ADDRESS]` |
-| Owner | `[OWNER_ADDRESS]` |
+| Contract Address | `0xc66404C3fa3E01378027b4A4411812D3a8D458F5` |
+| Deployer | `0xf949f50B3C32bD4cDa7D2192ff8f51dd9db4A469` |
+| Owner | `0xC5CcDC8F01739CeD02B30b5aD10DD5Fb201436bB` (Safe Wallet) |
 | Transaction Hash | `[TX_HASH]` |
 | Block Number | `[BLOCK_NUMBER]` |
 | Gas Used | `[GAS_USED]` |
@@ -95,10 +95,10 @@
 
 | Resource | URL |
 |----------|-----|
-| Contract | https://bscscan.com/address/[CONTRACT_ADDRESS] |
-| Token | https://bscscan.com/token/[CONTRACT_ADDRESS] |
-| Holders | https://bscscan.com/token/[CONTRACT_ADDRESS]#balances |
-| Safe Wallet | https://app.safe.global/home?safe=bnb:[SAFE_ADDRESS] |
+| Contract | https://bscscan.com/address/0xc66404C3fa3E01378027b4A4411812D3a8D458F5 |
+| Token | https://bscscan.com/token/0xc66404C3fa3E01378027b4A4411812D3a8D458F5 |
+| Holders | https://bscscan.com/token/0xc66404C3fa3E01378027b4A4411812D3a8D458F5#balances |
+| Safe Wallet | https://app.safe.global/home?safe=bnb:0xC5CcDC8F01739CeD02B30b5aD10DD5Fb201436bB |
 
 ---
 

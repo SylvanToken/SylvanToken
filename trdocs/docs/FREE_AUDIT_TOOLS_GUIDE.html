@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 Ücretsiz Denetim Araçları Kılavuzu</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        .container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2e7d32; text-align: center; }
+        h2 { color: #388e3c; border-bottom: 2px solid #4caf50; padding-bottom: 10px; }
+        h3 { color: #43a047; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #4caf50; color: white; }
+        code { background: #e8f5e9; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        pre { background: #263238; color: #aed581; padding: 20px; border-radius: 8px; overflow-x: auto; }
+        .footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Ücretsiz Denetim Araçları Kılavuzu</h1>
+        <p style="text-align: center;"><strong>Versiyon 2.0 | Aralık 2025</strong></p>
+
+        <hr>
+
+        <h2>📋 Genel Bakış</h2>
+        <p>Bu kılavuz Sylvan Token akıllı kontratlarını denetlemek ve analiz etmek için ücretsiz araçları kapsar.</p>
+
+        <hr>
+
+        <h2>🛠️ Statik Analiz Araçları</h2>
+
+        <h3>1. Slither</h3>
+        <p><strong>Açıklama</strong>: Solidity için statik analiz çerçevesi</p>
+        <p><strong>Kurulum:</strong></p>
+        <pre>pip3 install slither-analyzer</pre>
+
+        <p><strong>Kullanım:</strong></p>
+        <pre>
+# Temel analiz
+slither contracts/SylvanToken.sol
+
+# Belirli dedektörlerle
+slither contracts/SylvanToken.sol --detect reentrancy-eth,reentrancy-no-eth
+
+# Rapor oluştur
+slither contracts/SylvanToken.sol --json slither-report.json
+        </pre>
+
+        <p><strong>Temel Dedektörler:</strong></p>
+        <ul>
+            <li>Yeniden giriş güvenlik açıkları</li>
+            <li>Başlatılmamış değişkenler</li>
+            <li>Kullanılmayan dönüş değerleri</li>
+            <li>Tehlikeli katı eşitlikler</li>
+        </ul>
+
+        <h3>2. Mythril</h3>
+        <p><strong>Açıklama</strong>: EVM bytecode için güvenlik analiz aracı</p>
+        <p><strong>Kurulum:</strong></p>
+        <pre>pip3 install mythril</pre>
+
+        <p><strong>Kullanım:</strong></p>
+        <pre>
+# Kontratı analiz et
+myth analyze contracts/SylvanToken.sol
+
+# Zaman aşımı ile
+myth analyze contracts/SylvanToken.sol --execution-timeout 300
+
+# Belirli modüller
+myth analyze contracts/SylvanToken.sol --modules ether_thief,suicide
+        </pre>
+
+        <h3>3. Solhint</h3>
+        <p><strong>Açıklama</strong>: Kod kalitesi için Solidity linter</p>
+        <p><strong>Kurulum:</strong></p>
+        <pre>npm install -g solhint</pre>
+
+        <p><strong>Kullanım:</strong></p>
+        <pre>
+# Tüm kontratları lint'le
+solhint 'contracts/**/*.sol'
+
+# Belirli kurallarla
+solhint 'contracts/**/*.sol' --config .solhint.json
+        </pre>
+
+        <p><strong>Yapılandırma (.solhint.json):</strong></p>
+        <pre>
+{
+  "extends": "solhint:recommended",
+  "rules": {
+    "compiler-version": ["error", "^0.8.24"],
+    "func-visibility": ["warn", {"ignoreConstructors": true}],
+    "not-rely-on-time": "warn"
+  }
+}
+        </pre>
+
+        <hr>
+
+        <h2>🌐 Çevrimiçi Araçlar</h2>
+
+        <h3>1. Remix IDE</h3>
+        <p><strong>URL</strong>: https://remix.ethereum.org</p>
+        <p><strong>Özellikler:</strong></p>
+        <ul>
+            <li>Yerleşik statik analiz</li>
+            <li>Hata ayıklayıcı</li>
+            <li>Gas profiler</li>
+            <li>Birim testi</li>
+        </ul>
+        <p><strong>Kullanım:</strong></p>
+        <ol>
+            <li>Kontrat dosyalarını içe aktarın</li>
+            <li>"Solidity Statik Analiz"e gidin</li>
+            <li>Analizi çalıştırın</li>
+            <li>Bulguları inceleyin</li>
+        </ol>
+
+        <h3>2. Tenderly</h3>
+        <p><strong>URL</strong>: https://tenderly.co</p>
+        <p><strong>Özellikler:</strong></p>
+        <ul>
+            <li>İşlem simülasyonu</li>
+            <li>Hata ayıklama</li>
+            <li>Gas profilleme</li>
+            <li>Uyarı (ücretsiz katman)</li>
+        </ul>
+        <p><strong>Kullanım:</strong></p>
+        <ol>
+            <li>Ücretsiz hesap oluşturun</li>
+            <li>Kontratı içe aktarın</li>
+            <li>İşlemleri simüle edin</li>
+            <li>Hataları ayıklayın</li>
+        </ol>
+
+        <h3>3. BSCScan Doğrulama</h3>
+        <p><strong>URL</strong>: https://bscscan.com/verifyContract</p>
+        <p><strong>Özellikler:</strong></p>
+        <ul>
+            <li>Kaynak kodu doğrulama</li>
+            <li>Okuma/Yazma kontrat arayüzü</li>
+            <li>Olay günlükleri</li>
+            <li>Token takipçisi</li>
+        </ul>
+
+        <hr>
+
+        <h2>📊 Gas Analizi</h2>
+
+        <h3>Hardhat Gas Reporter</h3>
+        <p><strong>Kurulum:</strong></p>
+        <pre>npm install hardhat-gas-reporter</pre>
+
+        <p><strong>Yapılandırma (hardhat.config.js):</strong></p>
+        <pre>
+require("hardhat-gas-reporter");
+
+module.exports = {
+  gasReporter: {
+    enabled: true,
+    currency: 'USD',
+    gasPrice: 5,
+    coinmarketcap: process.env.COINMARKETCAP_API_KEY
+  }
+};
+        </pre>
+
+        <p><strong>Kullanım:</strong></p>
+        <pre>
+npx hardhat test
+# Gas raporu otomatik oluşturulur
+        </pre>
+
+        <h3>Contract Sizer</h3>
+        <p><strong>Kurulum:</strong></p>
+        <pre>npm install hardhat-contract-sizer</pre>
+
+        <p><strong>Yapılandırma:</strong></p>
+        <pre>
+require("hardhat-contract-sizer");
+
+module.exports = {
+  contractSizer: {
+    alphaSort: true,
+    runOnCompile: true,
+    disambiguatePaths: false
+  }
+};
+        </pre>
+
+        <hr>
+
+        <h2>🧪 Test Araçları</h2>
+
+        <h3>Hardhat Coverage</h3>
+        <p><strong>Kurulum:</strong></p>
+        <pre>npm install solidity-coverage</pre>
+
+        <p><strong>Kullanım:</strong></p>
+        <pre>npx hardhat coverage</pre>
+
+        <p><strong>Çıktı:</strong></p>
+        <ul>
+            <li>İfade kapsamı</li>
+            <li>Dal kapsamı</li>
+            <li>Fonksiyon kapsamı</li>
+            <li>Satır kapsamı</li>
+        </ul>
+
+        <h3>Echidna (Fuzzing)</h3>
+        <p><strong>Açıklama</strong>: Ethereum için özellik tabanlı fuzzer</p>
+        <p><strong>Kurulum:</strong></p>
+        <pre>
+# Docker kullanarak
+docker pull trailofbits/echidna
+        </pre>
+
+        <p><strong>Kullanım:</strong></p>
+        <pre>echidna-test contracts/SylvanToken.sol --contract SylvanToken</pre>
+
+        <hr>
+
+        <h2>📝 Kod Kalitesi</h2>
+
+        <h3>Prettier Solidity</h3>
+        <p><strong>Kurulum:</strong></p>
+        <pre>npm install prettier prettier-plugin-solidity</pre>
+
+        <p><strong>Yapılandırma (.prettierrc):</strong></p>
+        <pre>
+{
+  "plugins": ["prettier-plugin-solidity"],
+  "overrides": [
+    {
+      "files": "*.sol",
+      "options": {
+        "printWidth": 120,
+        "tabWidth": 4,
+        "useTabs": false,
+        "singleQuote": false
+      }
+    }
+  ]
+}
+        </pre>
+
+        <h3>Testler için ESLint</h3>
+        <p><strong>Kurulum:</strong></p>
+        <pre>npm install eslint eslint-plugin-mocha</pre>
+
+        <hr>
+
+        <h2>🔒 Güvenlik Kontrol Listesi</h2>
+
+        <h3>Otomatik Kontroller</h3>
+        <ul>
+            <li>☐ Slither analizi geçti</li>
+            <li>☐ Mythril analizi geçti</li>
+            <li>☐ Solhint uyarıları ele alındı</li>
+            <li>☐ Gas optimizasyonu incelendi</li>
+            <li>☐ Test kapsamı &gt; %90</li>
+        </ul>
+
+        <h3>Manuel İnceleme</h3>
+        <ul>
+            <li>☐ Erişim kontrolü doğrulandı</li>
+            <li>☐ Yeniden giriş koruması onaylandı</li>
+            <li>☐ Girdi doğrulama tamamlandı</li>
+            <li>☐ Olay kaydı yeterli</li>
+            <li>☐ Hata işleme uygun</li>
+        </ul>
+
+        <hr>
+
+        <h2>📊 Tam Denetim Çalıştırma</h2>
+
+        <h3>Adım 1: Statik Analiz</h3>
+        <pre>
+# Slither çalıştır
+slither contracts/SylvanToken.sol --json reports/slither.json
+
+# Solhint çalıştır
+solhint 'contracts/**/*.sol' > reports/solhint.txt
+        </pre>
+
+        <h3>Adım 2: Test Kapsamı</h3>
+        <pre>npx hardhat coverage</pre>
+
+        <h3>Adım 3: Gas Analizi</h3>
+        <pre>REPORT_GAS=true npx hardhat test</pre>
+
+        <h3>Adım 4: Manuel İnceleme</h3>
+        <ol>
+            <li>Tüm bulguları inceleyin</li>
+            <li>Ciddiyete göre kategorize edin</li>
+            <li>Yanlış pozitifleri belgeleyin</li>
+            <li>Düzeltme planı oluşturun</li>
+        </ol>
+
+        <hr>
+
+        <h2>📈 Denetim Raporu Şablonu</h2>
+        <pre>
+# Güvenlik Denetim Raporu
+
+## Özet
+- Kontrat: SylvanToken
+- Versiyon: 2.0
+- Tarih: [TARİH]
+
+## Bulgular
+
+### Kritik
+- Yok
+
+### Yüksek
+- Yok
+
+### Orta
+- [Orta bulguları listele]
+
+### Düşük
+- [Düşük bulguları listele]
+
+### Bilgilendirme
+- [Bilgilendirme bulgularını listele]
+
+## Öneriler
+- [Önerileri listele]
+
+## Sonuç
+- [Genel değerlendirme]
+        </pre>
+
+        <hr>
+
+        <h2>🔗 Kaynaklar</h2>
+
+        <h3>Dokümantasyon</h3>
+        <ul>
+            <li><a href="https://github.com/crytic/slither">Slither Docs</a></li>
+            <li><a href="https://mythril-classic.readthedocs.io/">Mythril Docs</a></li>
+            <li><a href="https://protofire.github.io/solhint/">Solhint Docs</a></li>
+        </ul>
+
+        <h3>Öğrenme</h3>
+        <ul>
+            <li><a href="https://consensys.github.io/smart-contract-best-practices/">Akıllı Kontrat Güvenliği</a></li>
+            <li><a href="https://swcregistry.io/">SWC Registry</a></li>
+            <li><a href="https://blog.trailofbits.com/">Trail of Bits Blog</a></li>
+        </ul>
+
+        <div class="footer">
+            <p><strong>Sylvan Token Denetim Araçları Kılavuzu</strong></p>
+            <p>Son Güncelleme: Aralık 2025</p>
+        </div>
+    </div>
+</body>
+</html>

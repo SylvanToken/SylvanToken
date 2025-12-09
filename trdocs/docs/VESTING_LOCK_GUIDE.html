@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔒 Hakediş & Kilit Mekanizması Kılavuzu</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        .container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2e7d32; text-align: center; }
+        h2 { color: #388e3c; border-bottom: 2px solid #4caf50; padding-bottom: 10px; }
+        h3 { color: #43a047; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #4caf50; color: white; }
+        code { background: #e8f5e9; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        pre { background: #263238; color: #aed581; padding: 20px; border-radius: 8px; overflow-x: auto; }
+        .alert { background: #fff3e0; border-left: 4px solid #ff9800; padding: 15px; margin: 20px 0; }
+        .footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔒 Hakediş & Kilit Mekanizması Kılavuzu</h1>
+        <p style="text-align: center;"><strong>Versiyon 2.0 | Aralık 2025</strong></p>
+
+        <hr>
+
+        <h2>📋 Genel Bakış</h2>
+        <p>Sylvan Token, uzun vadeli bağlılık ve deflasyonist baskı sağlamak için orantılı yakma ile sofistike bir hakediş sistemi uygular.</p>
+
+        <hr>
+
+        <h2>🏦 Hakediş Türleri</h2>
+
+        <h3>1. Kilitli Rezerv Cüzdanı</h3>
+        <table>
+            <tr><th>Parametre</th><th>Değer</th></tr>
+            <tr><td>Adres</td><td><code>[LOCKED_RESERVE_ADDRESS]</code></td></tr>
+            <tr><td>Toplam Miktar</td><td>300.000.000 SYL</td></tr>
+            <tr><td>Kilit Yüzdesi</td><td>%100</td></tr>
+            <tr><td>İlk Serbest Bırakma</td><td>0 SYL</td></tr>
+            <tr><td>Uçurum Süresi</td><td>30 gün</td></tr>
+            <tr><td>Hakediş Süresi</td><td>34 ay</td></tr>
+            <tr><td>Aylık Serbest Bırakma</td><td>%3 (9.000.000 SYL)</td></tr>
+            <tr><td>Serbest Bırakmada Yakma</td><td>%10 (900.000 SYL/ay)</td></tr>
+            <tr><td>Faydalanıcıya Net</td><td>%90 (8.100.000 SYL/ay)</td></tr>
+        </table>
+        <p><strong>Serbest Bırakma Fonksiyonu</strong>: <code>processLockedWalletRelease(address)</code></p>
+
+        <h3>2. Yönetici Cüzdanları (4 cüzdan)</h3>
+        <table>
+            <tr><th>Parametre</th><th>Değer</th></tr>
+            <tr><td>Her Biri Toplam</td><td>10.000.000 SYL</td></tr>
+            <tr><td>İlk Serbest Bırakma</td><td>%10 (1.000.000 SYL)</td></tr>
+            <tr><td>Kilitli Miktar</td><td>%90 (9.000.000 SYL)</td></tr>
+            <tr><td>Uçurum Süresi</td><td>30 gün</td></tr>
+            <tr><td>Hakediş Süresi</td><td>20 ay</td></tr>
+            <tr><td>Aylık Serbest Bırakma</td><td>%4.5 (450.000 SYL)</td></tr>
+            <tr><td>Serbest Bırakmada Yakma</td><td>%10 (45.000 SYL/ay)</td></tr>
+            <tr><td>Faydalanıcıya Net</td><td>%90 (405.000 SYL/ay)</td></tr>
+        </table>
+
+        <p><strong>Yönetici Cüzdanları:</strong></p>
+        <table>
+            <tr><th>Ad</th><th>Adres</th></tr>
+            <tr><td>BRK</td><td><code>[ADMIN_BRK_ADDRESS]</code></td></tr>
+            <tr><td>ERH</td><td><code>[ADMIN_ERH_ADDRESS]</code></td></tr>
+            <tr><td>GRK</td><td><code>[ADMIN_GRK_ADDRESS]</code></td></tr>
+            <tr><td>CNK</td><td><code>[ADMIN_CNK_ADDRESS]</code></td></tr>
+        </table>
+
+        <p><strong>Serbest Bırakma Fonksiyonları</strong>:</p>
+        <ul>
+            <li><code>processInitialRelease(address)</code> - İlk %10</li>
+            <li><code>processMonthlyRelease(address)</code> - Aylık serbest bırakmalar</li>
+        </ul>
+
+        <h3>3. Kurucu Cüzdanı</h3>
+        <table>
+            <tr><th>Parametre</th><th>Değer</th></tr>
+            <tr><td>Adres</td><td><code>[FOUNDER_ADDRESS]</code></td></tr>
+            <tr><td>Toplam Miktar</td><td>160.000.000 SYL</td></tr>
+            <tr><td>İlk Serbest Bırakma</td><td>%20 (32.000.000 SYL)</td></tr>
+            <tr><td>Kilitli Miktar</td><td>%80 (128.000.000 SYL)</td></tr>
+            <tr><td>Uçurum Süresi</td><td>30 gün</td></tr>
+            <tr><td>Hakediş Süresi</td><td>16 ay</td></tr>
+            <tr><td>Aylık Serbest Bırakma</td><td>%5 (8.000.000 SYL)</td></tr>
+            <tr><td>Serbest Bırakmada Yakma</td><td>%0</td></tr>
+        </table>
+
+        <hr>
+
+        <h2>📅 Serbest Bırakma Programı</h2>
+
+        <h3>Aylık Zaman Çizelgesi</h3>
+        <table>
+            <tr><th>Ay</th><th>Kilitli Rezerv</th><th>Kurucu</th><th>4 Yönetici</th><th>Toplam</th><th>Yakılan</th></tr>
+            <tr><td>0</td><td>0</td><td>32M</td><td>4M</td><td>36M</td><td>0</td></tr>
+            <tr><td>1</td><td>9M</td><td>8M</td><td>1.8M</td><td>18.8M</td><td>1.08M</td></tr>
+            <tr><td>2-16</td><td>9M/ay</td><td>8M/ay</td><td>1.8M/ay</td><td>18.8M/ay</td><td>1.08M/ay</td></tr>
+            <tr><td>17-20</td><td>9M/ay</td><td>0</td><td>1.8M/ay</td><td>10.8M/ay</td><td>1.08M/ay</td></tr>
+            <tr><td>21-34</td><td>9M/ay</td><td>0</td><td>0</td><td>9M/ay</td><td>0.9M/ay</td></tr>
+        </table>
+
+        <h3>Toplam Yakmalar</h3>
+        <table>
+            <tr><th>Kaynak</th><th>Miktar</th></tr>
+            <tr><td>Yönetici Hakediş (4 cüzdan)</td><td>3.600.000 SYL</td></tr>
+            <tr><td>Kilitli Rezerv</td><td>30.600.000 SYL</td></tr>
+            <tr><td><strong>Toplam Minimum</strong></td><td><strong>34.200.000 SYL</strong></td></tr>
+        </table>
+
+        <hr>
+
+        <h2>🔧 Serbest Bırakmaları Nasıl İşlersiniz</h2>
+
+        <h3>Safe App Üzerinden</h3>
+        <ol>
+            <li><code>https://app.safe.global</code> adresinde Safe App'i açın</li>
+            <li>"Hakediş Serbest Bırakma" sekmesine gidin</li>
+            <li>Cüzdan türünü seçin (Yönetici veya Kilitli)</li>
+            <li>"Serbest Bırakmayı İşle" tıklayın</li>
+            <li>2/3 imzacı ile onaylayın</li>
+        </ol>
+
+        <h3>BSCScan Üzerinden</h3>
+        <ol>
+            <li>Kontrat Write fonksiyonlarına gidin</li>
+            <li>Safe Wallet ile bağlanın</li>
+            <li>Uygun fonksiyonu çağırın:
+                <ul>
+                    <li><code>processInitialRelease(adminAddress)</code> - İlk serbest bırakma</li>
+                    <li><code>processMonthlyRelease(adminAddress)</code> - Aylık yönetici</li>
+                    <li><code>processLockedWalletRelease(lockedAddress)</code> - Aylık kilitli</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Script Üzerinden</h3>
+        <pre>npx hardhat run scripts/management/process-vesting-release.js --network bscMainnet</pre>
+
+        <hr>
+
+        <h2>📊 Hakediş Durumunu Kontrol Etme</h2>
+
+        <h3>Yönetici Cüzdan Bilgisi</h3>
+        <pre>const info = await contract.getAdminWalletInfo(adminAddress);
+// Döndürür:
+// - allocation: Toplam tahsis
+// - releasedAmount: Zaten serbest bırakılan
+// - burnedAmount: Zaten yakılan
+// - remainingAmount: Hala kilitli
+// - initialReleaseProcessed: Boolean
+// - isConfigured: Boolean</pre>
+
+        <h3>Kilitli Cüzdan Bilgisi</h3>
+        <pre>const info = await contract.getLockedWalletInfo(lockedAddress);
+// Döndürür:
+// - totalAmount: Toplam kilitli
+// - releasedAmount: Zaten serbest bırakılan
+// - burnedAmount: Zaten yakılan
+// - remainingAmount: Hala kilitli
+// - nextReleaseTime: Unix zaman damgası
+// - monthsElapsed: Başlangıçtan bu yana aylar
+// - monthsRemaining: Kalan aylar
+// - canRelease: Boolean</pre>
+
+        <h3>Mevcut Serbest Bırakmayı Hesapla</h3>
+        <pre>// Yönetici cüzdanları için
+const [available, burn] = await contract.calculateAvailableRelease(adminAddress);
+
+// Kilitli cüzdanlar için
+const [available, burn] = await contract.calculateReleasableAmount(lockedAddress);</pre>
+
+        <hr>
+
+        <h2>⚠️ Önemli Notlar</h2>
+
+        <div class="alert">
+            <h3>Uçurum Süresi</h3>
+            <ul>
+                <li>Tüm hakediş programlarının 30 günlük uçurumu var</li>
+                <li>Uçurum bitmeden serbest bırakma mümkün değil</li>
+                <li>İlk serbest bırakma uçurum + 1 ay sonra mevcut</li>
+            </ul>
+        </div>
+
+        <div class="alert">
+            <h3>Orantılı Yakma</h3>
+            <ul>
+                <li>Her serbest bırakmanın %10'u yakılır</li>
+                <li>Yakmalar <code>0x000...dEaD</code> adresine gönderilir</li>
+                <li>Dolaşımdaki arzı azaltır</li>
+            </ul>
+        </div>
+
+        <div class="alert">
+            <h3>Serbest Bırakma Zamanlaması</h3>
+            <ul>
+                <li>Serbest bırakmalar <code>SECONDS_PER_MONTH</code> (2.629.746 saniye) bazında hesaplanır</li>
+                <li>Yaklaşık 30.44 gün/ay</li>
+                <li>Kaçırılırsa birden fazla ay aynı anda serbest bırakılabilir</li>
+            </ul>
+        </div>
+
+        <div class="alert">
+            <h3>Kim Serbest Bırakabilir</h3>
+            <ul>
+                <li>Sahip (veya transfer sonrası Safe Wallet) serbest bırakmaları işleyebilir</li>
+                <li>Herkes herhangi bir faydalanıcı için <code>releaseVestedTokens()</code> çağırabilir</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>🔐 Güvenlik Hususları</h2>
+        <ol>
+            <li><strong>Yeniden Giriş Koruması</strong>: Tüm serbest bırakma fonksiyonları korumalı</li>
+            <li><strong>Girdi Doğrulama</strong>: Tüm adresler ve miktarlar doğrulanır</li>
+            <li><strong>Durum Güncellemeleri</strong>: Transferlerden önce durum güncellenir</li>
+            <li><strong>Olay Kaydı</strong>: Tüm serbest bırakmalar olay yayar</li>
+        </ol>
+
+        <hr>
+
+        <h2>📈 Hakediş İlerleme Takibi</h2>
+
+        <h3>Safe App Gösterge Paneli</h3>
+        <ul>
+            <li>Gerçek zamanlı hakediş durumu</li>
+            <li>Her cüzdan için ilerleme çubukları</li>
+            <li>Sonraki serbest bırakmaya geri sayım</li>
+            <li>Geçmiş serbest bırakma verileri</li>
+        </ul>
+
+        <h3>BSCScan Olayları</h3>
+        <ul>
+            <li><code>TokensReleased</code> olayları tüm serbest bırakmaları gösterir</li>
+            <li>İlk yönetici serbest bırakmaları için <code>InitialReleaseProcessed</code></li>
+            <li>Cüzdan adresine göre filtrele</li>
+        </ul>
+
+        <hr>
+
+        <h2>🔗 İlgili Dokümantasyon</h2>
+        <ul>
+            <li><a href="API_REFERENCE.html">API Referansı</a></li>
+            <li><a href="MULTISIG_WALLET_SETUP_GUIDE.html">Safe Wallet Kılavuzu</a></li>
+            <li><a href="../SECURITY.html">Güvenlik Kılavuzu</a></li>
+        </ul>
+
+        <div class="footer">
+            <p><strong>Sylvan Token Hakediş Kılavuzu</strong></p>
+            <p>Son Güncelleme: Aralık 2025</p>
+        </div>
+    </div>
+</body>
+</html>

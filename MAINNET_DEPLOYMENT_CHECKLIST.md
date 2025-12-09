@@ -167,7 +167,7 @@ npx hardhat run scripts/deployment/deploy-mainnet.js --network bscMainnet
 #### Step 2: Verify Contract (10 minutes)
 ```bash
 # Verify on BSCScan
-npx hardhat verify --network bscMainnet [CONTRACT_ADDRESS]
+npx hardhat verify --network bscMainnet 0xc66404C3fa3E01378027b4A4411812D3a8D458F5
 ```
 
 **Verification:**

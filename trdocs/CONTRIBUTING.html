@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sylvan Token'a Katkıda Bulunma</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        .container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2e7d32; text-align: center; }
+        h2 { color: #388e3c; border-bottom: 2px solid #4caf50; padding-bottom: 10px; }
+        h3 { color: #43a047; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #4caf50; color: white; }
+        code { background: #e8f5e9; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        pre { background: #263238; color: #aed581; padding: 20px; border-radius: 8px; overflow-x: auto; }
+        .footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sylvan Token'a Katkıda Bulunma</h1>
+        <p style="text-align: center;">Sylvan Token'a katkıda bulunmaya ilgi gösterdiğiniz için teşekkür ederiz! Bu belge projeye katkıda bulunma yönergelerini sağlar.</p>
+
+        <hr>
+
+        <h2>📋 İçindekiler</h2>
+        <ol>
+            <li><a href="#davranis">Davranış Kuralları</a></li>
+            <li><a href="#baslangic">Başlarken</a></li>
+            <li><a href="#gelistirme">Geliştirme Süreci</a></li>
+            <li><a href="#pr">Pull Request Süreci</a></li>
+            <li><a href="#kodlama">Kodlama Standartları</a></li>
+            <li><a href="#test">Test Gereksinimleri</a></li>
+            <li><a href="#dokumantasyon">Dokümantasyon</a></li>
+        </ol>
+
+        <hr>
+
+        <h2 id="davranis">📜 Davranış Kuralları</h2>
+
+        <h3>Standartlarımız</h3>
+        <ul>
+            <li>Saygılı ve kapsayıcı olun</li>
+            <li>Yapıcı geri bildirime odaklanın</li>
+            <li>Hatalar için sorumluluk kabul edin</li>
+            <li>Topluluk yararını önceliklendirin</li>
+        </ul>
+
+        <h3>Kabul Edilemez Davranışlar</h3>
+        <ul>
+            <li>Taciz veya ayrımcılık</li>
+            <li>Trolleme veya hakaret içeren yorumlar</li>
+            <li>Özel bilgileri yayınlama</li>
+            <li>Profesyonel olmayan davranış</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="baslangic">🚀 Başlarken</h2>
+
+        <h3>Gereksinimler</h3>
+        <ul>
+            <li>Node.js v16+</li>
+            <li>npm veya yarn</li>
+            <li>Git</li>
+        </ul>
+
+        <h3>Kurulum</h3>
+        <pre>
+# GitHub'da depoyu fork'layın
+
+# Fork'unuzu klonlayın
+git clone https://github.com/KULLANICI_ADINIZ/SylvanToken.git
+cd SylvanToken
+
+# Upstream remote ekleyin
+git remote add upstream https://github.com/SylvanToken/SylvanToken.git
+
+# Bağımlılıkları yükleyin
+npm install
+
+# Kurulumu doğrulamak için testleri çalıştırın
+npm test
+        </pre>
+
+        <hr>
+
+        <h2 id="gelistirme">💻 Geliştirme Süreci</h2>
+
+        <h3>Dal İsimlendirme</h3>
+        <pre>
+feature/aciklama    # Yeni özellikler
+fix/aciklama        # Hata düzeltmeleri
+docs/aciklama       # Dokümantasyon
+test/aciklama       # Test eklemeleri
+refactor/aciklama   # Kod yeniden düzenleme
+        </pre>
+
+        <h3>İş Akışı</h3>
+        <ol>
+            <li><strong>Upstream ile senkronize edin</strong>
+                <pre>
+git fetch upstream
+git checkout main
+git merge upstream/main
+                </pre>
+            </li>
+            <li><strong>Özellik dalı oluşturun</strong>
+                <pre>git checkout -b feature/ozelliginiz</pre>
+            </li>
+            <li><strong>Değişiklikler yapın</strong>
+                <ul>
+                    <li>Kod yazın</li>
+                    <li>Testler ekleyin</li>
+                    <li>Dokümantasyonu güncelleyin</li>
+                </ul>
+            </li>
+            <li><strong>Değişiklikleri commit edin</strong>
+                <pre>
+git add .
+git commit -m "feat: değişikliklerin açıklaması"
+                </pre>
+            </li>
+            <li><strong>Push edin ve PR oluşturun</strong>
+                <pre>git push origin feature/ozelliginiz</pre>
+            </li>
+        </ol>
+
+        <hr>
+
+        <h2 id="pr">🔄 Pull Request Süreci</h2>
+
+        <h3>Göndermeden Önce</h3>
+        <ul>
+            <li>☐ Tüm testler geçiyor (<code>npm test</code>)</li>
+            <li>☐ Kod stil yönergelerine uyuyor</li>
+            <li>☐ Dokümantasyon güncellendi</li>
+            <li>☐ CHANGELOG.md güncellendi</li>
+            <li>☐ Birleştirme çakışması yok</li>
+        </ul>
+
+        <h3>PR Şablonu</h3>
+        <pre>
+## Açıklama
+Değişikliklerin kısa açıklaması
+
+## Değişiklik Türü
+- [ ] Hata düzeltme
+- [ ] Yeni özellik
+- [ ] Dokümantasyon
+- [ ] Yeniden düzenleme
+
+## Test
+- [ ] Birim testleri eklendi
+- [ ] Entegrasyon testleri eklendi
+- [ ] Tüm testler geçiyor
+
+## Kontrol Listesi
+- [ ] Kod stil kılavuzuna uyuyor
+- [ ] Kodu kendim inceledim
+- [ ] Dokümantasyon güncellendi
+- [ ] CHANGELOG güncellendi
+        </pre>
+
+        <h3>İnceleme Süreci</h3>
+        <ol>
+            <li>Otomatik kontroller çalışır</li>
+            <li>Bakımcılar tarafından kod incelemesi</li>
+            <li>Geri bildirimi ele alın</li>
+            <li>Onay ve birleştirme</li>
+        </ol>
+
+        <hr>
+
+        <h2 id="kodlama">📝 Kodlama Standartları</h2>
+
+        <h3>Solidity</h3>
+        <pre>
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.24;
+
+/**
+ * @title KontratAdi
+ * @dev Kontrat açıklaması
+ * @notice Kullanıcıya yönelik açıklama
+ */
+contract KontratAdi {
+    // Durum değişkenleri
+    uint256 public constant MAX_DEGER = 100;
+    
+    // Olaylar
+    event DegerDegisti(uint256 indexed eskiDeger, uint256 indexed yeniDeger);
+    
+    // Hatalar
+    error GecersizDeger(uint256 deger);
+    
+    // Fonksiyonlar
+    /**
+     * @dev Fonksiyon açıklaması
+     * @param deger Parametre açıklaması
+     * @return Dönüş değeri açıklaması
+     */
+    function degerAyarla(uint256 deger) external returns (bool) {
+        if (deger > MAX_DEGER) revert GecersizDeger(deger);
+        // Uygulama
+        return true;
+    }
+}
+        </pre>
+
+        <h3>JavaScript</h3>
+        <pre>
+const { expect } = require("chai");
+const { ethers } = require("hardhat");
+
+/**
+ * @description Test açıklaması
+ */
+describe("KontratAdi", function () {
+    let kontrat;
+    let sahip;
+    
+    beforeEach(async function () {
+        [sahip] = await ethers.getSigners();
+        const Kontrat = await ethers.getContractFactory("KontratAdi");
+        kontrat = await Kontrat.deploy();
+    });
+    
+    describe("Fonksiyon Adı", function () {
+        it("bir şey yapmalı", async function () {
+            // Düzenle
+            const deger = 100;
+            
+            // Uygula
+            await kontrat.degerAyarla(deger);
+            
+            // Doğrula
+            expect(await kontrat.deger()).to.equal(deger);
+        });
+    });
+});
+        </pre>
+
+        <hr>
+
+        <h2 id="test">🧪 Test Gereksinimleri</h2>
+
+        <h3>Test Kapsamı</h3>
+        <ul>
+            <li>Yeni kod için minimum %90 kapsam</li>
+            <li>Tüm public fonksiyonların testleri olmalı</li>
+            <li>Kenar durumları kapsanmalı</li>
+        </ul>
+
+        <h3>Test Kategorileri</h3>
+        <pre>
+test/
+├── unit/           # Birim testleri
+├── integration/    # Entegrasyon testleri
+├── security/       # Güvenlik testleri
+└── libraries/      # Kütüphane testleri
+        </pre>
+
+        <h3>Testleri Çalıştırma</h3>
+        <pre>
+# Tüm testler
+npm test
+
+# Kapsam ile
+npm run coverage
+
+# Belirli dosya
+npx hardhat test test/belirli.test.js
+
+# Güvenlik testleri
+npm run test:security
+        </pre>
+
+        <hr>
+
+        <h2 id="dokumantasyon">📚 Dokümantasyon</h2>
+
+        <h3>Gereksinimler</h3>
+        <ul>
+            <li>Tüm public fonksiyonlar NatSpec ile belgelenmeli</li>
+            <li>Yeni özellikler için README güncellenmeli</li>
+            <li>Tüm değişiklikler için CHANGELOG güncellenmeli</li>
+            <li>API referansı güncellenmeli</li>
+        </ul>
+
+        <h3>NatSpec Formatı</h3>
+        <pre>
+/**
+ * @title Kontrat başlığı
+ * @author Yazar adı
+ * @notice Kullanıcıya yönelik açıklama
+ * @dev Teknik açıklama
+ */
+
+/**
+ * @notice Kullanıcılar için fonksiyon açıklaması
+ * @dev Teknik uygulama detayları
+ * @param paramAdi Parametre açıklaması
+ * @return Dönüş değeri açıklaması
+ */
+        </pre>
+
+        <hr>
+
+        <h2>🏷️ Commit Mesajları</h2>
+
+        <h3>Format</h3>
+        <pre>
+tur(kapsam): aciklama
+
+[opsiyonel govde]
+
+[opsiyonel altbilgi]
+        </pre>
+
+        <h3>Türler</h3>
+        <table>
+            <tr><th>Tür</th><th>Açıklama</th></tr>
+            <tr><td>feat</td><td>Yeni özellik</td></tr>
+            <tr><td>fix</td><td>Hata düzeltme</td></tr>
+            <tr><td>docs</td><td>Dokümantasyon</td></tr>
+            <tr><td>style</td><td>Biçimlendirme</td></tr>
+            <tr><td>refactor</td><td>Kod yeniden düzenleme</td></tr>
+            <tr><td>test</td><td>Test ekleme</td></tr>
+            <tr><td>chore</td><td>Bakım</td></tr>
+        </table>
+
+        <h3>Örnekler</h3>
+        <pre>
+feat(hakedis): aylık serbest bırakma fonksiyonu ekle
+fix(ucret): kenar durumu için hesaplama düzelt
+docs(readme): kurulum talimatlarını güncelle
+test(guvenlik): yeniden giriş testleri ekle
+        </pre>
+
+        <hr>
+
+        <h2>🔒 Güvenlik</h2>
+
+        <h3>Güvenlik Açıklarını Bildirme</h3>
+        <p><strong>Güvenlik açıkları için herkese açık issue AÇMAYIN.</strong></p>
+        <p>İletişim: security@sylvantoken.org</p>
+
+        <h3>Güvenlik Kontrol Listesi</h3>
+        <ul>
+            <li>☐ Sabit kodlanmış gizli bilgi yok</li>
+            <li>☐ Girdi doğrulama</li>
+            <li>☐ Yeniden giriş koruması</li>
+            <li>☐ Erişim kontrolü doğrulandı</li>
+            <li>☐ Gas optimizasyonu düşünüldü</li>
+        </ul>
+
+        <hr>
+
+        <h2>📞 Yardım Alma</h2>
+        <ul>
+            <li><strong>Discord</strong>: <a href="#">Sunucumuza katılın</a></li>
+            <li><strong>Telegram</strong>: <a href="https://t.me/sylvantoken">t.me/sylvantoken</a></li>
+            <li><strong>E-posta</strong>: dev@sylvantoken.org</li>
+        </ul>
+
+        <hr>
+
+        <h2>🙏 Tanınma</h2>
+        <p>Katkıda bulunanlar şuralarda tanınacaktır:</p>
+        <ul>
+            <li>CONTRIBUTORS.md dosyası</li>
+            <li>Sürüm notları</li>
+            <li>Proje dokümantasyonu</li>
+        </ul>
+
+        <div class="footer">
+            <p><strong>Sylvan Token'a katkıda bulunduğunuz için teşekkür ederiz!</strong></p>
+            <p><em>Birlikte daha yeşil bir gelecek inşa ediyoruz</em></p>
+        </div>
+    </div>
+</body>
+</html>

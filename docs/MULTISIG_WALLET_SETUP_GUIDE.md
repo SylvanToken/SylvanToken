@@ -98,7 +98,7 @@ After transfer, verify:
 ### Step 2: Enter Contract Details
 
 ```
-Contract Address: [CONTRACT_ADDRESS]
+Contract Address: 0xc66404C3fa3E01378027b4A4411812D3a8D458F5
 ABI: [Paste from config/safe-wallet-abi.json]
 ```
 
@@ -264,8 +264,8 @@ https://github.com/SylvanToken/SafeWallet
 | Item | Value |
 |------|-------|
 | Safe App | https://app.safe.global |
-| Contract | `[CONTRACT_ADDRESS]` |
-| Safe Wallet | `[SAFE_ADDRESS]` |
+| Contract | `0xc66404C3fa3E01378027b4A4411812D3a8D458F5` |
+| Safe Wallet | `0xC5CcDC8F01739CeD02B30b5aD10DD5Fb201436bB` |
 | Threshold | 2 of 3 |
 | BSCScan | https://bscscan.com |
 

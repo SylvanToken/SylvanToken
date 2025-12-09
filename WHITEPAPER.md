@@ -117,7 +117,7 @@ Every Transaction:
 | Standard | BEP-20 |
 | Total Supply | 1,000,000,000 |
 | Decimals | 18 |
-| Contract | `[CONTRACT_ADDRESS]` |
+| Contract | `0xc66404C3fa3E01378027b4A4411812D3a8D458F5` |
 
 ### Distribution
 

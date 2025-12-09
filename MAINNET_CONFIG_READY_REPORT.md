@@ -120,7 +120,7 @@ npx hardhat run scripts/deployment/deploy-mainnet.js --network bscMainnet
 
 ### 3. Verify Contract
 ```bash
-npx hardhat verify --network bscMainnet [CONTRACT_ADDRESS] [FEE_WALLET] [DONATION_WALLET]
+npx hardhat verify --network bscMainnet 0xc66404C3fa3E01378027b4A4411812D3a8D458F5 0x46a4AF3bdAD67d3855Af42Ba0BBe9248b54F7915 0xa697645Fdfa5d9399eD18A6575256F81343D4e17
 ```
 
 ### 4. Configure Admin Wallets
