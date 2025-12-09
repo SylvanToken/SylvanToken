@@ -5,6 +5,37 @@ All notable changes to the Sylvan Token project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.3] - 2025-12-09
+
+### Added - SafeWallet Security Management System
+- **SafeWallet/src/components/SecurityManagement.jsx** - Comprehensive wallet security tracking
+  - Mark wallets as compromised or secure
+  - Visual security status indicators
+  - Add custom compromised addresses
+  - Export security configuration as JSON
+  - Real-time security alerts
+  - Turkish language interface
+- **SafeWallet/src/components/Dashboard.jsx** - Enhanced with security status columns
+  - Security Status column in System Wallet Balances table
+  - Security Status column in Admin Wallet Balances table
+  - Red background highlighting for compromised wallets
+  - Security alert boxes when compromised wallets detected
+- **SafeWallet/src/config.js** - Added compromised wallet tracking
+  - `compromised` flag for each wallet
+  - `COMPROMISED_WALLETS` array for easy management
+  - Deployer wallet marked as compromised by default
+- **SafeWallet/src/App.jsx** - Added "🛡️ Güvenlik" tab
+- **SafeWallet/src/styles.css** - Added security management styles
+
+### Security Enhancement
+- Provides visual tracking of compromised wallets
+- Alerts users to security risks in Dashboard
+- Enables quick identification of wallets needing attention
+- Supports exporting security configuration for backup
+- Integrates with Safe Management for removing compromised signers
+
+---
+
 ## [2.4.2] - 2025-12-09
 
 ### Added - SafeWallet Safe Management Component
