@@ -5,6 +5,29 @@ All notable changes to the Sylvan Token project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.2] - 2025-12-09
+
+### Added - SafeWallet Safe Management Component
+- **SafeWallet/src/components/SafeManagement.jsx** - Complete Safe signer management interface
+  - View current Safe signers with status badges
+  - Add new signer with threshold control
+  - Remove signer with linked list handling
+  - Change threshold dynamically
+  - Swap owner functionality
+  - Quick actions for replacing compromised deployer wallet
+  - Turkish language interface
+  - Real-time Safe state updates
+- **SafeWallet/src/App.jsx** - Added "🔐 Safe Yönetimi" tab
+- **SafeWallet/src/styles.css** - Added comprehensive styles for Safe Management UI
+
+### Security Enhancement
+- Provides UI to remove compromised deployer wallet (`0xf949f50B3C32bD4cDa7D2192ff8f51dd9db4A469`)
+- Enables adding new secure signers
+- Allows threshold adjustments for governance flexibility
+- All operations require Safe multi-sig approval
+
+---
+
 ## [2.4.1] - 2025-12-09
 
 ### Fixed - Documentation Placeholders
