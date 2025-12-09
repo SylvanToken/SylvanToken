@@ -99,10 +99,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Admin Wallets: 40,000,000 SYL total (4 x 10M each, 4%)
 
 ### Admin Wallets Configured
-- BRK: 0x1109B6aDB60dB170139f00bA2490fCA0F8BE7A8C
-- ERH: 0xe64660026a1aaDaea2ac6032b6B59f8714a08E34
-- GRK: 0xd1cc4222b7b62fb623884371337ae04cf44b93a7
-- CNK: 0x106A637D825e562168678b7fd0f75cFf2cF2845B
+- 0x1109B6aDB60dB170139f00bA2490fCA0F8BE7A8C
+- 0xe64660026a1aaDaea2ac6032b6B59f8714a08E34
+- 0xd1cc4222b7b62fb623884371337ae04cf44b93a7
+- 0x106A637D825e562168678b7fd0f75cFf2cF2845B
 
 ### Documentation Update
 - Updated all documentation files with new contract address

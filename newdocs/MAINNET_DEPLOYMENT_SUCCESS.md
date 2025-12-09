@@ -56,12 +56,12 @@
 
 ### Admin Wallets
 
-| Name | Address | Allocation |
-|------|---------|------------|
-| BRK | `0x1109B6aDB60dB170139f00bA2490fCA0F8BE7A8C` | 10,000,000 SYL |
-| ERH | `0xe64660026a1aaDaea2ac6032b6B59f8714a08E34` | 10,000,000 SYL |
-| GRK | `0xd1cc4222b7b62fb623884371337ae04cf44b93a7` | 10,000,000 SYL |
-| CNK | `0x106A637D825e562168678b7fd0f75cFf2cF2845B` | 10,000,000 SYL |
+| Address | Allocation |
+|---------|------------|
+| `0x1109B6aDB60dB170139f00bA2490fCA0F8BE7A8C` | 10,000,000 SYL |
+| `0xe64660026a1aaDaea2ac6032b6B59f8714a08E34` | 10,000,000 SYL |
+| `0xd1cc4222b7b62fb623884371337ae04cf44b93a7` | 10,000,000 SYL |
+| `0x106A637D825e562168678b7fd0f75cFf2cF2845B` | 10,000,000 SYL |
 
 ### Locked Reserve
 
@@ -83,11 +83,11 @@
 
 ### Signers
 
-| # | Role | Address |
-|---|------|---------|
-| 1 | Deployer | `0xf949f50B3C32bD4cDa7D2192ff8f51dd9db4A469` |
-| 2 | Owner | `0x465b54282e4885f61df7eB7CcDc2493DB35C9501` |
-| 3 | Admin BRK | `0x1109B6aDB60dB170139f00bA2490fCA0F8BE7A8C` |
+| # | Address | Role |
+|---|---------|------|
+| 1 | `0xf949f50B3C32bD4cDa7D2192ff8f51dd9db4A469` | Deployer |
+| 2 | `0x465b54282e4885f61df7eB7CcDc2493DB35C9501` | Owner |
+| 3 | `0x1109B6aDB60dB170139f00bA2490fCA0F8BE7A8C` | Admin |
 
 ---
 

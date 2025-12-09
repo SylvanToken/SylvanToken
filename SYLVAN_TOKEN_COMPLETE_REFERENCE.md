@@ -73,9 +73,9 @@
 ### Signers (3 Total)
 | # | Role | Address |
 |---|------|---------|
-| 1 | Deployer | `0xf949f50B3C32bD4cDa7D2192ff8f51dd9db4A469` |
-| 2 | Owner | `0x465b54282e4885f61df7eB7CcDc2493DB35C9501` |
-| 3 | Admin BRK | `0x1109B6aDB60dB170139f00bA2490fCA0F8BE7A8C` |
+| 1 | `0xf949f50B3C32bD4cDa7D2192ff8f51dd9db4A469` | Deployer |
+| 2 | `0x465b54282e4885f61df7eB7CcDc2493DB35C9501` | Owner |
+| 3 | `0x1109B6aDB60dB170139f00bA2490fCA0F8BE7A8C` | Admin |
 
 **Note:** Safe Wallet address (`0xC5CcDC...`) is the multisig wallet itself, not a signer.
 
