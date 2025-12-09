@@ -5,6 +5,30 @@ All notable changes to the Sylvan Token project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.4] - 2025-12-09
+
+### Added - SafeWallet Verify Ownership (Message Signing & Verification)
+- **SafeWallet/src/components/VerifyOwnership.jsx** - Complete wallet ownership verification system
+  - Sign messages with Safe Wallet (EIP-191 standard)
+  - Verify message signatures from any wallet
+  - Generate sample verification messages
+  - Copy signatures to clipboard
+  - Two modes: Sign and Verify
+  - Technical information display (message hash, recovered address)
+  - Security warnings and best practices
+  - Turkish language interface
+- **SafeWallet/src/App.jsx** - Added "✍️ İmza Doğrulama" tab
+- **SafeWallet/src/styles.css** - Added verify ownership styles
+
+### Use Cases
+- Prove wallet ownership to third parties
+- Verify potentially compromised wallets
+- Authorization for specific operations
+- Create audit trails with signed messages
+- Security validation before critical operations
+
+---
+
 ## [2.4.3] - 2025-12-09
 
 ### Added - SafeWallet Security Management System
