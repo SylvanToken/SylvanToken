@@ -47,9 +47,9 @@ To create a sustainable financial ecosystem that directly funds environmental pr
 | **Network** | Binance Smart Chain (BEP-20) |
 | **Total Supply** | 1,000,000,000 SYL |
 | **Decimals** | 18 |
-| **Contract Address** | `0x50FfD5b14a1b4CDb2EA29fC61bdf5EB698f72e85` |
-| **BSCScan** | [View Contract](https://bscscan.com/address/0x50FfD5b14a1b4CDb2EA29fC61bdf5EB698f72e85) |
-| **Token Tracker** | [View Token](https://bscscan.com/token/0x50FfD5b14a1b4CDb2EA29fC61bdf5EB698f72e85) |
+| **Contract Address** | `0xc66404C3fa3E01378027b4A4411812D3a8D458F5` |
+| **BSCScan** | [View Contract](https://bscscan.com/address/0xc66404C3fa3E01378027b4A4411812D3a8D458F5) |
+| **Token Tracker** | [View Token](https://bscscan.com/token/0xc66404C3fa3E01378027b4A4411812D3a8D458F5) |
 
 ### 🚀 Mainnet Deployment
 
@@ -58,9 +58,9 @@ To create a sustainable financial ecosystem that directly funds environmental pr
 **Chain ID:** 56
 
 **Quick Links:**
-- 📝 [Contract on BSCScan](https://bscscan.com/address/0x50FfD5b14a1b4CDb2EA29fC61bdf5EB698f72e85)
+- 📝 [Contract on BSCScan](https://bscscan.com/address/0xc66404C3fa3E01378027b4A4411812D3a8D458F5)
 - 👥 [Holder List](https://bscscan.com/token/0x50FfD5b14a1b4CDb2EA29fC61bdf5EB698f72e85#balances)
-- 🔄 [Buy on PancakeSwap](https://pancakeswap.finance/swap?outputCurrency=0x50FfD5b14a1b4CDb2EA29fC61bdf5EB698f72e85)
+- 🔄 [Buy on PancakeSwap](https://pancakeswap.finance/swap?outputCurrency=0xc66404C3fa3E01378027b4A4411812D3a8D458F5)
 - 📊 [Deployment Report](./MAINNET_DEPLOYMENT_SUCCESS.md)
 | **Testnet Contract** | [0xc4dBA24a5D8F9f23cd989E5af5231952fD64CE70](https://testnet.bscscan.com/address/0xc4dBA24a5D8F9f23cd989E5af5231952fD64CE70) |
 
