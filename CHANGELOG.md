@@ -5,6 +5,28 @@ All notable changes to the Sylvan Token project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.6] - 2025-12-09
+
+### Fixed - SafeWallet Wallet Management Persistence
+- **SafeWallet/src/components/WalletManagement.jsx** - Added localStorage persistence
+  - Custom wallets now saved to localStorage
+  - Wallets persist across page refreshes
+  - Automatic save on add/edit/delete operations
+  - Separate storage for custom wallets vs system/admin wallets
+- **SafeWallet/src/components/Dashboard.jsx** - Display custom wallets
+  - Custom wallets shown in System Wallet Balances table
+  - "Custom" badge for user-added wallets
+  - Light orange background for visual distinction
+  - Real-time sync with localStorage
+
+### Improvements
+- Custom wallets are now persistent (localStorage)
+- Dashboard automatically displays all custom wallets
+- No data loss on page refresh
+- Seamless integration with existing wallet display
+
+---
+
 ## [2.4.5] - 2025-12-09
 
 ### Added - SafeWallet Wallet Management
