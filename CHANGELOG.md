@@ -5,6 +5,33 @@ All notable changes to the Sylvan Token project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.5] - 2025-12-09
+
+### Added - SafeWallet Wallet Management
+- **SafeWallet/src/components/WalletManagement.jsx** - Complete wallet management system
+  - Add new wallets (System, Admin, Custom types)
+  - Edit wallet details (name, icon, type, compromised status)
+  - Delete custom wallets
+  - Wallet type categorization with color-coded badges
+  - Real-time wallet statistics
+  - Import/Export wallet configuration as JSON
+  - Session-based wallet storage
+  - Balance display integration
+  - Turkish language interface
+- **SafeWallet/src/App.jsx** - Added "💼 Cüzdan Yönetimi" tab
+- **SafeWallet/src/styles.css** - Added wallet management styles
+
+### Features
+- **Add Wallets**: Create new wallet entries with custom names and icons
+- **Edit Wallets**: Update wallet information inline
+- **Delete Wallets**: Remove custom wallets (system/admin protected)
+- **Type Management**: Categorize as System, Admin, or Custom
+- **Security Flags**: Mark wallets as compromised
+- **Import/Export**: Backup and restore wallet configurations
+- **Statistics**: View wallet counts by type
+
+---
+
 ## [2.4.4] - 2025-12-09
 
 ### Added - SafeWallet Verify Ownership (Message Signing & Verification)
