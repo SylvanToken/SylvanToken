@@ -1,0 +1,203 @@
+[
+  {
+    "inputs": [{"name": "admin", "type": "address"}],
+    "name": "processMonthlyRelease",
+    "outputs": [
+      {"name": "releasedAmount", "type": "uint256"},
+      {"name": "burnedAmount", "type": "uint256"}
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{"name": "lockedWallet", "type": "address"}],
+    "name": "processLockedWalletRelease",
+    "outputs": [
+      {"name": "releasedAmount", "type": "uint256"},
+      {"name": "burnedAmount", "type": "uint256"}
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{"name": "admin", "type": "address"}],
+    "name": "processInitialRelease",
+    "outputs": [{"name": "releasedAmount", "type": "uint256"}],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{"name": "wallet", "type": "address"}],
+    "name": "addExemptWallet",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{"name": "wallet", "type": "address"}],
+    "name": "removeExemptWallet",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{"name": "wallets", "type": "address[]"}],
+    "name": "addExemptWalletsBatch",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{"name": "wallets", "type": "address[]"}],
+    "name": "removeExemptWalletsBatch",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {"name": "configWallets", "type": "address[]"},
+      {"name": "exemptStatuses", "type": "bool[]"}
+    ],
+    "name": "loadExemptionsFromConfig",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {"name": "pair", "type": "address"},
+      {"name": "isAMM", "type": "bool"}
+    ],
+    "name": "setAMMPair",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {"name": "admin", "type": "address"},
+      {"name": "allocation", "type": "uint256"}
+    ],
+    "name": "configureAdminWallet",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {"name": "lockedWallet", "type": "address"},
+      {"name": "amount", "type": "uint256"},
+      {"name": "cliffDays", "type": "uint256"}
+    ],
+    "name": "createLockedWalletVesting",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {"name": "beneficiary", "type": "address"},
+      {"name": "amount", "type": "uint256"},
+      {"name": "cliffDays", "type": "uint256"},
+      {"name": "vestingMonths", "type": "uint256"},
+      {"name": "releasePercentage", "type": "uint256"},
+      {"name": "burnPercentage", "type": "uint256"},
+      {"name": "isAdmin", "type": "bool"}
+    ],
+    "name": "createVestingSchedule",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{"name": "newOwner", "type": "address"}],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{"name": "", "type": "address"}],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{"name": "beneficiary", "type": "address"}],
+    "name": "getVestingInfo",
+    "outputs": [
+      {"name": "totalAmount", "type": "uint256"},
+      {"name": "releasedAmount", "type": "uint256"},
+      {"name": "burnedAmount", "type": "uint256"},
+      {"name": "startTime", "type": "uint256"},
+      {"name": "cliffDuration", "type": "uint256"},
+      {"name": "vestingDuration", "type": "uint256"},
+      {"name": "releasePercentage", "type": "uint256"},
+      {"name": "burnPercentage", "type": "uint256"},
+      {"name": "isActive", "type": "bool"},
+      {"name": "isAdmin", "type": "bool"}
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{"name": "lockedWallet", "type": "address"}],
+    "name": "getLockedWalletInfo",
+    "outputs": [
+      {"name": "totalAmount", "type": "uint256"},
+      {"name": "releasedAmount", "type": "uint256"},
+      {"name": "burnedAmount", "type": "uint256"},
+      {"name": "remainingAmount", "type": "uint256"},
+      {"name": "nextReleaseTime", "type": "uint256"},
+      {"name": "monthsElapsed", "type": "uint256"},
+      {"name": "monthsRemaining", "type": "uint256"},
+      {"name": "canRelease", "type": "bool"}
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{"name": "admin", "type": "address"}],
+    "name": "getAdminWalletInfo",
+    "outputs": [
+      {"name": "allocation", "type": "uint256"},
+      {"name": "releasedAmount", "type": "uint256"},
+      {"name": "burnedAmount", "type": "uint256"},
+      {"name": "remainingAmount", "type": "uint256"},
+      {"name": "initialReleaseProcessed", "type": "bool"},
+      {"name": "isConfigured", "type": "bool"}
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{"name": "wallet", "type": "address"}],
+    "name": "isExempt",
+    "outputs": [{"name": "", "type": "bool"}],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{"name": "pair", "type": "address"}],
+    "name": "isAMMPair",
+    "outputs": [{"name": "", "type": "bool"}],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{"name": "beneficiary", "type": "address"}],
+    "name": "hasVestingSchedule",
+    "outputs": [{"name": "", "type": "bool"}],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{"name": "admin", "type": "address"}],
+    "name": "isAdminConfigured",
+    "outputs": [{"name": "", "type": "bool"}],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

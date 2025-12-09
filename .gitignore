@@ -1,0 +1,312 @@
+# ============================================================================
+# SYLVAN TOKEN - .gitignore
+# Enhanced Sylvan Token (ESYL) - Production-Ready BEP-20 Token
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# Hardhat Build Artifacts
+# ----------------------------------------------------------------------------
+cache/
+artifacts/
+typechain/
+typechain-types/
+.hardhat/
+
+# ----------------------------------------------------------------------------
+# Node.js Dependencies
+# ----------------------------------------------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn
+*.tgz
+.yarn-integrity
+.pnp.*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ----------------------------------------------------------------------------
+# Environment Variables & Secrets (CRITICAL - NEVER COMMIT)
+# ----------------------------------------------------------------------------
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.*.local
+.env.backup
+*.env
+
+# Private Keys & Wallets (CRITICAL - NEVER COMMIT)
+*.pem
+*.key
+*.p12
+*.pfx
+.secrets.json
+private-keys/
+wallets/
+keystore/
+mnemonic.txt
+seed-phrase.txt
+
+# API Keys & Credentials (CRITICAL - NEVER COMMIT)
+.api-keys
+credentials.json
+config.secret.json
+
+# ----------------------------------------------------------------------------
+# Test Coverage & Reports
+# ----------------------------------------------------------------------------
+coverage/
+coverage.json
+.nyc_output/
+.coverage_cache/
+htmlcov/
+*.lcov
+coverage-*.json
+
+# Test Results
+test-results/
+junit.xml
+test-report.xml
+
+# ----------------------------------------------------------------------------
+# Deployment Records & Generated Files
+# ----------------------------------------------------------------------------
+# Keep deployment templates, ignore actual deployment data
+deployments/*.json
+!deployments/.gitkeep
+!deployments/README.md
+
+# Temporary Exports
+*-export.json
+*-report.json
+test-*.json
+wallet-analysis-*.json
+deployment-data.json
+deployment-*.json
+transaction-*.json
+
+# Deployment Logs
+deployment-logs/
+deploy-*.log
+
+# ----------------------------------------------------------------------------
+# Security & Audit Files
+# ----------------------------------------------------------------------------
+# Security Reports
+slither-report.json
+mythril-report.json
+security-reports/
+audit-reports/
+vulnerability-scan-*.json
+
+# Security Tools Output
+.slither/
+.mythril/
+.echidna/
+
+# ----------------------------------------------------------------------------
+# Logs & Debug Files
+# ----------------------------------------------------------------------------
+logs/
+*.log
+scripts/logs/*.log
+debug.log
+error.log
+combined.log
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+lerna-debug.log
+.npm-debug.log
+
+# ----------------------------------------------------------------------------
+# IDE & Editor Files
+# ----------------------------------------------------------------------------
+# Visual Studio Code
+.vscode/
+.vscode-test/
+*.code-workspace
+
+# JetBrains IDEs (IntelliJ, WebStorm, etc.)
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+*.sublime-settings
+
+# Vim
+*.swp
+*.swo
+*.swn
+*~
+.vim/
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# Atom
+.atom/
+
+# ----------------------------------------------------------------------------
+# Operating System Files
+# ----------------------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+.nfs*
+
+# ----------------------------------------------------------------------------
+# Runtime & Process Files
+# ----------------------------------------------------------------------------
+pids/
+*.pid
+*.seed
+*.pid.lock
+.lock-wscript
+
+# ----------------------------------------------------------------------------
+# Temporary & Cache Folders
+# ----------------------------------------------------------------------------
+tmp/
+temp/
+.tmp/
+.temp/
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+dist/
+build/
+
+# ----------------------------------------------------------------------------
+# Documentation Build
+# ----------------------------------------------------------------------------
+docs/_build/
+docs/.doctrees/
+site/
+_site/
+.jekyll-cache/
+.docusaurus/
+
+# ----------------------------------------------------------------------------
+# Local Development
+# ----------------------------------------------------------------------------
+.localhost
+hardhat-network/
+.hardhat-network/
+local-blockchain/
+
+# Local Configuration
+.local/
+local.config.js
+local.settings.json
+
+# ----------------------------------------------------------------------------
+# Gas Reporter & Performance
+# ----------------------------------------------------------------------------
+gas-report.txt
+gas-report.json
+.gas-snapshot
+performance-report.json
+
+# ----------------------------------------------------------------------------
+# Blockchain & Web3 Specific
+# ----------------------------------------------------------------------------
+# Ganache
+.ganache/
+ganache-db/
+
+# Truffle
+build/
+truffle-config.js.backup
+
+# Brownie
+.brownie/
+reports/
+
+# Foundry
+out/
+cache_forge/
+broadcast/
+
+# ----------------------------------------------------------------------------
+# Package Manager Artifacts
+# ----------------------------------------------------------------------------
+.npm
+.eslintcache
+.stylelintcache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# ----------------------------------------------------------------------------
+# Miscellaneous
+# ----------------------------------------------------------------------------
+# Backup Files
+*.backup
+*.bak
+*.old
+*.orig
+*~
+
+# Compressed Files (if not needed)
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Database Files
+*.db
+*.sqlite
+*.sqlite3
+
+# ----------------------------------------------------------------------------
+# Project-Specific Exclusions
+# ----------------------------------------------------------------------------
+# Keep Important Files (Override above rules if needed)
+!.gitkeep
+!.env.example
+!.env.template
+
+# Specific Reports to Keep (if any)
+# !reports/final-audit.pdf
+
+# ----------------------------------------------------------------------------
+# END OF .gitignore
+# ============================================================================

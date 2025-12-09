@@ -16,7 +16,7 @@ Bu rehber, SylvanToken kontratının sahipliğini Safe Multisig Wallet'a transfe
 
 | Parametre | Değer |
 |-----------|-------|
-| **Kontrat Adresi** | `0x50FfD5b14a1b4CDb2EA29fC61bdf5EB698f72e85` |
+| **Kontrat Adresi** | `0xc66404C3fa3E01378027b4A4411812D3a8D458F5` |
 | **Mevcut Owner** | `0x465b54282e4885f61df7eB7CcDc2493DB35C9501` (Founder) |
 | **Hedef Owner** | `0xC5CcDC8F01739CeD02B30b5aD10DD5Fb201436bB` (Safe Wallet) |
 
@@ -42,7 +42,7 @@ Bu rehber, SylvanToken kontratının sahipliğini Safe Multisig Wallet'a transfe
 
 ### Adım 1: BSCScan'e Git
 ```
-https://bscscan.com/address/0x50FfD5b14a1b4CDb2EA29fC61bdf5EB698f72e85#writeContract
+https://bscscan.com/address/0xc66404C3fa3E01378027b4A4411812D3a8D458F5#writeContract
 ```
 
 ### Adım 2: Cüzdan Bağla
@@ -65,7 +65,7 @@ newOwner (address): 0xC5CcDC8F01739CeD02B30b5aD10DD5Fb201436bB
 
 ### Adım 6: Doğrula
 ```
-https://bscscan.com/address/0x50FfD5b14a1b4CDb2EA29fC61bdf5EB698f72e85#readContract
+https://bscscan.com/address/0xc66404C3fa3E01378027b4A4411812D3a8D458F5#readContract
 ```
 - `owner` fonksiyonunu çağır
 - Sonuç Safe adresi olmalı: `0xC5CcDC8F01739CeD02B30b5aD10DD5Fb201436bB`
@@ -127,7 +127,7 @@ npx hardhat run scripts/management/transfer-ownership-to-safe.js --network bscMa
 
 3. **İşlem Oluştur**
    ```
-   Contract: 0x50FfD5b14a1b4CDb2EA29fC61bdf5EB698f72e85
+   Contract: 0xc66404C3fa3E01378027b4A4411812D3a8D458F5
    Function: processMonthlyRelease
    Parameter: [admin adresi]
    ```
@@ -175,7 +175,7 @@ npx hardhat run scripts/management/transfer-ownership-to-safe.js --network bscMa
 
 ## 📞 Destek
 
-- **BSCScan:** https://bscscan.com/address/0x50FfD5b14a1b4CDb2EA29fC61bdf5EB698f72e85
+- **BSCScan:** https://bscscan.com/address/0xc66404C3fa3E01378027b4A4411812D3a8D458F5
 - **Safe App:** https://app.safe.global
 
 ---

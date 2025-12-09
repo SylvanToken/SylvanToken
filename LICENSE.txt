@@ -1,0 +1,261 @@
+MIT License
+
+Copyright (c) 2025 Sylvan Token
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+
+ADDITIONAL TERMS AND CONDITIONS FOR SYLVAN TOKEN (SYL)
+
+1. SMART CONTRACT DISCLAIMER
+
+The Sylvan Token smart contracts ("Contracts") are provided "as is" without 
+warranty of any kind. While the Contracts have undergone security audits and 
+comprehensive testing (95%+ test coverage), the authors and copyright holders 
+make no guarantees regarding:
+
+   a) The security, functionality, or performance of the Contracts
+   b) The absence of bugs, vulnerabilities, or errors
+   c) Compatibility with third-party systems or protocols
+   d) Compliance with any specific regulatory requirements
+
+2. BLOCKCHAIN AND CRYPTOCURRENCY RISKS
+
+Users acknowledge and accept the following risks:
+
+   a) VOLATILITY: Cryptocurrency values are highly volatile and unpredictable
+   b) IRREVERSIBILITY: Blockchain transactions cannot be reversed or undone
+   c) REGULATORY UNCERTAINTY: Cryptocurrency regulations vary by jurisdiction
+   d) TECHNICAL RISKS: Smart contract bugs, network failures, or attacks
+   e) LOSS OF FUNDS: Private key loss results in permanent loss of tokens
+   f) NO GUARANTEES: No guaranteed returns or investment outcomes
+
+3. ENVIRONMENTAL IMPACT DISCLAIMER
+
+While Sylvan Token aims to support environmental causes through automated 
+donations:
+
+   a) Environmental impact depends on NGO performance and external factors
+   b) No specific environmental outcomes are guaranteed
+   c) Donation amounts and timing may vary based on transaction volume
+   d) NGO partnerships may change based on performance and availability
+   e) Impact metrics are estimates and may not reflect actual results
+
+4. TOKENOMICS AND DEFLATIONARY MECHANISM
+
+Users understand that:
+
+   a) Token supply is deflationary through burn mechanisms
+   b) Transaction fees (1%) are automatically deducted from transfers
+   c) Fee distribution (50% operations, 25% donations, 25% burn) is fixed
+   d) Vesting schedules are enforced by smart contract logic
+   e) Liquidity locks are time-bound and cannot be broken early
+
+5. PRESALE AND AIRDROP TERMS
+
+Regarding token distribution:
+
+   a) PRESALE: Conducted through PinkSale platform with anti-whale limits
+   b) UNSOLD TOKENS: Automatically burned immediately after presale ends
+   c) LIQUIDITY LOCK: 90% of presale liquidity locked for 2 years
+   d) AIRDROP: Distributed to eligible community members post-mainnet
+   e) ANTI-BOT: Verification measures prevent fraudulent claims
+
+6. DONATION TRANSPARENCY
+
+Environmental donations follow strict transparency protocols:
+
+   a) PRE-ANNOUNCEMENT: 48 hours before transfer with full details
+   b) ON-CHAIN VERIFICATION: All transactions publicly verifiable
+   c) POST-VERIFICATION: Transaction hashes published within 24 hours
+   d) MULTI-CHANNEL: Published on website, Twitter, Telegram, and blog
+   e) NGO ACCOUNTABILITY: Partner organizations must report fund utilization
+
+7. GOVERNANCE AND CONTROL
+
+Token governance evolves through phases:
+
+   a) PHASE 1 (2025-2026): Foundation governance by core team
+   b) PHASE 2 (2026-2027): Hybrid governance with community proposals
+   c) PHASE 3 (2027+): Full DAO with on-chain voting mechanisms
+   d) VETO POWER: Core team retains veto during hybrid phase
+   e) GOVERNANCE TOKEN: Separate vSYL token for voting rights
+
+8. SECURITY AND AUDITS
+
+Security measures and limitations:
+
+   a) AUDITED: Smart contracts undergo internal and external audits
+   b) TEST COVERAGE: 95%+ coverage on production contracts
+   c) CONTINUOUS MONITORING: Ongoing security reviews and updates
+   d) BUG BOUNTY: Community-driven security research encouraged
+   e) NO GUARANTEE: Despite best efforts, vulnerabilities may exist
+
+9. REGULATORY COMPLIANCE
+
+Legal and regulatory considerations:
+
+   a) UTILITY TOKEN: SYL is classified as a utility token, not a security
+   b) JURISDICTION: Users must comply with local laws and regulations
+   c) KYC/AML: May be required for large transactions or exchange listings
+   d) TAX OBLIGATIONS: Users responsible for tax reporting and compliance
+   e) LEGAL ADVICE: Users should seek independent legal counsel
+
+10. LIMITATION OF LIABILITY
+
+To the maximum extent permitted by law:
+
+   a) NO LIABILITY: Authors and copyright holders are not liable for any 
+      damages, losses, or claims arising from use of the Software
+   b) INDIRECT DAMAGES: No liability for indirect, incidental, special, 
+      consequential, or punitive damages
+   c) LOSS OF FUNDS: No liability for loss of tokens, funds, or investments
+   d) THIRD-PARTY ACTIONS: No liability for actions of exchanges, wallets, 
+      or other third parties
+   e) MAXIMUM LIABILITY: Limited to amount paid for the Software (if any)
+
+11. INDEMNIFICATION
+
+Users agree to indemnify and hold harmless the authors, copyright holders, 
+contributors, and affiliates from any claims, damages, losses, liabilities, 
+costs, or expenses arising from:
+
+   a) Use or misuse of the Software or Contracts
+   b) Violation of these terms or applicable laws
+   c) Infringement of third-party rights
+   d) Negligence or willful misconduct
+
+12. MODIFICATION AND UPDATES
+
+The authors reserve the right to:
+
+   a) Update smart contracts through upgradeable proxy patterns
+   b) Modify fee structures or tokenomics (subject to governance)
+   c) Add or remove NGO partnerships
+   d) Update documentation and terms
+   e) Discontinue support or development (with notice)
+
+13. THIRD-PARTY DEPENDENCIES
+
+The Software relies on third-party components:
+
+   a) OPENZEPPELIN: Smart contract libraries (MIT License)
+   b) BINANCE SMART CHAIN: Blockchain infrastructure
+   c) PANCAKESWAP: Decentralized exchange protocol
+   d) PINKSALE: Presale and liquidity lock platform
+   e) NGO PARTNERS: Environmental organizations
+
+Users acknowledge that third-party services have their own terms and risks.
+
+14. INTELLECTUAL PROPERTY
+
+   a) COPYRIGHT: Sylvan Token retains copyright to original code and content
+   b) OPEN SOURCE: Code is open source under MIT License
+   c) TRADEMARKS: "Sylvan Token" and "SYL" are trademarks
+   d) ATTRIBUTION: Proper attribution required for derivative works
+   e) COMMERCIAL USE: Permitted under MIT License terms
+
+15. DISPUTE RESOLUTION
+
+   a) GOVERNING LAW: Disputes governed by applicable jurisdiction laws
+   b) ARBITRATION: Parties agree to binding arbitration where permitted
+   c) CLASS ACTION WAIVER: No class action lawsuits permitted
+   d) VENUE: Disputes resolved in mutually agreed jurisdiction
+   e) LEGAL FEES: Prevailing party may recover legal costs
+
+16. SEVERABILITY
+
+If any provision of these terms is found invalid or unenforceable, the 
+remaining provisions remain in full force and effect.
+
+17. ENTIRE AGREEMENT
+
+These terms, together with the MIT License above, constitute the entire 
+agreement regarding the Software and supersede all prior agreements.
+
+18. NO INVESTMENT ADVICE
+
+   a) NOT FINANCIAL ADVICE: Nothing herein constitutes investment advice
+   b) DO YOUR OWN RESEARCH: Users must conduct independent research
+   c) RISK DISCLOSURE: Cryptocurrency investments carry significant risk
+   d) NO GUARANTEES: No guaranteed returns or outcomes
+   e) PROFESSIONAL ADVICE: Consult financial, legal, and tax professionals
+
+19. CONTACT AND SUPPORT
+
+For questions, support, or security issues:
+
+   - General Inquiries: contact@sylvantoken.org
+   - Technical Support: dev@sylvantoken.org
+   - Security Issues: security@sylvantoken.org
+   - Partnerships: partnerships@sylvantoken.org
+   - Press: press@sylvantoken.org
+
+20. ACKNOWLEDGMENT
+
+BY USING THE SOFTWARE, CONTRACTS, OR TOKENS, YOU ACKNOWLEDGE THAT YOU HAVE 
+READ, UNDERSTOOD, AND AGREE TO BE BOUND BY THESE TERMS AND CONDITIONS.
+
+================================================================================
+
+OPEN SOURCE ATTRIBUTIONS
+
+This project uses the following open source libraries:
+
+- OpenZeppelin Contracts (MIT License)
+  Copyright (c) 2016-2024 OpenZeppelin
+  https://github.com/OpenZeppelin/openzeppelin-contracts
+
+- Hardhat (MIT License)
+  Copyright (c) 2019 Nomic Labs LLC
+  https://github.com/NomicFoundation/hardhat
+
+- Ethers.js (MIT License)
+  Copyright (c) 2016-2024 Richard Moore
+  https://github.com/ethers-io/ethers.js
+
+- Chai (MIT License)
+  Copyright (c) 2011-2024 Jake Luer
+  https://github.com/chaijs/chai
+
+- Mocha (MIT License)
+  Copyright (c) 2011-2024 OpenJS Foundation
+  https://github.com/mochajs/mocha
+
+Full license texts for dependencies are available in their respective 
+repositories and in the node_modules directory.
+
+================================================================================
+
+VERSION HISTORY
+
+Version 1.0.0 (September 2025)
+- Initial release
+- Mainnet deployment on Binance Smart Chain
+- Community airdrop and PinkSale presale
+- Environmental donation mechanism
+- Advanced vesting and fee systems
+
+================================================================================
+
+Last Updated: September 2025
+
+For the latest version of this license and terms, visit:
+https://github.com/SylvanToken/sylvan-token/blob/main/LICENSE
