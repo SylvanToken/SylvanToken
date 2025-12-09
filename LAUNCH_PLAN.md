@@ -108,7 +108,7 @@ npx hardhat run scripts/management/transfer-ownership-to-safe.js --network bscMa
 ```
 
 **Safe Wallet Configuration:**
-- Address: `[SAFE_ADDRESS]`
+- Address: `0xC5CcDC8F01739CeD02B30b5aD10DD5Fb201436bB`
 - Threshold: 2 of 3
 - Signers: Deployer, Owner, Admin BRK
 

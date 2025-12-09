@@ -63,7 +63,7 @@ Welcome to the Sylvan Token documentation. This index provides quick access to a
 | Contract | `0xc66404C3fa3E01378027b4A4411812D3a8D458F5` |
 | Safe Wallet | `0xC5CcDC8F01739CeD02B30b5aD10DD5Fb201436bB` |
 | Fee Wallet | `0x46a4AF3bdAD67d3855Af42Ba0BBe9248b54F7915` |
-| Donation Wallet | `[DONATION_WALLET]` |
+| Donation Wallet | `0xa697645Fdfa5d9399eD18A6575256F81343D4e17` |
 | Burn Address | `0x000000000000000000000000000000000000dEaD` |
 
 ### Fee Structure

@@ -89,9 +89,9 @@ const contract = new ethers.Contract(contractAddress, abi, provider);
 
 async function checkBalances() {
     const wallets = {
-        "Fee Wallet": "[FEE_WALLET]",
-        "Donation Wallet": "[DONATION_WALLET]",
-        "Locked Reserve": "[LOCKED_RESERVE]"
+        "Fee Wallet": "0x46a4AF3bdAD67d3855Af42Ba0BBe9248b54F7915",
+        "Donation Wallet": "0xa697645Fdfa5d9399eD18A6575256F81343D4e17",
+        "Locked Reserve": "0x687A2c7E494c3818c20AD2856d453514970d6aac"
     };
     
     for (const [name, address] of Object.entries(wallets)) {

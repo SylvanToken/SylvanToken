@@ -5,6 +5,23 @@ All notable changes to the Sylvan Token project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.1] - 2025-12-09
+
+### Fixed - Documentation Placeholders
+- **Replaced All Placeholders**: All remaining address placeholders replaced with actual addresses
+- **Safe Wallet Address**: `0xC5CcDC8F01739CeD02B30b5aD10DD5Fb201436bB`
+- **Fee Wallet**: `0x46a4AF3bdAD67d3855Af42Ba0BBe9248b54F7915`
+- **Donation Wallet**: `0xa697645Fdfa5d9399eD18A6575256F81343D4e17`
+- **Locked Reserve**: `0x687A2c7E494c3818c20AD2856d453514970d6aac`
+
+### Updated Files
+- All documentation files with address placeholders
+- Safe Wallet signers fully identified
+- Monitoring scripts ready with correct addresses
+- Ownership transfer status marked as complete
+
+---
+
 ## [2.4.0] - 2025-12-09
 
 ### Added - Safe Wallet Ownership Transfer

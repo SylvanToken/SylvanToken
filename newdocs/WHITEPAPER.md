@@ -247,7 +247,7 @@ SylvanToken.sol
 | Platform | Gnosis Safe |
 | Network | BSC Mainnet |
 | Threshold | 2 of 3 (67%) |
-| Safe Address | `[SAFE_ADDRESS]` |
+| Safe Address | `0xC5CcDC8F01739CeD02B30b5aD10DD5Fb201436bB` |
 
 ### Signers
 

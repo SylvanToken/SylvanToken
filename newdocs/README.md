@@ -120,7 +120,7 @@ To create a sustainable financial ecosystem that directly funds environmental pr
 ### Multi-Signature Governance (Safe Wallet)
 | Parameter | Value |
 |-----------|-------|
-| Safe Address | `[SAFE_ADDRESS]` |
+| Safe Address | `0xC5CcDC8F01739CeD02B30b5aD10DD5Fb201436bB` |
 | Threshold | 2 of 3 (67%) |
 | Signer 1 | Deployer Wallet |
 | Signer 2 | Owner Wallet |

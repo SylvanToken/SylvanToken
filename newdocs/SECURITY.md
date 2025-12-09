@@ -163,14 +163,14 @@ All inputs are validated using the `InputValidator` library:
 ### Configuration
 
 ```
-Safe Address: [SAFE_ADDRESS]
+Safe Address: 0xC5CcDC8F01739CeD02B30b5aD10DD5Fb201436bB
 Network: BSC Mainnet
 Threshold: 2 of 3
 
 Signers:
-├─ Deployer: [DEPLOYER_ADDRESS]
-├─ Owner: [OWNER_ADDRESS]
-└─ Admin BRK: [ADMIN_BRK_ADDRESS]
+├─ Deployer: 0xf949f50B3C32bD4cDa7D2192ff8f51dd9db4A469
+├─ Owner: 0x465b54282e4885f61df7eB7CcDc2493DB35C9501
+└─ Admin BRK: 0x1109B6aDB60dB170139f00bA2490fCA0F8BE7A8C
 ```
 
 ### Best Practices

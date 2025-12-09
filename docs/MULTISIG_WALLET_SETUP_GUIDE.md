@@ -18,7 +18,7 @@ Sylvan Token uses Gnosis Safe for multi-signature governance. This guide covers 
 |-----------|-------|
 | Platform | Gnosis Safe |
 | Network | BSC Mainnet (Chain ID: 56) |
-| Safe Address | `[SAFE_ADDRESS]` |
+| Safe Address | `0xC5CcDC8F01739CeD02B30b5aD10DD5Fb201436bB` |
 | Threshold | 2 of 3 (67%) |
 
 ### Signers
