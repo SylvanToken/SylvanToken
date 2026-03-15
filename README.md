@@ -4,7 +4,7 @@
 
 # 🌳 Sylvan Token (SYL)
 
-![Sylvan Token Badge](https://img.shields.io/badge/Sylvan-Token-green?style=for-the-badge&logo=ethereum)
+[![Sylvan Token Badge](https://img.shields.io/badge/Sylvan-Token-green?style=for-the-badge&logo=ethereum)](https://www.sylvantoken.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Solidity](https://img.shields.io/badge/Solidity-0.8.24-blue?style=for-the-badge&logo=solidity)](https://soliditylang.org/)
 [![BSC](https://img.shields.io/badge/BSC-Mainnet-yellow?style=for-the-badge&logo=binance)](https://www.bnbchain.org/)
