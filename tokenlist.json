@@ -1,0 +1,15 @@
+{
+  "name": "Sylvan Token List",
+  "timestamp": "2026-01-01T00:00:00Z",
+  "version": { "major": 1, "minor": 0, "patch": 0 },
+  "tokens": [
+    {
+      "chainId": 56,
+      "address": "0xc66404C3fa3E01378027b4A4411812D3a8D458F5",
+      "name": "Sylvan Token",
+      "symbol": "SYL",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/SylvanToken/SylvanToken/main/logo.png"
+    }
+  ]
+}
